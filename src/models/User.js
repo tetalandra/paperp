@@ -21,7 +21,7 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Please provide a password'],
         minlength: [6, 'Password cannot be less than 6 characters'],
-        select: false, // Do not return password by default
+        select: false,
     },
     createdAt: {
         type: Date,
@@ -29,8 +29,6 @@ const UserSchema = new mongoose.Schema({
     },
 });
 
-// Hash password before saving
-// Hash password before saving
 UserSchema.pre('save', async function (next) {
     if (!this.isModified('password')) {
         return next();
@@ -45,7 +43,6 @@ UserSchema.pre('save', async function (next) {
     }
 });
 
-// Match user entered password to hashed password in database
 UserSchema.methods.matchPassword = async function (enteredPassword) {
     return await bcrypt.compare(enteredPassword, this.password);
 };

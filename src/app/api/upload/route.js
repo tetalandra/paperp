@@ -8,26 +8,40 @@ export async function POST(req) {
         const file = formData.get('file');
 
         if (!file) {
-            return NextResponse.json({ message: "No file uploaded" }, { status: 400 });
+            return NextResponse.json(
+                { message: 'No file uploaded' },
+                { status: 400 }
+            );
         }
 
-        const buffer = Buffer.from(await file.arrayBuffer());
-        // Create unique filename
-        const filename = Date.now() + '_' + file.name.replaceAll(" ", "_");
+        const bytes = await file.arrayBuffer();
+        const buffer = Buffer.from(bytes);
 
-        // Ensure upload dir exists
-        const uploadDir = path.join(process.cwd(), "public/uploads");
+        // Path to public/uploads
+        const uploadDir = path.join(process.cwd(), 'public', 'uploads');
+
+        // Ensure directory exists
         try {
             await mkdir(uploadDir, { recursive: true });
-        } catch (e) {
-            // ignore if exists
-        }
+        } catch (e) { }
 
-        await writeFile(path.join(uploadDir, filename), buffer);
+        const filename = `${Date.now()}_${file.name.replace(/\s+/g, '_')}`;
+        const filePath = path.join(uploadDir, filename);
 
-        return NextResponse.json({ success: true, url: `/uploads/${filename}` }, { status: 201 });
+        await writeFile(filePath, buffer);
+
+        return NextResponse.json(
+            {
+                success: true,
+                url: `/uploads/${filename}`
+            },
+            { status: 201 }
+        );
     } catch (error) {
-        console.error("Upload Error", error);
-        return NextResponse.json({ message: "Failed", error: error.message }, { status: 500 });
+        console.error('Upload Error:', error);
+        return NextResponse.json(
+            { message: 'Server error', error: error.message },
+            { status: 500 }
+        );
     }
 }

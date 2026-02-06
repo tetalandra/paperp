@@ -1,4 +1,4 @@
-// API Service for PaperPop Frontend
+// API Service for Paper Frontend
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || '';
 
@@ -15,6 +15,9 @@ class ApiService {
         };
 
         try {
+
+
+
             const response = await fetch(url, config);
             const data = await response.json();
 

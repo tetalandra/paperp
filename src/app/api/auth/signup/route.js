@@ -56,27 +56,7 @@ export async function POST(req) {
             { status: 201 }
         );
     } catch (error) {
-        console.error('Signup Fatal Error:', error);
-        console.error('Stack:', error.stack);
-
-
-        // Handle Mongoose Validation Errors
-        if (error.name === 'ValidationError') {
-            const messages = Object.values(error.errors).map(val => val.message);
-            return NextResponse.json(
-                { message: messages.join(', ') },
-                { status: 400 }
-            );
-        }
-
-        // Handle Duplicate Key Error (E11000)
-        if (error.code === 11000) {
-            return NextResponse.json(
-                { message: 'Email already exists' },
-                { status: 400 }
-            );
-        }
-
+        console.error('Signup Error:', error);
         return NextResponse.json(
             { message: 'Server error', error: error.message },
             { status: 500 }

@@ -42,10 +42,10 @@ const InvitationSchema = new mongoose.Schema({
         default: 1,
     },
     image: {
-        type: String, // Personal uploaded photo
+        type: String,
     },
     backgroundImage: {
-        type: String, // Template background texture/image
+        type: String,
     },
     backgroundType: {
         type: String,

@@ -9,7 +9,7 @@ const JWT_SECRET = process.env.JWT_SECRET || 'paperpop_secret_key_change_me';
 export async function GET() {
     try {
         const cookieStore = await cookies();
-        const token = cookieStore.get('token');
+        const token = cookieStore.get('token')?.value;
 
         if (!token) {
             return NextResponse.json(
@@ -18,17 +18,10 @@ export async function GET() {
             );
         }
 
-        const decoded = jwt.verify(token.value, JWT_SECRET);
-        if (!decoded) {
-            return NextResponse.json(
-                { message: 'Invalid token' },
-                { status: 401 }
-            );
-        }
-
+        const decoded = jwt.verify(token, JWT_SECRET);
         await dbConnect();
-        const user = await User.findById(decoded.id).select('-password');
 
+        const user = await User.findById(decoded.id).select('-password');
         if (!user) {
             return NextResponse.json(
                 { message: 'User not found' },
@@ -36,19 +29,15 @@ export async function GET() {
             );
         }
 
-        return NextResponse.json(
-            {
-                success: true,
-                user: {
-                    _id: user._id,
-                    name: user.name,
-                    email: user.email,
-                },
-            },
-            { status: 200 }
-        );
+        return NextResponse.json({
+            success: true,
+            user: {
+                _id: user._id,
+                name: user.name,
+                email: user.email,
+            }
+        });
     } catch (error) {
-        console.error('Auth Check Error:', error);
         return NextResponse.json(
             { message: 'Not authorized', error: error.message },
             { status: 401 }

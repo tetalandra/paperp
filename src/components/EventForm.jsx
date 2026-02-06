@@ -4,7 +4,8 @@ import {
     Gift, Bell, BookOpen, Users, Feather, Award as AwardIcon, Image as ImageIcon,
     CheckCircle, MessageSquare, Star, PartyPopper, Crown, Scissors, Trophy,
     GraduationCap, Presentation, Flower2, Flame, User, Type, AlignLeft,
-    ArrowLeft, Download, Calendar, MapPin, Clock, Phone, FileText, Save, Loader2, Megaphone
+    ArrowLeft, Download, Calendar, MapPin, Clock, Phone, FileText, Save, Loader2, Megaphone,
+    Cake, Rose, Sparkles
 } from 'lucide-react';
 import InvitationPreview from './InvitationPreview';
 import { downloadPDF, downloadPNG } from '../utils/pdfUtils';
@@ -38,34 +39,36 @@ const InputGroup = ({
 
     return (
         <div
-            className={`relative transition-all duration-500 ease-out ${className}`}
+            className={`relative transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${className}`}
             style={{ animationDelay: `${delay}ms` }}
         >
             <div
-                className={`relative group bg-card/60 backdrop-blur-2xl border rounded-[1.25rem] overflow-hidden transition-all duration-700
+                className={`relative group studio-glass studio-border rounded-[1.5rem] overflow-hidden transition-all duration-700
                 ${isFocused
-                        ? 'border-brand-blue/40 shadow-[0_25px_50px_rgba(0,0,0,0.08)] dark:shadow-[0_25px_50px_rgba(0,0,0,0.5)] bg-card/90 -translate-y-1'
-                        : 'border-foreground/[0.03] hover:border-foreground/[0.08] shadow-sm'
+                        ? 'border-brand-blue/30 studio-shadow bg-card/80 -translate-y-1'
+                        : 'border-white/5 hover:border-white/10'
                     }
             `}
             >
                 {/* Floating Label */}
                 <label
-                    className={`absolute left-12 transition-all duration-500 pointer-events-none z-10 font-semibold tracking-widest
+                    className={`absolute left-14 transition-all duration-700 pointer-events-none z-10 font-semibold tracking-[0.2em] uppercase
                     ${(isFocused || hasValue)
-                            ? 'top-3 text-[8px] text-brand-blue uppercase'
-                            : 'top-1/2 -translate-y-1/2 text-xs text-neutral-500 uppercase'
+                            ? 'top-4 text-[7px] text-brand-blue'
+                            : 'top-1/2 -translate-y-1/2 text-[9px] text-neutral-500'
                         }
                 `}
                 >
-                    {label} {required && <span className="text-red-500 ml-1 italic group-hover:not-italic transition-all">*</span>}
+                    {label} {required && <span className="text-red-500/50 transform group-hover:scale-110 inline-block transition-transform">*</span>}
                 </label>
 
-                {/* Icon */}
-                <div className={`absolute top-0 left-0 h-full w-12 flex items-center justify-center transition-all duration-500
-                    ${isFocused ? 'text-brand-blue scale-110' : 'text-neutral-600'}
+                {/* Icon Container */}
+                <div className={`absolute top-0 left-0 h-full w-14 flex items-center justify-center transition-all duration-700
+                    ${isFocused ? 'text-brand-blue scale-110' : 'text-neutral-600 opacity-40'}
                 `}>
-                    {Icon && <Icon className="w-4 h-4" />}
+                    <div className={`p-2 rounded-full transition-all duration-700 ${isFocused ? 'bg-brand-blue/10' : 'bg-transparent'}`}>
+                        {Icon && <Icon className="w-5 h-5" />}
+                    </div>
                 </div>
 
                 {multiline ? (
@@ -75,8 +78,8 @@ const InputGroup = ({
                         onChange={onChange}
                         onFocus={onFocus}
                         onBlur={onBlur}
-                        rows="3"
-                        className="w-full bg-transparent border-none text-foreground placeholder-transparent focus:ring-0 pt-8 pb-4 pl-12 pr-6 text-sm resize-none custom-scrollbar font-medium"
+                        rows="4"
+                        className="w-full bg-transparent border-none text-foreground placeholder-transparent focus:ring-0 pt-10 pb-5 pl-14 pr-7 text-[13px] resize-none custom-scrollbar font-medium leading-relaxed tracking-wide"
                         placeholder={placeholder}
                     />
                 ) : (
@@ -87,13 +90,13 @@ const InputGroup = ({
                         onChange={onChange}
                         onFocus={onFocus}
                         onBlur={onBlur}
-                        className="w-full bg-transparent border-none text-foreground placeholder-transparent focus:ring-0 pt-8 pb-4 pl-12 pr-6 text-sm h-[68px] font-medium"
+                        className="w-full bg-transparent border-none text-foreground placeholder-transparent focus:ring-0 pt-10 pb-5 pl-14 pr-7 text-[15px] h-[76px] font-medium tracking-wide"
                         placeholder={placeholder}
                     />
                 )}
 
-                {/* Focus Accent */}
-                <div className={`absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-transparent via-brand-blue to-transparent transition-all duration-700 ${isFocused ? 'w-full opacity-100' : 'w-0 opacity-0'}`} />
+                {/* Elegant Focus Indicator */}
+                <div className={`absolute bottom-0 left-0 h-[1.5px] bg-gradient-to-r from-transparent via-brand-blue/40 to-transparent transition-all duration-1000 ${isFocused ? 'w-full opacity-100' : 'w-0 opacity-0'}`} />
             </div>
         </div>
     );
@@ -103,6 +106,14 @@ const EventForm = ({ onBack }) => {
     const previewRef = useRef();
     const [templateType, setTemplateType] = useState('birthday');
     const [focusedField, setFocusedField] = useState(null);
+    const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
+
+    const handleMouseMove = (e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        setMousePos({ x, y });
+    };
 
     const initialFormState = {
         title: '',
@@ -235,7 +246,7 @@ const EventForm = ({ onBack }) => {
 
     const handleDownload = async () => {
         try {
-            await downloadPDF('invitation-card', `PaperPop-${activeData.title || 'Invitation'}.pdf`);
+            await downloadPDF('invitation-card', `Paper-${activeData.title || 'Invitation'}.pdf`);
             showToast('PDF Downloaded Successfully', 'success');
         } catch (error) {
             console.error(error);
@@ -244,12 +255,12 @@ const EventForm = ({ onBack }) => {
     };
 
     const templates = [
-        { id: 'birthday', label: 'Birthday', icon: <PartyPopper className="w-4 h-4" />, color: 'from-brand-blue/20' },
-        { id: 'announcement', label: 'Notices', icon: <Megaphone className="w-4 h-4" />, color: 'from-brand-gold/20' },
-        { id: 'achievement', label: 'Award', icon: <Trophy className="w-4 h-4" />, color: 'from-brand-blue/20' },
-        { id: 'assembly', label: 'Assembly', icon: <Presentation className="w-4 h-4" />, color: 'from-brand-gold/20' },
-        { id: 'valentine', label: 'Valentine', icon: <Heart className="w-4 h-4" />, color: 'from-red-500/20' },
-        { id: 'remembering', label: 'Remembering', icon: <Feather className="w-4 h-4" />, color: 'from-neutral-500/20' },
+        { id: 'birthday', label: 'Birthday', icon: <Gift className="w-10 h-10" />, color: 'from-brand-blue/20' },
+        { id: 'announcement', label: 'Notices', icon: <Bell className="w-10 h-10" />, color: 'from-brand-gold/20' },
+        { id: 'achievement', label: 'Award', icon: <AwardIcon className="w-10 h-10" />, color: 'from-brand-blue/20' },
+        { id: 'assembly', label: 'Assembly', icon: <Users className="w-10 h-10" />, color: 'from-brand-gold/20' },
+        { id: 'valentine', label: 'Valentine', icon: <Heart className="w-10 h-10" />, color: 'from-red-500/20' },
+        { id: 'remembering', label: 'Remembering', icon: <Flower2 className="w-10 h-10" />, color: 'from-neutral-500/20' },
     ];
 
     const predefinedBackgrounds = [
@@ -281,6 +292,7 @@ const EventForm = ({ onBack }) => {
             showImage: false,
             requiredFields: ['title', 'date', 'location'],
             messagePlaceholder: 'Write a warm invitation message...',
+            messageLabel: 'Invitation Message',
             showMessage: true,
             showDate: true,
         };
@@ -293,9 +305,9 @@ const EventForm = ({ onBack }) => {
                 config.requiredFields = ['title', 'date', 'location', 'time'];
                 config.messagePlaceholder = 'Wishing you a very happy birthday...';
                 config.variants = [
-                    { id: 5, name: 'Golden Glitter', preview: <Star className="w-5 h-5" />, img: birthdayV5.src || birthdayV5 },
-                    { id: 6, name: 'Modern Photo', preview: <Camera className="w-5 h-5" />, img: birthdayV6.src || birthdayV6 },
-                    { id: 7, name: 'Balloon Party', preview: <PartyPopper className="w-5 h-5" />, img: birthdayV7.src || birthdayV7 }
+                    { id: 5, name: 'Golden Glitter', preview: <Sparkles className="w-7 h-7" />, img: birthdayV5.src || birthdayV5 },
+                    { id: 6, name: 'Modern Photo', preview: <Camera className="w-7 h-7" />, img: birthdayV6.src || birthdayV6 },
+                    { id: 7, name: 'Balloon Party', preview: <Gift className="w-7 h-7" />, img: birthdayV7.src || birthdayV7 }
                 ];
                 break;
             case 'announcement':
@@ -303,9 +315,9 @@ const EventForm = ({ onBack }) => {
                 config.titleLabel = 'Event Title';
                 config.requiredFields = ['title', 'date', 'location'];
                 config.variants = [
-                    { id: 5, name: 'Annual Gala', preview: <Calendar className="w-5 h-5" />, img: noticeV5.src || noticeV5 },
-                    { id: 6, name: 'Luxury Event', preview: <Crown className="w-5 h-5" />, img: noticeV20.src || noticeV20 },
-                    { id: 7, name: 'Grand Opening', preview: <Scissors className="w-5 h-5" />, img: noticeV7.src || noticeV7 }
+                    { id: 5, name: 'Annual Gala', preview: <Bell className="w-7 h-7" />, img: noticeV5.src || noticeV5 },
+                    { id: 6, name: 'Luxury Event', preview: <Crown className="w-7 h-7" />, img: noticeV20.src || noticeV20 },
+                    { id: 7, name: 'Grand Opening', preview: <AwardIcon className="w-7 h-7" />, img: noticeV7.src || noticeV7 }
                 ];
 
                 // Variant Specific Adjustments
@@ -339,9 +351,9 @@ const EventForm = ({ onBack }) => {
                 }
 
                 config.variants = [
-                    { id: 0, name: 'Premium Certificate', preview: <AwardIcon className="w-5 h-5" />, img: awardBg.src || awardBg },
-                    { id: 30, name: 'Employee Month', preview: <Trophy className="w-5 h-5" /> },
-                    { id: 31, name: 'Graduation', preview: <GraduationCap className="w-5 h-5" />, img: awardGraduation.src || awardGraduation }
+                    { id: 0, name: 'Premium Certificate', preview: <AwardIcon className="w-7 h-7" />, img: awardBg.src || awardBg },
+                    { id: 30, name: 'Employee Month', preview: <Trophy className="w-7 h-7" /> },
+                    { id: 31, name: 'Graduation', preview: <GraduationCap className="w-7 h-7" />, img: awardGraduation.src || awardGraduation }
                 ];
                 break;
             case 'assembly':
@@ -349,9 +361,15 @@ const EventForm = ({ onBack }) => {
                 config.titleLabel = 'Assembly Name';
                 config.requiredFields = ['title', 'date', 'location'];
                 config.variants = [
-                    { id: 3, name: 'Tuesday Session', preview: <Calendar className="w-5 h-5" />, img: assemblyTuesday.src || assemblyTuesday },
-                    { id: 4, name: 'Saturday Session', preview: <Calendar className="w-5 h-5" />, img: assemblySaturday.src || assemblySaturday }
+                    { id: 3, name: 'Tuesday Session', preview: <Users className="w-7 h-7" />, img: assemblyTuesday.src || assemblyTuesday },
+                    { id: 4, name: 'Saturday Session', preview: <Users className="w-7 h-7" />, img: assemblySaturday.src || assemblySaturday }
                 ];
+
+                if (currentVariant === 4) {
+                    config.messagePlaceholder = 'Enter the words for inviting people...';
+                    config.messageLabel = 'Invitation Words';
+                    config.requiredFields = [...config.requiredFields, 'message'];
+                }
                 break;
             case 'valentine':
                 config.showTime = false;
@@ -361,10 +379,12 @@ const EventForm = ({ onBack }) => {
                 config.titleLabel = 'Romantic Title';
                 config.subtitleLabel = 'Couple Names / Subtitle';
                 config.requiredFields = ['title']; // simplified
-                config.showMessage = false; // Custom flag to hide message field
+                config.showMessage = true;
+                config.messagePlaceholder = 'Enter your heartfelt wishes here...';
+                config.messageLabel = 'Your Wishes';
                 config.variants = [
-                    { id: 10, name: 'Velvet Romance', preview: <Heart className="w-5 h-5" />, img: valentineV10.src || valentineV10 },
-                    { id: 11, name: 'Peony Lace', preview: <Heart className="w-5 h-5" />, img: valentineV11.src || valentineV11 }
+                    { id: 10, name: 'Velvet Romance', preview: <Rose className="w-7 h-7" />, img: valentineV10.src || valentineV10 },
+                    { id: 11, name: 'Peony Lace', preview: <Heart className="w-7 h-7" />, img: valentineV11.src || valentineV11 }
                 ];
                 break;
             case 'remembering':
@@ -375,8 +395,8 @@ const EventForm = ({ onBack }) => {
                 config.requiredFields = ['title', 'date', 'location'];
                 config.messagePlaceholder = 'A tribute to a life well lived...';
                 config.variants = [
-                    { id: 20, name: 'Peaceful Lily', preview: <Feather className="w-5 h-5" /> },
-                    { id: 21, name: 'Kwibuka', preview: <Flame className="w-5 h-5" />, img: kwibukaBg.src || kwibukaBg, logo: kwibukaLogo }
+                    { id: 20, name: 'Peaceful Lily', preview: <Flower2 className="w-7 h-7" /> },
+                    { id: 21, name: 'Kwibuka', preview: <Flame className="w-7 h-7" />, img: kwibukaBg.src || kwibukaBg, logo: kwibukaLogo }
                 ];
 
                 if (currentVariant === 21) {
@@ -394,17 +414,22 @@ const EventForm = ({ onBack }) => {
 
     const {
         showTime, showLocation, locationLabel, locationIcon, titleLabel, subtitleLabel, dateLabel,
-        showPhone, phoneLabel, showImage, variants, requiredFields, messagePlaceholder, showMessage, showDate
+        showPhone, phoneLabel, showImage, variants, requiredFields, messagePlaceholder, showMessage, showDate,
+        messageLabel
     } = getFieldConfig();
 
     return (
         <div className="min-h-screen bg-background text-foreground flex flex-col lg:flex-row overflow-hidden font-sans transition-colors duration-500">
 
             {/* LEFT SIDEBAR: CREATIVE CONTROLS */}
-            <div className="w-full lg:w-[580px] h-screen overflow-y-auto bg-card/95 backdrop-blur-2xl border-r border-foreground/5 relative z-20 custom-scrollbar flex flex-col shadow-[20px_0_60px_rgba(0,0,0,0.05)] transition-all duration-700 ease-in-out">
+            <div
+                onMouseMove={handleMouseMove}
+                style={{ '--mouse-x': `${mousePos.x}%`, '--mouse-y': `${mousePos.y}%` }}
+                className="w-full lg:w-[600px] h-screen overflow-y-auto bg-card/40 backdrop-blur-[60px] border-r studio-border relative z-20 custom-scrollbar flex flex-col transition-all duration-1000 ease-in-out noise-bg studio-pattern shadow-[30px_0_90px_rgba(0,0,0,0.1)] artisan-spotlight"
+            >
 
                 {/* Visual Flair: Top Gradient */}
-                <div className={`absolute top-0 left-0 w-full h-64 bg-gradient-to-b ${templates.find(t => t.id === templateType)?.color || 'from-amber-500/10'} to-transparent opacity-30 pointer-events-none z-0 transition-all duration-1000`}></div>
+                <div className={`absolute top-0 left-0 w-full h-[400px] bg-gradient-to-b ${templates.find(t => t.id === templateType)?.color || 'from-brand-blue/10'} to-transparent opacity-40 pointer-events-none z-0 transition-all duration-1000`}></div>
 
                 <div className="p-8 lg:p-12 pb-32 relative z-10">
                     {/* Header Navigation */}
@@ -415,26 +440,26 @@ const EventForm = ({ onBack }) => {
                         </button>
                         <div className="flex items-center gap-2">
                             <div className="w-2 h-2 rounded-full bg-brand-blue animate-pulse"></div>
-                            <span className="text-[10px] font-black text-brand-blue tracking-widest uppercase">Live Draft</span>
+                            <span className="text-[10px] font-bold text-brand-blue tracking-widest uppercase">Live Draft</span>
                         </div>
                     </div>
 
-                    <header className="mb-14">
-                        <h1 className="text-5xl font-serif text-foreground mb-3 leading-[1.1] tracking-tight">
-                            Design Your <br />
-                            <span className="italic bg-gradient-to-r from-brand-blue to-brand-gold bg-clip-text text-transparent">Event Masterpiece</span>
+                    <header className="mb-14 relative">
+                        <h1 className="text-6xl font-serif text-foreground mb-4 leading-[1] tracking-tight studio-text">
+                            Craft Your <br />
+                            <span className="italic bg-gradient-to-r from-brand-blue via-brand-gold to-brand-blue animate-shine bg-clip-text text-transparent">Digital Couture</span>
                         </h1>
-                        <p className="text-[11px] text-neutral-500 font-bold uppercase tracking-[0.3em] opacity-80">Tailor every detail to perfection</p>
+                        <p className="text-[9px] text-neutral-500 font-medium uppercase tracking-[0.5em] opacity-60">Handcrafted detail for every celebration</p>
                     </header>
 
-                    {/* Category Selection: Luxury Grid */}
-                    <div className="mb-12">
-                        <div className="flex items-center justify-between mb-4">
-                            <label className="text-[10px] text-neutral-500 font-black tracking-[0.3em] uppercase">Category</label>
-                            <Palette className="w-3 h-3 text-brand-blue/50" />
+                    {/* Category Selection: Curated Boutique Grid */}
+                    <div className="mb-14 relative group/cat">
+                        <div className="flex items-center justify-between mb-8">
+                            <label className="text-[10px] text-brand-blue font-bold tracking-[0.4em] uppercase">I. The Collection</label>
+                            <Palette className="w-3.5 h-3.5 text-brand-blue/30 group-hover/cat:rotate-180 transition-transform duration-[1.5s]" />
                         </div>
-                        <div className="grid grid-cols-2 gap-3">
-                            {templates.map((t) => (
+                        <div className="grid grid-cols-2 gap-4">
+                            {templates.map((t, idx) => (
                                 <button
                                     key={t.id}
                                     onClick={() => {
@@ -449,73 +474,77 @@ const EventForm = ({ onBack }) => {
                                         };
                                         setCurrentVariant(defaultVariantMap[t.id] || 1);
                                     }}
-                                    className={`relative flex flex-col items-center justify-center gap-4 p-6 rounded-2xl border transition-all duration-500 group overflow-hidden
+                                    className={`relative flex flex-col items-start p-7 rounded-[2rem] border transition-all duration-700 group overflow-hidden
                                         ${templateType === t.id
-                                            ? 'bg-foreground text-background border-foreground shadow-2xl scale-[1.02] z-10'
-                                            : 'bg-card/40 border-foreground/5 text-neutral-500 hover:border-foreground/10 hover:bg-card/60'
+                                            ? 'bg-foreground text-background studio-shadow border-foreground scale-[1.02] z-10'
+                                            : 'bg-card/20 studio-border text-neutral-500 hover:border-foreground/10 hover:bg-card/40'
                                         }`}
                                 >
                                     {templateType === t.id && (
-                                        <div className="absolute top-0 right-0 p-2">
-                                            <div className="w-1 h-1 rounded-full bg-brand-gold animate-pulse"></div>
-                                        </div>
+                                        <div className="absolute inset-0 holographic-shimmer opacity-30 pointer-events-none"></div>
                                     )}
-                                    <div className={`p-4 rounded-full transition-all duration-500 
-                                        ${templateType === t.id ? 'bg-background/20 scale-110' : 'bg-foreground/5 group-hover:scale-110'}
+                                    <div className="absolute top-5 right-6 text-[8px] font-bold opacity-20 tracking-widest uppercase">
+                                        0{idx + 1}
+                                    </div>
+                                    <div className={`p-6 rounded-[2.5rem] mb-6 transition-all duration-700 
+                                        ${templateType === t.id
+                                            ? 'bg-background/20 scale-110 rotate-3 shadow-[0_20px_50px_rgba(37,99,235,0.2)]'
+                                            : 'bg-foreground/5 group-hover:scale-110 group-hover:-rotate-3 group-hover:bg-foreground/10 group-hover:shadow-[0_15px_30px_rgba(0,0,0,0.1)]'}
                                     `}>
                                         {t.icon}
                                     </div>
-                                    <span className="text-[9px] font-semibold uppercase tracking-[0.25em]">{t.label}</span>
+                                    <span className="text-[10px] font-bold uppercase tracking-[0.3em]">{t.label}</span>
+                                    {templateType === t.id && (
+                                        <div className="absolute bottom-4 right-6 w-1 h-1 bg-brand-gold rounded-full shadow-[0_0_10px_2px_rgba(245,158,11,0.5)]"></div>
+                                    )}
                                 </button>
                             ))}
                         </div>
                     </div>
 
-                    {/* Collection Gallery: Horizontal Luxury Scroll */}
-                    <div className="mb-14">
-                        <div className="flex items-center justify-between mb-6">
-                            <label className="text-[11px] text-neutral-500 font-black tracking-[0.4em] uppercase">Premium Collection</label>
-                            <span className="text-[9px] text-brand-gold font-bold uppercase tracking-widest bg-brand-gold/10 px-3 py-1.5 rounded-full border border-brand-gold/20 backdrop-blur-md">6 Handpicked Styles</span>
+                    {/* Collection Gallery: Boutique Horizontal Scroll */}
+                    <div className="mb-14 group/gallery">
+                        <div className="flex items-center justify-between mb-8">
+                            <label className="text-[10px] text-brand-blue font-bold tracking-[0.4em] uppercase">II. The Portfolio</label>
+                            <span className="text-[8px] text-brand-gold font-bold uppercase tracking-[0.4em] bg-brand-gold/5 px-4 py-2 rounded-full border border-brand-gold/10 backdrop-blur-3xl studio-shadow">Handcrafted Selection</span>
                         </div>
-                        <div className="flex gap-4 overflow-x-auto pb-6 custom-scrollbar snap-x">
+                        <div className="flex gap-6 overflow-x-auto pb-8 custom-scrollbar snap-x px-2">
                             {predefinedBackgrounds.filter(bg => bg.category === templateType).map((bg) => (
                                 <button
                                     key={bg.id}
                                     onClick={() => selectPredefinedTemplate(bg)}
-                                    className={`relative flex-shrink-0 w-32 aspect-[3/4] rounded-2xl overflow-hidden border-2 transition-all duration-500 group snap-start
+                                    className={`relative flex-shrink-0 w-36 aspect-[3/4.5] rounded-[1.5rem] overflow-hidden border transition-all duration-700 group snap-start
                                         ${activeData.backgroundImage === bg.img
-                                            ? 'border-brand-blue shadow-[0_15px_30px_rgba(37,99,235,0.3)] scale-105'
-                                            : 'border-white/5 hover:border-white/20 scale-100'
+                                            ? 'border-brand-blue studio-shadow scale-105 z-10'
+                                            : 'border-white/5 bg-card/10 hover:border-white/20'
                                         }`}
                                 >
                                     {bg.img ? (
-                                        <img src={bg.img} alt={bg.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                                        <div className="w-full h-full relative overflow-hidden">
+                                            <img src={bg.img} alt={bg.label} className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-125 group-hover:rotate-2" />
+                                            <div className={`absolute inset-0 bg-black/40 transition-opacity duration-700 ${activeData.backgroundImage === bg.img ? 'opacity-0' : 'opacity-20 group-hover:opacity-0'}`}></div>
+                                        </div>
                                     ) : (
                                         <div className={`w-full h-full flex items-center justify-center
-                                            ${bg.category === 'valentine' ? 'bg-gradient-to-br from-red-900 to-red-950' :
-                                                bg.category === 'remembering' ? 'bg-gradient-to-br from-neutral-800 to-black' :
-                                                    'bg-gradient-to-br from-brand-blue/10 to-brand-blue/20'}
+                                            ${bg.category === 'valentine' ? 'bg-gradient-to-br from-red-950 to-black' :
+                                                bg.category === 'remembering' ? 'bg-gradient-to-br from-neutral-900 to-black' :
+                                                    'bg-gradient-to-br from-brand-blue/20 to-brand-blue/40'}
                                         `}>
-                                            <div className="flex flex-col items-center gap-1 opacity-40">
-                                                {bg.category === 'valentine' ? <Heart className="w-6 h-6 text-red-400" /> :
-                                                    bg.category === 'remembering' ? <Feather className="w-6 h-6 text-neutral-400" /> :
-                                                        <ImageIcon className="w-6 h-6 text-brand-blue" />}
-                                                <span className="text-[7px] font-black uppercase tracking-widest text-white/50">Premium</span>
+                                            <div className="flex flex-col items-center gap-2 opacity-30 group-hover:opacity-80 transition-all duration-700">
+                                                {bg.category === 'valentine' ? <Heart className="w-8 h-8 text-red-400/50" /> :
+                                                    bg.category === 'remembering' ? <Feather className="w-8 h-8 text-neutral-400/50" /> :
+                                                        <ImageIcon className="w-8 h-8 text-brand-blue/50" />}
+                                                <span className="text-[8px] font-black uppercase tracking-[0.5em] text-white/40">Limited</span>
                                             </div>
                                         </div>
                                     )}
-                                    <div className={`absolute inset-0 bg-black/60 transition-opacity duration-500 ${activeData.backgroundImage === bg.img ? 'opacity-0' : 'opacity-40 group-hover:opacity-0'}`}></div>
-                                    <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black to-transparent">
-                                        <span className="text-[9px] text-white font-black uppercase tracking-widest leading-none block">{bg.label}</span>
+
+                                    <div className="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
+                                        <span className="text-[10px] text-white font-bold uppercase tracking-[0.2em] leading-none block group-hover:translate-y-[-2px] transition-transform duration-500">{bg.label}</span>
                                     </div>
-                                    {activeData.backgroundImage === bg.img && !bg.img && (
-                                        <div className="absolute top-2 right-2 w-5 h-5 bg-brand-blue rounded-full flex items-center justify-center shadow-2xl animate-bounce">
-                                            <CheckCircle className="w-2.5 h-2.5 text-white" />
-                                        </div>
-                                    )}
-                                    {activeData.backgroundImage === bg.img && bg.img && (
-                                        <div className="absolute top-2 right-2 w-5 h-5 bg-brand-blue rounded-full flex items-center justify-center shadow-2xl animate-bounce">
-                                            <CheckCircle className="w-2.5 h-2.5 text-white" />
+                                    {activeData.backgroundImage === bg.img && (
+                                        <div className="absolute top-4 left-4 w-7 h-7 bg-brand-blue rounded-full border border-white/20 flex items-center justify-center shadow-2xl animate-fade-in">
+                                            <CheckCircle className="w-3 h-3 text-white" />
                                         </div>
                                     )}
                                 </button>
@@ -523,199 +552,271 @@ const EventForm = ({ onBack }) => {
                         </div>
                     </div>
 
-                    {/* Style Variant Selector */}
-                    {variants && (
-                        <div className="mb-12">
-                            <div className="flex items-center justify-between mb-4">
-                                <label className="text-[10px] text-neutral-500 font-black tracking-[0.3em] uppercase">Style Variant</label>
-                            </div>
-                            <div className="grid grid-cols-2 gap-3">
-                                {variants.map((v) => (
-                                    <button
-                                        key={v.id}
-                                        onClick={() => {
-                                            setCurrentVariant(v.id);
-                                            if (!formData[`${templateType}-${v.id}`]) {
-                                                setFormData(prev => ({
-                                                    ...prev,
-                                                    [`${templateType}-${v.id}`]: {
-                                                        ...initialFormState,
-                                                        variant: v.id,
-                                                        backgroundImage: v.img || initialFormState.backgroundImage,
-                                                        backgroundType: v.img ? 'image' : 'color'
-                                                    }
-                                                }));
-                                            }
-                                        }}
-                                        className={`flex items-center gap-3 px-4 py-3 rounded-2xl border transition-all duration-300
-                                            ${activeData.variant === v.id
-                                                ? 'bg-brand-blue/10 border-brand-blue text-brand-blue'
-                                                : 'bg-foreground/5 border-foreground/5 text-neutral-500 hover:border-foreground/10 hover:text-foreground'
-                                            }`}
-                                    >
-                                        <div className={`p-3 rounded-xl transition-all duration-500 bg-foreground/5 group-hover:bg-brand-blue/10
-                                            ${activeData.variant === v.id ? 'bg-brand-blue/20 rotate-12 scale-110' : 'rotate-0 scale-100'}
-                                        `}>
-                                            <div className={activeData.variant === v.id ? 'text-brand-blue' : 'text-neutral-500'}>
-                                                {v.preview}
-                                            </div>
-                                        </div>
-                                        <span className="text-[10px] font-semibold uppercase tracking-widest">{v.name}</span>
-                                    </button>
-                                ))}
-                            </div>
+                    {/* Style Variant Selector: Professional Brushes */}
+                    <div className="mb-14">
+                        <div className="flex items-center justify-between mb-8">
+                            <label className="text-[10px] text-brand-blue font-bold tracking-[0.4em] uppercase">III. The Crafting Variant</label>
                         </div>
-                    )}
+                        <div className="grid grid-cols-2 gap-4">
+                            {variants.map((v) => (
+                                <button
+                                    key={v.id}
+                                    onClick={() => {
+                                        setCurrentVariant(v.id);
+                                        if (!formData[`${templateType}-${v.id}`]) {
+                                            setFormData(prev => ({
+                                                ...prev,
+                                                [`${templateType}-${v.id}`]: {
+                                                    ...initialFormState,
+                                                    variant: v.id,
+                                                    backgroundImage: v.img || initialFormState.backgroundImage,
+                                                    backgroundType: v.img ? 'image' : 'color'
+                                                }
+                                            }));
+                                        }
+                                    }}
+                                    className={`relative flex items-center gap-4 px-5 py-4 rounded-[1.5rem] border transition-all duration-700
+                                        ${activeData.variant === v.id
+                                            ? 'bg-brand-blue/5 border-brand-blue/40 text-brand-blue studio-shadow scale-[1.02]'
+                                            : 'bg-card/20 studio-border text-neutral-500 hover:border-white/10'
+                                        }`}
+                                >
+                                    {activeData.variant === v.id && (
+                                        <div className="absolute inset-0 holographic-shimmer opacity-20 pointer-events-none rounded-[1.5rem]"></div>
+                                    )}
+                                    <div className={`p-4 rounded-2xl transition-all duration-700
+                                        ${activeData.variant === v.id ? 'bg-brand-blue/10 scale-110' : 'bg-foreground/5'}
+                                    `}>
+                                        {v.preview}
+                                    </div>
+                                    <div className="flex flex-col items-start gap-1">
+                                        <span className="text-[10px] font-black uppercase tracking-[0.2em]">{v.name}</span>
+                                        {activeData.variant === v.id && <span className="text-[7px] font-bold text-brand-blue/60 uppercase tracking-widest animate-pulse">Selected Style</span>}
+                                    </div>
+                                </button>
+                            ))}
+                        </div>
+                    </div>
 
-                    {/* Editor Section */}
-                    <div className="space-y-10">
-                        <section className="space-y-4">
-                            <div className="flex items-center gap-3 mb-6">
-                                <div className="h-[1px] flex-1 bg-foreground/5"></div>
-                                <h3 className="text-[9px] font-black text-neutral-600 tracking-[0.4em] uppercase">Content Studio</h3>
-                                <div className="h-[1px] flex-1 bg-foreground/5"></div>
+                    {/* Editor Section: Artisan concentration focus */}
+                    <div className="space-y-12 transition-all duration-1000">
+                        <section className={`transition-all duration-700 ${focusedField && !['title', 'subtitle'].includes(focusedField) ? 'opacity-30 blur-[2px] scale-[0.98]' : 'opacity-100 scale-100'}`}>
+                            <div className="flex items-center gap-3 mb-8">
+                                <div className="brush-divider flex-1"></div>
+                                <h3 className="text-[9px] font-black text-neutral-600 tracking-[0.4em] uppercase">Core Details</h3>
+                                <div className="brush-divider flex-1"></div>
                             </div>
-
-                            <div className="grid grid-cols-2 gap-4">
+                            <div className="space-y-6">
                                 <InputGroup
-                                    label={titleLabel} name="title" value={activeData.title} onChange={handleChange}
-                                    icon={Type} placeholder="Headline" delay={100}
-                                    isFocused={focusedField === 'title'} onFocus={() => handleFocus('title')} onBlur={handleBlur}
+                                    label={titleLabel}
+                                    name="title"
+                                    value={activeData.title}
+                                    onChange={handleChange}
+                                    onFocus={() => handleFocus('title')}
+                                    onBlur={handleBlur}
+                                    isFocused={focusedField === 'title'}
+                                    icon={Type}
+                                    placeholder={titleLabel}
+                                    delay={100}
                                     required={requiredFields.includes('title')}
                                 />
                                 <InputGroup
-                                    label={subtitleLabel} name="subtitle" value={activeData.subtitle} onChange={handleChange}
-                                    icon={User} placeholder="Who is it for?" delay={200}
-                                    isFocused={focusedField === 'subtitle'} onFocus={() => handleFocus('subtitle')} onBlur={handleBlur}
+                                    label={subtitleLabel}
+                                    name="subtitle"
+                                    value={activeData.subtitle}
+                                    onChange={handleChange}
+                                    onFocus={() => handleFocus('subtitle')}
+                                    onBlur={handleBlur}
+                                    isFocused={focusedField === 'subtitle'}
+                                    icon={AlignLeft}
+                                    placeholder={subtitleLabel}
+                                    delay={200}
                                     required={requiredFields.includes('subtitle')}
                                 />
                             </div>
-
-                            {showMessage !== false && (
-                                <InputGroup
-                                    label="Invitation Message" name="message" value={activeData.message} onChange={handleChange}
-                                    icon={AlignLeft} placeholder={messagePlaceholder} multiline delay={300}
-                                    isFocused={focusedField === 'message'} onFocus={() => handleFocus('message')} onBlur={handleBlur}
-                                    required={requiredFields.includes('message')}
-                                />
-                            )}
                         </section>
 
-                        {showImage && (
-                            <section className="space-y-4">
-                                <div className="flex items-center gap-3 mb-6">
-                                    <div className="h-[1px] flex-1 bg-foreground/5"></div>
-                                    <h3 className="text-[9px] font-black text-neutral-600 tracking-[0.4em] uppercase">Visual Assets</h3>
-                                    <div className="h-[1px] flex-1 bg-foreground/5"></div>
+                        {(showDate || showTime || showLocation || showPhone) && (
+                            <section className={`transition-all duration-700 ${focusedField && !['date', 'time', 'location', 'phone'].includes(focusedField) ? 'opacity-30 blur-[2px] scale-[0.98]' : 'opacity-100 scale-100'}`}>
+                                <div className="flex items-center gap-3 mb-8">
+                                    <div className="brush-divider flex-1"></div>
+                                    <h3 className="text-[9px] font-black text-neutral-600 tracking-[0.4em] uppercase">Atmosphere & Place</h3>
+                                    <div className="brush-divider flex-1"></div>
                                 </div>
-                                <div className="bg-foreground/5 backdrop-blur-xl border border-foreground/5 rounded-3xl p-6 group hover:border-brand-blue/20 transition-all duration-500 shadow-xl">
-                                    <div className="flex items-center gap-6 mb-6">
-                                        <div className="w-24 h-24 bg-background rounded-2xl flex items-center justify-center overflow-hidden border border-foreground/10 shadow-inner">
-                                            {templateImages[`${templateType}-${activeData.variant}`] ? (
-                                                <img src={templateImages[`${templateType}-${activeData.variant}`]} alt="Preview" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                                            ) : (
-                                                <div className="flex flex-col items-center gap-2 opacity-30 group-hover:opacity-100 transition-opacity">
-                                                    <Camera className="w-8 h-8 text-foreground" />
-                                                    <span className="text-[8px] font-black uppercase tracking-widest text-foreground">Choose Photo</span>
-                                                </div>
-                                            )}
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    {showDate && (
+                                        <InputGroup
+                                            label={dateLabel}
+                                            name="date"
+                                            value={activeData.date}
+                                            onChange={handleChange}
+                                            onFocus={() => handleFocus('date')}
+                                            onBlur={handleBlur}
+                                            isFocused={focusedField === 'date'}
+                                            icon={Calendar}
+                                            placeholder={dateLabel}
+                                            delay={300}
+                                            required={requiredFields.includes('date')}
+                                        />
+                                    )}
+                                    {showTime && (
+                                        <InputGroup
+                                            label="Time"
+                                            name="time"
+                                            value={activeData.time}
+                                            onChange={handleChange}
+                                            onFocus={() => handleFocus('time')}
+                                            onBlur={handleBlur}
+                                            isFocused={focusedField === 'time'}
+                                            icon={Clock}
+                                            placeholder="Event Time"
+                                            delay={400}
+                                            required={requiredFields.includes('time')}
+                                        />
+                                    )}
+                                    {showLocation && (
+                                        <div className="md:col-span-2">
+                                            <InputGroup
+                                                label={locationLabel}
+                                                name="location"
+                                                value={activeData.location}
+                                                onChange={handleChange}
+                                                onFocus={() => handleFocus('location')}
+                                                onBlur={handleBlur}
+                                                isFocused={focusedField === 'location'}
+                                                icon={locationIcon}
+                                                placeholder={locationLabel}
+                                                delay={500}
+                                                required={requiredFields.includes('location')}
+                                            />
                                         </div>
-                                        <div className="flex-1">
-                                            <h4 className="text-sm font-bold text-foreground mb-2 uppercase tracking-widest">Personal Image</h4>
-                                            <p className="text-[10px] text-neutral-500 font-medium leading-relaxed uppercase tracking-wider">High resolution JPG or PNG recommended for professional results.</p>
+                                    )}
+                                    {showPhone && (
+                                        <div className="md:col-span-2">
+                                            <InputGroup
+                                                label={phoneLabel}
+                                                name="phone"
+                                                value={activeData.phone}
+                                                onChange={handleChange}
+                                                onFocus={() => handleFocus('phone')}
+                                                onBlur={handleBlur}
+                                                isFocused={focusedField === 'phone'}
+                                                icon={Phone}
+                                                placeholder={phoneLabel}
+                                                delay={600}
+                                                required={requiredFields.includes('phone')}
+                                            />
                                         </div>
-                                    </div>
-                                    <input type="file" accept="image/*" onChange={handleImageUpload} id="file-upload" className="hidden" />
-                                    <label htmlFor="file-upload" className="flex items-center justify-center gap-3 w-full py-4 bg-foreground/5 hover:bg-foreground/10 text-foreground rounded-2xl cursor-pointer transition-all duration-300 border border-foreground/10 active:scale-[0.98] group-hover:border-brand-blue/30 shadow-xl">
-                                        <ImageIcon className="w-4 h-4 text-brand-blue" />
-                                        <span className="text-xs font-black tracking-[0.2em] uppercase">Select Asset</span>
-                                    </label>
+                                    )}
                                 </div>
                             </section>
                         )}
 
-                        <section className="space-y-4">
-                            <div className="flex items-center gap-3 mb-6">
-                                <div className="h-[1px] flex-1 bg-foreground/5"></div>
-                                <h3 className="text-[9px] font-black text-neutral-600 tracking-[0.4em] uppercase">Logistics</h3>
-                                <div className="h-[1px] flex-1 bg-foreground/5"></div>
-                            </div>
-                            <div className="grid grid-cols-2 gap-4">
-                                {showDate !== false && (
-                                    <InputGroup
-                                        label={dateLabel} name="date" value={activeData.date} onChange={handleChange}
-                                        icon={Calendar} placeholder="Date" delay={400}
-                                        isFocused={focusedField === 'date'} onFocus={() => handleFocus('date')} onBlur={handleBlur}
-                                        required={requiredFields.includes('date')}
-                                    />
-                                )}
-                                {showTime && (
-                                    <InputGroup
-                                        label="Time" name="time" value={activeData.time} onChange={handleChange}
-                                        icon={Clock} placeholder="00:00" delay={500}
-                                        isFocused={focusedField === 'time'} onFocus={() => handleFocus('time')} onBlur={handleBlur}
-                                        required={requiredFields.includes('time')}
-                                    />
-                                )}
-                            </div>
-
-                            {showLocation && (
+                        {showMessage && (
+                            <section className={`transition-all duration-700 ${focusedField && focusedField !== 'message' ? 'opacity-30 blur-[2px] scale-[0.98]' : 'opacity-100 scale-100'}`}>
+                                <div className="flex items-center gap-3 mb-8">
+                                    <div className="brush-divider flex-1"></div>
+                                    <h3 className="text-[9px] font-black text-neutral-600 tracking-[0.4em] uppercase">Bespoke Narrative</h3>
+                                    <div className="brush-divider flex-1"></div>
+                                </div>
                                 <InputGroup
-                                    label={locationLabel} name="location" value={activeData.location} onChange={handleChange}
-                                    icon={locationIcon} placeholder="Venue" delay={600}
-                                    isFocused={focusedField === 'location'} onFocus={() => handleFocus('location')} onBlur={handleBlur}
-                                    required={requiredFields.includes('location')}
+                                    label={messageLabel}
+                                    name="message"
+                                    value={activeData.message}
+                                    onChange={handleChange}
+                                    onFocus={() => handleFocus('message')}
+                                    onBlur={handleBlur}
+                                    isFocused={focusedField === 'message'}
+                                    icon={FileText}
+                                    placeholder={messagePlaceholder}
+                                    multiline={true}
+                                    delay={700}
+                                    required={requiredFields.includes('message')}
                                 />
-                            )}
-
-                            {showPhone && (
-                                <InputGroup
-                                    label={phoneLabel} name="phone" value={activeData.phone} onChange={handleChange}
-                                    icon={Phone} placeholder="Phone / Email" delay={700}
-                                    isFocused={focusedField === 'phone'} onFocus={() => handleFocus('phone')} onBlur={handleBlur}
-                                    required={requiredFields.includes('phone')}
-                                />
-                            )}
-                        </section>
+                            </section>
+                        )}
+                        {showImage && (
+                            <section className={`transition-all duration-700 ${focusedField ? 'opacity-30 blur-[2px] scale-[0.98]' : 'opacity-100 scale-100'}`}>
+                                <div className="flex items-center gap-3 mb-8">
+                                    <div className="brush-divider flex-1"></div>
+                                    <h3 className="text-[9px] font-black text-neutral-600 tracking-[0.4em] uppercase">Visual Assets</h3>
+                                    <div className="brush-divider flex-1"></div>
+                                </div>
+                                <div className="studio-glass studio-border rounded-[2rem] p-8 group hover:border-brand-blue/20 transition-all duration-700 studio-shadow relative overflow-hidden">
+                                    <div className="absolute top-0 right-0 p-4 opacity-[0.03] pointer-events-none">
+                                        <ImageIcon className="w-24 h-24 rotate-12" />
+                                    </div>
+                                    <div className="flex items-center gap-8 mb-8 relative z-10">
+                                        <div className="w-28 h-28 bg-background/50 rounded-3xl flex items-center justify-center overflow-hidden border studio-border studio-shadow ring-4 ring-white/5">
+                                            {templateImages[`${templateType}-${activeData.variant}`] ? (
+                                                <img src={templateImages[`${templateType}-${activeData.variant}`]} alt="Preview" className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-125" />
+                                            ) : (
+                                                <div className="flex flex-col items-center gap-2 opacity-20 group-hover:opacity-60 transition-all duration-700">
+                                                    <Camera className="w-10 h-10 text-foreground" />
+                                                    <span className="text-[8px] font-black uppercase tracking-[0.4em] text-foreground">Awaiting Asset</span>
+                                                </div>
+                                            )}
+                                        </div>
+                                        <div className="flex-1">
+                                            <h4 className="text-[11px] font-black text-foreground mb-3 uppercase tracking-[0.3em]">Personal Masterpiece</h4>
+                                            <p className="text-[9px] text-neutral-500 font-bold leading-relaxed uppercase tracking-widest opacity-60">Upload a portrait or symbolic image to elevate the design.</p>
+                                        </div>
+                                    </div>
+                                    <input type="file" accept="image/*" onChange={handleImageUpload} id="file-upload" className="hidden" />
+                                    <label htmlFor="file-upload" className="flex items-center justify-center gap-4 w-full py-5 bg-foreground text-background rounded-[1.25rem] cursor-pointer transition-all duration-500 border border-foreground/10 active:scale-[0.98] studio-shadow hover:translate-y-[-2px]">
+                                        <ImageIcon className="w-6 h-6 text-brand-gold animate-pulse" />
+                                        <span className="text-[10px] font-black tracking-[0.4em] uppercase">Select Artisan Asset</span>
+                                    </label>
+                                </div>
+                            </section>
+                        )}
                     </div>
                 </div>
 
-                {/* Fixed Footer Actions */}
-                <div className="sticky bottom-0 left-0 w-full p-10 bg-background/90 backdrop-blur-3xl border-t border-foreground/[0.03] z-[100] shadow-[0_-40px_80px_rgba(0,0,0,0.05)] dark:shadow-[0_-40px_80px_rgba(0,0,0,0.7)] flex flex-col gap-5">
-                    <div className="flex gap-5">
+                {/* Fixed Footer Actions: Studio Exports */}
+                <div className="sticky bottom-0 left-0 w-full p-10 bg-background/80 backdrop-blur-3xl border-t studio-border z-[100] studio-shadow flex flex-col gap-6">
+                    <div className="flex gap-4">
                         <button
                             onClick={handleDownload}
-                            className="flex-[2.5] relative group overflow-hidden rounded-[1.25rem] bg-brand-blue text-white py-5 shadow-[0_20px_40px_rgba(37,99,235,0.25)] transition-all duration-500 hover:shadow-[0_25px_50px_rgba(37,99,235,0.45)] hover:-translate-y-1 active:translate-y-0"
+                            className="flex-[2.5] relative group overflow-hidden rounded-[1.5rem] bg-foreground text-background py-6 studio-shadow transition-all duration-700 hover:translate-y-[-4px] active:translate-y-0"
                         >
-                            <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out" />
-                            <span className="relative z-10 flex items-center justify-center gap-3 tracking-[0.4em] uppercase text-[10px] font-black">
-                                <Download className="w-4 h-4" />
+                            <div className="absolute inset-0 bg-gradient-to-tr from-brand-blue/20 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]" />
+                            <div className="absolute inset-0 holographic-shimmer opacity-0 group-hover:opacity-10 transition-opacity duration-700"></div>
+                            <span className="relative z-10 flex items-center justify-center gap-4 tracking-[0.6em] uppercase text-[10px] font-black">
+                                <Download className="w-6 h-6 text-brand-blue" />
                                 Export PDF
                             </span>
                         </button>
                         <button
                             onClick={async () => {
                                 try {
-                                    await downloadPNG('invitation-card', `PaperPop-${activeData.title || 'Invitation'}.png`);
+                                    await downloadPNG('invitation-card', `Paper-${activeData.title || 'Invitation'}.png`);
                                     showToast('PNG Downloaded Successfully', 'success');
                                 } catch (error) {
                                     console.error(error);
                                     showToast('Failed to download PNG', 'error');
                                 }
                             }}
-                            className="flex-[1] relative group overflow-hidden rounded-[1.25rem] bg-brand-gold text-white py-5 shadow-[0_20px_40px_rgba(245,158,11,0.25)] transition-all duration-500 hover:shadow-[0_25px_50px_rgba(245,158,11,0.45)] hover:-translate-y-1 active:translate-y-0"
+                            className="flex-[1] relative group overflow-hidden rounded-[1.5rem] bg-card/20 studio-border py-6 studio-shadow transition-all duration-700 hover:translate-y-[-4px] active:translate-y-0"
                         >
-                            <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out" />
-                            <span className="relative z-10 flex items-center justify-center gap-3 tracking-[0.4em] uppercase text-[10px] font-black">
-                                <ImageIcon className="w-4 h-4" />
+                            <div className="absolute inset-0 bg-gradient-to-tr from-brand-gold/20 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]" />
+                            <span className="relative z-10 flex items-center justify-center gap-4 tracking-[0.6em] uppercase text-[10px] font-black">
+                                <ImageIcon className="w-6 h-6 text-brand-gold" />
                                 PNG
                             </span>
                         </button>
                     </div>
-                    <div className="flex items-center justify-center gap-2 opacity-20">
-                        <div className="h-[1px] w-4 bg-foreground"></div>
-                        <span className="text-[8px] font-semibold tracking-[0.4em] uppercase">Powered by Imena Studio</span>
-                        <div className="h-[1px] w-4 bg-foreground"></div>
+                    <div className="flex items-center justify-center gap-3 opacity-20 hover:opacity-100 transition-opacity duration-700 cursor-default mb-2">
+                        <div className="h-[1px] w-6 bg-foreground"></div>
+                        <span className="text-[9px] font-black tracking-[0.6em] uppercase">Paper Artisan Studio</span>
+                        <div className="h-[1px] w-6 bg-foreground"></div>
+                    </div>
+                    {/* Artisan Signature Flourish */}
+                    <div className="flex flex-col items-center animate-fade-in opacity-40 hover:opacity-100 transition-opacity duration-1000">
+                        <span className="text-[7px] font-bold tracking-[0.4em] text-neutral-500 uppercase mb-2">Handcrafted with passion</span>
+                        <svg width="60" height="20" viewBox="0 0 100 30" className="text-brand-gold fill-current">
+                            <path d="M10 20 C 20 10, 40 10, 50 20 S 80 30, 90 20" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" className="animate-shine" />
+                        </svg>
                     </div>
                 </div>
             </div>
@@ -733,10 +834,14 @@ const EventForm = ({ onBack }) => {
                 </div>
 
                 <div className="relative z-10 flex flex-col items-center">
-                    {/* Label/Status */}
-                    <div className="mb-12 flex flex-col items-center gap-4 animate-fade-in">
-                        <span className="text-[10px] font-semibold text-foreground/30 tracking-[0.6em] uppercase">Interactive Preview</span>
-                        <div className="h-20 w-[1px] bg-gradient-to-b from-transparent via-brand-blue/50 to-transparent"></div>
+                    {/* Label/Status: Atelier Branding */}
+                    <div className="mb-12 flex flex-col items-center gap-6 animate-fade-in">
+                        <div className="flex items-center gap-4">
+                            <div className="h-[1px] w-12 bg-gradient-to-r from-transparent via-brand-blue/30 to-transparent"></div>
+                            <span className="text-[10px] font-black text-foreground/40 tracking-[0.8em] uppercase">The Atelier Stage</span>
+                            <div className="h-[1px] w-12 bg-gradient-to-r from-transparent via-brand-blue/30 to-transparent"></div>
+                        </div>
+                        <div className="h-24 w-[1px] bg-gradient-to-b from-transparent via-brand-blue/40 to-transparent opacity-50"></div>
                     </div>
 
                     {/* The Masterpiece Stage */}
@@ -745,15 +850,15 @@ const EventForm = ({ onBack }) => {
                         <div className="absolute -inset-16 bg-black/40 blur-[80px] rounded-full opacity-40 group-hover:opacity-70 transition-all duration-700"></div>
                         <div className="absolute bottom-[-100px] left-1/2 -translate-x-1/2 w-[80%] h-20 bg-black/40 blur-[50px] rounded-[100%] transition-opacity duration-700 opacity-50 group-hover:opacity-80"></div>
 
-                        {/* Frame and Content */}
-                        <div className="relative shadow-[0_100px_200px_-50px_rgba(0,0,0,0.95)] rounded-[6px] ring-[1px] ring-foreground/[0.08] overflow-hidden transform-gpu bg-card">
+                        {/* Frame and Content: Masterpiece Studio Finish */}
+                        <div className="relative shadow-[0_120px_240px_-60px_rgba(0,0,0,1)] rounded-[8px] ring-[1px] ring-white/10 overflow-hidden transform-gpu bg-card">
                             <InvitationPreview
                                 ref={previewRef}
                                 data={{ ...activeData, image: templateImages[`${templateType}-${activeData.variant}`] }}
                                 templateType={templateType}
                             />
-                            {/* Surface Reflection */}
-                            <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent opacity-30 pointer-events-none mix-blend-overlay"></div>
+                            {/* Pro Soft Light Surface Reflection */}
+                            <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-white/5 opacity-40 pointer-events-none mix-blend-overlay"></div>
                         </div>
 
                         {/* Visual Quality Indicator */}

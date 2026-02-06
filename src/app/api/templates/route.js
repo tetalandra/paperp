@@ -8,29 +8,20 @@ const JWT_SECRET = process.env.JWT_SECRET || 'paperpop_secret_key_change_me';
 
 async function getUserId() {
     const cookieStore = await cookies();
-    const token = cookieStore.get('token');
+    const token = cookieStore.get('token')?.value;
     if (!token) return null;
     try {
-        const decoded = jwt.verify(token.value, JWT_SECRET);
+        const decoded = jwt.verify(token, JWT_SECRET);
         return decoded.id;
-    } catch (error) {
+    } catch (e) {
         return null;
     }
 }
 
-/**
- * GET /api/templates
- * Get all templates for authenticated user
- */
 export async function GET(req) {
     try {
         const userId = await getUserId();
-        if (!userId) {
-            return NextResponse.json(
-                { success: false, message: 'Unauthorized' },
-                { status: 401 }
-            );
-        }
+        if (!userId) return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
 
         const { searchParams } = new URL(req.url);
         const limit = parseInt(searchParams.get('limit')) || 50;
@@ -38,7 +29,6 @@ export async function GET(req) {
         const skip = (page - 1) * limit;
 
         await dbConnect();
-
         const [templates, total] = await Promise.all([
             Invitation.find({ user: userId })
                 .sort({ createdAt: -1 })
@@ -47,26 +37,15 @@ export async function GET(req) {
             Invitation.countDocuments({ user: userId })
         ]);
 
-        return NextResponse.json(
-            {
-                success: true,
-                count: templates.length,
-                total,
-                page,
-                pages: Math.ceil(total / limit),
-                data: templates
-            },
-            { status: 200 }
-        );
+        return NextResponse.json({
+            success: true,
+            count: templates.length,
+            total,
+            page,
+            pages: Math.ceil(total / limit),
+            data: templates
+        });
     } catch (error) {
-        console.error('Get Templates Error:', error);
-        return NextResponse.json(
-            {
-                success: false,
-                message: 'Failed to retrieve templates',
-                error: error.message
-            },
-            { status: 500 }
-        );
+        return NextResponse.json({ message: 'Server error', error: error.message }, { status: 500 });
     }
 }

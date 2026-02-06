@@ -8,130 +8,35 @@ const JWT_SECRET = process.env.JWT_SECRET || 'paperpop_secret_key_change_me';
 
 async function getUserId() {
     const cookieStore = await cookies();
-    const token = cookieStore.get('token');
+    const token = cookieStore.get('token')?.value;
     if (!token) return null;
     try {
-        const decoded = jwt.verify(token.value, JWT_SECRET);
+        const decoded = jwt.verify(token, JWT_SECRET);
         return decoded.id;
-    } catch (error) {
+    } catch (e) {
         return null;
     }
 }
 
-/**
- * POST /api/templates/download
- * Get template data for PDF generation
- */
 export async function POST(req) {
     try {
         const userId = await getUserId();
-        if (!userId) {
-            return NextResponse.json(
-                { success: false, message: 'Unauthorized' },
-                { status: 401 }
-            );
-        }
+        if (!userId) return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
 
-        const body = await req.json();
-        const { templateId } = body;
-
-        if (!templateId) {
-            return NextResponse.json(
-                { success: false, message: 'Template ID is required' },
-                { status: 400 }
-            );
-        }
-
+        const { templateId } = await req.json();
         await dbConnect();
 
-        const template = await Invitation.findOne({
-            _id: templateId,
-            user: userId
+        const invitation = await Invitation.findOne({ _id: templateId, user: userId });
+        if (!invitation) return NextResponse.json({ message: 'Template not found' }, { status: 404 });
+
+        // For "download", we might just return the data or log the download
+        // In this app, the actual PDF generation is client-side, 
+        // so this route might just be for tracking or retrieving specific data.
+        return NextResponse.json({
+            success: true,
+            data: invitation
         });
-
-        if (!template) {
-            return NextResponse.json(
-                { success: false, message: 'Template not found' },
-                { status: 404 }
-            );
-        }
-
-        return NextResponse.json(
-            {
-                success: true,
-                message: 'Template retrieved successfully',
-                data: template
-            },
-            { status: 200 }
-        );
     } catch (error) {
-        console.error('Download Template Error:', error);
-        return NextResponse.json(
-            {
-                success: false,
-                message: 'Failed to retrieve template',
-                error: error.message
-            },
-            { status: 500 }
-        );
-    }
-}
-
-/**
- * GET /api/templates/download?id=xxx
- * Alternative GET method for downloading template
- */
-export async function GET(req) {
-    try {
-        const userId = await getUserId();
-        if (!userId) {
-            return NextResponse.json(
-                { success: false, message: 'Unauthorized' },
-                { status: 401 }
-            );
-        }
-
-        const { searchParams } = new URL(req.url);
-        const templateId = searchParams.get('id');
-
-        if (!templateId) {
-            return NextResponse.json(
-                { success: false, message: 'Template ID is required' },
-                { status: 400 }
-            );
-        }
-
-        await dbConnect();
-
-        const template = await Invitation.findOne({
-            _id: templateId,
-            user: userId
-        });
-
-        if (!template) {
-            return NextResponse.json(
-                { success: false, message: 'Template not found' },
-                { status: 404 }
-            );
-        }
-
-        return NextResponse.json(
-            {
-                success: true,
-                message: 'Template retrieved successfully',
-                data: template
-            },
-            { status: 200 }
-        );
-    } catch (error) {
-        console.error('Download Template Error:', error);
-        return NextResponse.json(
-            {
-                success: false,
-                message: 'Failed to retrieve template',
-                error: error.message
-            },
-            { status: 500 }
-        );
+        return NextResponse.json({ message: 'Server error', error: error.message }, { status: 500 });
     }
 }

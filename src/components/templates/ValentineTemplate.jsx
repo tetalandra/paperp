@@ -48,6 +48,14 @@ const ValentineTemplate = ({ data }) => {
                             {subtitle}
                         </p>
                     )}
+
+                    {message && (
+                        <div className="absolute bottom-24 left-12 right-12 z-20">
+                            <p className="text-[11px] font-bold leading-relaxed tracking-[0.15em] text-white/80 italic max-w-[320px] mx-auto uppercase drop-shadow-md">
+                                {message}
+                            </p>
+                        </div>
+                    )}
                 </div>
             </div>
         );
@@ -80,6 +88,14 @@ const ValentineTemplate = ({ data }) => {
                     {subtitle && (
                         <div className="text-[10px] font-black tracking-[0.6em] uppercase text-rose-400/80">
                             {subtitle}
+                        </div>
+                    )}
+
+                    {message && (
+                        <div className="absolute bottom-24 left-14 right-14 z-20">
+                            <p className="text-[12px] font-black leading-relaxed tracking-[0.1em] text-rose-950 italic max-w-[320px] mx-auto uppercase">
+                                {message}
+                            </p>
                         </div>
                     )}
                 </div>

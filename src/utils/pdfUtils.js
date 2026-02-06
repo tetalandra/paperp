@@ -10,12 +10,11 @@ export const downloadPDF = async (elementId, fileName = 'invitation.pdf') => {
         const canvas = await html2canvas(element, {
             scale: 2, // High resolution
             useCORS: true, // Handle images from external sources
-            allowTaint: true,
             logging: true,
             backgroundColor: '#000000',
             scrollY: 0, // Prevent scroll offset issues
             scrollX: 0,
-            imageTimeout: 0, // Wait for images
+            imageTimeout: 30000, // Increase timeout to 30s
             windowWidth: element.scrollWidth,
             windowHeight: element.scrollHeight,
             onclone: (document) => {
@@ -23,6 +22,12 @@ export const downloadPDF = async (elementId, fileName = 'invitation.pdf') => {
                 if (el) {
                     el.style.transform = 'none'; // Reset any potential transforms
                     el.style.margin = '0'; // Remove margins
+
+                    // Force all images to have crossOrigin = anonymous in the clone
+                    const images = el.getElementsByTagName('img');
+                    for (let img of images) {
+                        img.crossOrigin = 'anonymous';
+                    }
                 }
             }
         });

@@ -36,7 +36,7 @@ const LandingPage = ({ onGetStarted, user, onLogin }) => {
                             <img src={brandLogo.src || brandLogo} className="relative w-14 h-14 object-contain transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 drop-shadow-2xl" alt="Imena Logo" />
                         </div>
                         <div className="flex flex-col">
-                            <span className="text-2xl font-serif tracking-tight text-white font-bold">PaperPop</span>
+                            <span className="text-2xl font-serif tracking-tight text-white font-bold">Paper</span>
                             <span className="text-[8px] font-bold uppercase tracking-[0.3em] text-brand-blue/80">by Imena</span>
                         </div>
                     </div>
