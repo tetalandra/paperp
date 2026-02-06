@@ -25,6 +25,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 ;
 const LandingPage = ({ onGetStarted, user, onLogin })=>{
     const containerRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const [particles, setParticles] = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].useState([]);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         const handleMouseMove = (e)=>{
             if (!containerRef.current) return;
@@ -35,6 +36,19 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
             containerRef.current.style.setProperty('--mouse-x', `${x}px`);
             containerRef.current.style.setProperty('--mouse-y', `${y}px`);
         };
+        // Initialize particles only on client
+        setParticles(Array.from({
+            length: 30
+        }).map((_, i)=>({
+                id: i,
+                width: Math.random() * 2 + 1 + 'px',
+                height: Math.random() * 2 + 1 + 'px',
+                top: Math.random() * 100 + '%',
+                left: Math.random() * 100 + '%',
+                animationDuration: Math.random() * 10 + 10 + 's',
+                animationDelay: Math.random() * -10 + 's',
+                opacity: Math.random() * 0.3 + 0.1
+            })));
         window.addEventListener('mousemove', handleMouseMove);
         return ()=>window.removeEventListener('mousemove', handleMouseMove);
     }, []);
@@ -48,52 +62,50 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
                         className: "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] w-[120%] h-[120%] bg-[radial-gradient(circle_at_50%_50%,rgba(217,119,6,0.07)_0%,transparent_60%)]"
                     }, void 0, false, {
                         fileName: "[project]/src/components/LandingPage.jsx",
-                        lineNumber: 30,
+                        lineNumber: 45,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-amber-500/20 to-transparent"
                     }, void 0, false, {
                         fileName: "[project]/src/components/LandingPage.jsx",
-                        lineNumber: 33,
+                        lineNumber: 48,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "absolute inset-0",
-                        children: Array.from({
-                            length: 30
-                        }).map((_, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        children: particles.map((p)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "absolute bg-amber-400/20 rounded-full animate-float",
                                 style: {
-                                    width: Math.random() * 2 + 1 + 'px',
-                                    height: Math.random() * 2 + 1 + 'px',
-                                    top: Math.random() * 100 + '%',
-                                    left: Math.random() * 100 + '%',
-                                    animationDuration: Math.random() * 10 + 10 + 's',
-                                    animationDelay: Math.random() * -10 + 's',
-                                    opacity: Math.random() * 0.3 + 0.1
+                                    width: p.width,
+                                    height: p.height,
+                                    top: p.top,
+                                    left: p.left,
+                                    animationDuration: p.animationDuration,
+                                    animationDelay: p.animationDelay,
+                                    opacity: p.opacity
                                 }
-                            }, i, false, {
+                            }, p.id, false, {
                                 fileName: "[project]/src/components/LandingPage.jsx",
-                                lineNumber: 38,
+                                lineNumber: 53,
                                 columnNumber: 25
                             }, ("TURBOPACK compile-time value", void 0)))
                     }, void 0, false, {
                         fileName: "[project]/src/components/LandingPage.jsx",
-                        lineNumber: 36,
+                        lineNumber: 51,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"
                     }, void 0, false, {
                         fileName: "[project]/src/components/LandingPage.jsx",
-                        lineNumber: 55,
+                        lineNumber: 70,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/LandingPage.jsx",
-                lineNumber: 28,
+                lineNumber: 43,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
@@ -108,12 +120,12 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
                                     className: "w-5 h-5 text-black"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/LandingPage.jsx",
-                                    lineNumber: 62,
+                                    lineNumber: 77,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/src/components/LandingPage.jsx",
-                                lineNumber: 61,
+                                lineNumber: 76,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -124,7 +136,7 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
                                         children: "PaperPop"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/LandingPage.jsx",
-                                        lineNumber: 65,
+                                        lineNumber: 80,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -132,19 +144,19 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
                                         children: "Studio Studio"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/LandingPage.jsx",
-                                        lineNumber: 66,
+                                        lineNumber: 81,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/LandingPage.jsx",
-                                lineNumber: 64,
+                                lineNumber: 79,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/LandingPage.jsx",
-                        lineNumber: 60,
+                        lineNumber: 75,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -156,7 +168,7 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
                                 children: "Templates"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/LandingPage.jsx",
-                                lineNumber: 71,
+                                lineNumber: 86,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -165,7 +177,7 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
                                 children: "Collections"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/LandingPage.jsx",
-                                lineNumber: 72,
+                                lineNumber: 87,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -174,13 +186,13 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
                                 children: "Pricing"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/LandingPage.jsx",
-                                lineNumber: 73,
+                                lineNumber: 88,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/LandingPage.jsx",
-                        lineNumber: 70,
+                        lineNumber: 85,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -192,7 +204,7 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
                                 children: "Log In"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/LandingPage.jsx",
-                                lineNumber: 77,
+                                lineNumber: 92,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -201,19 +213,19 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
                                 children: "Start Designing"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/LandingPage.jsx",
-                                lineNumber: 78,
+                                lineNumber: 93,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/LandingPage.jsx",
-                        lineNumber: 76,
+                        lineNumber: 91,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/LandingPage.jsx",
-                lineNumber: 59,
+                lineNumber: 74,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
@@ -233,7 +245,7 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
                                         className: "w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/LandingPage.jsx",
-                                        lineNumber: 97,
+                                        lineNumber: 112,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -241,13 +253,13 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
                                         children: "Private Creative Studio"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/LandingPage.jsx",
-                                        lineNumber: 98,
+                                        lineNumber: 113,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/LandingPage.jsx",
-                                lineNumber: 96,
+                                lineNumber: 111,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -257,7 +269,7 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
                                         className: "absolute -inset-14 bg-amber-500/15 rounded-full blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-[1.5s]"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/LandingPage.jsx",
-                                        lineNumber: 103,
+                                        lineNumber: 118,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -266,13 +278,13 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
                                         className: "h-36 md:h-52 object-contain filter drop-shadow-[0_25px_50px_rgba(0,0,0,0.6)] relative z-10"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/LandingPage.jsx",
-                                        lineNumber: 104,
+                                        lineNumber: 119,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/LandingPage.jsx",
-                                lineNumber: 102,
+                                lineNumber: 117,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
@@ -286,7 +298,7 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
                                                 children: "Digital"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/LandingPage.jsx",
-                                                lineNumber: 114,
+                                                lineNumber: 129,
                                                 columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -294,13 +306,13 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
                                                 children: "Stationery."
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/LandingPage.jsx",
-                                                lineNumber: 115,
+                                                lineNumber: 130,
                                                 columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/LandingPage.jsx",
-                                        lineNumber: 113,
+                                        lineNumber: 128,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -309,7 +321,7 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
                                             "Crafting elite family invitations ",
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                                 fileName: "[project]/src/components/LandingPage.jsx",
-                                                lineNumber: 120,
+                                                lineNumber: 135,
                                                 columnNumber: 63
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -317,19 +329,19 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
                                                 children: "for the most significant occasions."
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/LandingPage.jsx",
-                                                lineNumber: 121,
+                                                lineNumber: 136,
                                                 columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/LandingPage.jsx",
-                                        lineNumber: 119,
+                                        lineNumber: 134,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/LandingPage.jsx",
-                                lineNumber: 112,
+                                lineNumber: 127,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -343,7 +355,7 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
                                                 className: "absolute inset-0 bg-white/30 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/LandingPage.jsx",
-                                                lineNumber: 131,
+                                                lineNumber: 146,
                                                 columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -351,20 +363,20 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
                                                 children: "Initialize Studio"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/LandingPage.jsx",
-                                                lineNumber: 132,
+                                                lineNumber: 147,
                                                 columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
                                                 className: "relative z-10 w-4 h-4 text-black group-hover:translate-x-3 transition-transform duration-500"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/LandingPage.jsx",
-                                                lineNumber: 133,
+                                                lineNumber: 148,
                                                 columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/LandingPage.jsx",
-                                        lineNumber: 127,
+                                        lineNumber: 142,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -383,24 +395,24 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
                                                             className: "w-full h-full object-cover grayscale"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/LandingPage.jsx",
-                                                            lineNumber: 140,
+                                                            lineNumber: 155,
                                                             columnNumber: 41
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     }, i, false, {
                                                         fileName: "[project]/src/components/LandingPage.jsx",
-                                                        lineNumber: 139,
+                                                        lineNumber: 154,
                                                         columnNumber: 37
                                                     }, ("TURBOPACK compile-time value", void 0)))
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/LandingPage.jsx",
-                                                lineNumber: 137,
+                                                lineNumber: 152,
                                                 columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "h-6 w-[1px] bg-white/10"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/LandingPage.jsx",
-                                                lineNumber: 144,
+                                                lineNumber: 159,
                                                 columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -411,7 +423,7 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
                                                         children: "Trusted By"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/LandingPage.jsx",
-                                                        lineNumber: 146,
+                                                        lineNumber: 161,
                                                         columnNumber: 33
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -419,25 +431,25 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
                                                         children: "Global Creators"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/LandingPage.jsx",
-                                                        lineNumber: 147,
+                                                        lineNumber: 162,
                                                         columnNumber: 33
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/LandingPage.jsx",
-                                                lineNumber: 145,
+                                                lineNumber: 160,
                                                 columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/LandingPage.jsx",
-                                        lineNumber: 136,
+                                        lineNumber: 151,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/LandingPage.jsx",
-                                lineNumber: 126,
+                                lineNumber: 141,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -450,7 +462,7 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
                                                 className: "w-6 h-6 text-amber-500 mb-2 group-hover:scale-110 transition-transform"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/LandingPage.jsx",
-                                                lineNumber: 155,
+                                                lineNumber: 170,
                                                 columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -458,13 +470,13 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
                                                 children: "Guaranteed Quality"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/LandingPage.jsx",
-                                                lineNumber: 156,
+                                                lineNumber: 171,
                                                 columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/LandingPage.jsx",
-                                        lineNumber: 154,
+                                        lineNumber: 169,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -474,7 +486,7 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
                                                 className: "w-6 h-6 text-amber-500 mb-2 group-hover:scale-110 transition-transform"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/LandingPage.jsx",
-                                                lineNumber: 159,
+                                                lineNumber: 174,
                                                 columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -482,13 +494,13 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
                                                 children: "Instant Generation"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/LandingPage.jsx",
-                                                lineNumber: 160,
+                                                lineNumber: 175,
                                                 columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/LandingPage.jsx",
-                                        lineNumber: 158,
+                                        lineNumber: 173,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -498,7 +510,7 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
                                                 className: "w-6 h-6 text-amber-500 mb-2 group-hover:scale-110 transition-transform"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/LandingPage.jsx",
-                                                lineNumber: 163,
+                                                lineNumber: 178,
                                                 columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -506,25 +518,25 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
                                                 children: "Professional PDF"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/LandingPage.jsx",
-                                                lineNumber: 164,
+                                                lineNumber: 179,
                                                 columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/LandingPage.jsx",
-                                        lineNumber: 162,
+                                        lineNumber: 177,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/LandingPage.jsx",
-                                lineNumber: 153,
+                                lineNumber: 168,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/LandingPage.jsx",
-                        lineNumber: 90,
+                        lineNumber: 105,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -534,7 +546,7 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
                                 className: "h-24 w-[1px] bg-gradient-to-b from-transparent via-amber-500 to-transparent"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/LandingPage.jsx",
-                                lineNumber: 171,
+                                lineNumber: 186,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -542,19 +554,19 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
                                 children: "Studio"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/LandingPage.jsx",
-                                lineNumber: 172,
+                                lineNumber: 187,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/LandingPage.jsx",
-                        lineNumber: 170,
+                        lineNumber: 185,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/LandingPage.jsx",
-                lineNumber: 88,
+                lineNumber: 103,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -565,14 +577,14 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
                         children: "© 2024"
                     }, void 0, false, {
                         fileName: "[project]/src/components/LandingPage.jsx",
-                        lineNumber: 178,
+                        lineNumber: 193,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "h-[1px] w-8 bg-white"
                     }, void 0, false, {
                         fileName: "[project]/src/components/LandingPage.jsx",
-                        lineNumber: 179,
+                        lineNumber: 194,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -580,13 +592,13 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
                         children: "Imena Group"
                     }, void 0, false, {
                         fileName: "[project]/src/components/LandingPage.jsx",
-                        lineNumber: 180,
+                        lineNumber: 195,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/LandingPage.jsx",
-                lineNumber: 177,
+                lineNumber: 192,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -596,7 +608,7 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
                         className: "w-4 h-4 text-amber-500 mb-2"
                     }, void 0, false, {
                         fileName: "[project]/src/components/LandingPage.jsx",
-                        lineNumber: 184,
+                        lineNumber: 199,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -604,19 +616,19 @@ const LandingPage = ({ onGetStarted, user, onLogin })=>{
                         children: "Designed for Excellence"
                     }, void 0, false, {
                         fileName: "[project]/src/components/LandingPage.jsx",
-                        lineNumber: 185,
+                        lineNumber: 200,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/LandingPage.jsx",
-                lineNumber: 183,
+                lineNumber: 198,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/LandingPage.jsx",
-        lineNumber: 25,
+        lineNumber: 40,
         columnNumber: 9
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -1079,7 +1091,83 @@ const BirthdayTemplate = ({ data })=>{
             columnNumber: 13
         }, ("TURBOPACK compile-time value", void 0));
     }
-    return null;
+    // Default / Fallback
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: "relative w-full h-full bg-neutral-900 text-white flex flex-col items-center justify-center p-12 text-center",
+        style: backgroundStyle,
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(ImenaBranding, {}, void 0, false, {
+                fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
+                lineNumber: 147,
+                columnNumber: 13
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "absolute inset-0 bg-black/40 backdrop-blur-[2px]"
+            }, void 0, false, {
+                fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
+                lineNumber: 148,
+                columnNumber: 13
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "relative z-10 border-2 border-amber-500/20 p-10 bg-black/60 rounded-3xl",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                        className: "text-4xl font-serif italic mb-4 text-amber-500",
+                        children: subtitle || "Birthday"
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
+                        lineNumber: 150,
+                        columnNumber: 17
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                        className: "text-xl font-bold tracking-[0.3em] uppercase mb-8",
+                        children: title || "Invitation"
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
+                        lineNumber: 151,
+                        columnNumber: 17
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "space-y-4 opacity-70",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-sm tracking-widest uppercase",
+                                children: [
+                                    date,
+                                    " • ",
+                                    time
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
+                                lineNumber: 153,
+                                columnNumber: 21
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-xs italic",
+                                children: location
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
+                                lineNumber: 154,
+                                columnNumber: 21
+                            }, ("TURBOPACK compile-time value", void 0))
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
+                        lineNumber: 152,
+                        columnNumber: 17
+                    }, ("TURBOPACK compile-time value", void 0))
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
+                lineNumber: 149,
+                columnNumber: 13
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
+        lineNumber: 146,
+        columnNumber: 9
+    }, ("TURBOPACK compile-time value", void 0));
 };
 const __TURBOPACK__default__export__ = BirthdayTemplate;
 }),
@@ -1553,7 +1641,62 @@ const AssemblyTemplate = ({ data })=>{
             columnNumber: 13
         }, ("TURBOPACK compile-time value", void 0));
     }
-    return null;
+    // Default / Fallback (Luxury Stage is usually default, but good to have)
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: "relative w-full h-full bg-neutral-900 text-white flex flex-col items-center justify-center p-12 text-center",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(ImenaBranding, {}, void 0, false, {
+                fileName: "[project]/src/components/templates/AssemblyTemplate.jsx",
+                lineNumber: 129,
+                columnNumber: 13
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "border-4 border-white/10 p-10 h-full w-full flex flex-col items-center justify-center bg-black/40",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                        className: "text-[10px] font-black uppercase tracking-[1em] opacity-30 mb-8",
+                        children: "Assembly"
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/templates/AssemblyTemplate.jsx",
+                        lineNumber: 131,
+                        columnNumber: 17
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                        className: "text-4xl font-serif italic mb-6",
+                        children: title || "Event Name"
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/templates/AssemblyTemplate.jsx",
+                        lineNumber: 132,
+                        columnNumber: 17
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        className: "text-[9px] font-black tracking-[0.4em] uppercase opacity-70 border-y border-white/10 py-6 w-full",
+                        children: date
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/templates/AssemblyTemplate.jsx",
+                        lineNumber: 133,
+                        columnNumber: 17
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        className: "text-xs mt-8 italic opacity-50",
+                        children: location
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/templates/AssemblyTemplate.jsx",
+                        lineNumber: 134,
+                        columnNumber: 17
+                    }, ("TURBOPACK compile-time value", void 0))
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/components/templates/AssemblyTemplate.jsx",
+                lineNumber: 130,
+                columnNumber: 13
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/components/templates/AssemblyTemplate.jsx",
+        lineNumber: 128,
+        columnNumber: 9
+    }, ("TURBOPACK compile-time value", void 0));
 };
 const __TURBOPACK__default__export__ = AssemblyTemplate;
 }),
@@ -2155,7 +2298,73 @@ const AnnouncementTemplate = ({ data })=>{
             columnNumber: 13
         }, ("TURBOPACK compile-time value", void 0));
     }
-    return null;
+    // Default / Fallback
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: "relative w-full h-full bg-black text-white flex flex-col items-center justify-center p-12 text-center",
+        style: backgroundStyle,
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(ImenaBranding, {}, void 0, false, {
+                fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
+                lineNumber: 138,
+                columnNumber: 13
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "absolute inset-0 bg-white/5 backdrop-blur-[1px]"
+            }, void 0, false, {
+                fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
+                lineNumber: 139,
+                columnNumber: 13
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "relative z-10 border border-white/10 p-12 bg-black/80",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "w-12 h-1 bg-amber-500 mb-8 mx-auto"
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
+                        lineNumber: 141,
+                        columnNumber: 17
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                        className: "text-3xl font-black tracking-[0.4em] uppercase mb-6",
+                        children: title || "Notice"
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
+                        lineNumber: 142,
+                        columnNumber: 17
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        className: "text-sm font-medium tracking-[0.2em] text-white/60 mb-10 max-w-xs",
+                        children: message || "You are cordially invited."
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
+                        lineNumber: 143,
+                        columnNumber: 17
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "text-[10px] font-black uppercase tracking-[0.3em] border-t border-white/10 pt-8",
+                        children: [
+                            date,
+                            " • ",
+                            location
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
+                        lineNumber: 144,
+                        columnNumber: 17
+                    }, ("TURBOPACK compile-time value", void 0))
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
+                lineNumber: 140,
+                columnNumber: 13
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
+        lineNumber: 137,
+        columnNumber: 9
+    }, ("TURBOPACK compile-time value", void 0));
 };
 const __TURBOPACK__default__export__ = AnnouncementTemplate;
 }),
@@ -2823,16 +3032,63 @@ const EventForm = ({ onBack })=>{
                 config.showImage = true;
                 config.titleLabel = 'Top Heading';
                 config.locationLabel = 'Venue';
+                config.variants = [
+                    {
+                        id: 5,
+                        name: 'Golden Glitter',
+                        preview: '✨',
+                        img: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$templates$2f$birthday_variant_5$2e$jpg$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$src$2f$assets$2f$templates$2f$birthday_variant_5$2e$jpg__$28$static__in__ecmascript$2c$__tag__client$2922$__$7d$__$5b$app$2d$ssr$5d$__$28$structured__image__object__with__data__url$2c$__ecmascript$29$__["default"].src || __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$templates$2f$birthday_variant_5$2e$jpg$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$src$2f$assets$2f$templates$2f$birthday_variant_5$2e$jpg__$28$static__in__ecmascript$2c$__tag__client$2922$__$7d$__$5b$app$2d$ssr$5d$__$28$structured__image__object__with__data__url$2c$__ecmascript$29$__["default"]
+                    },
+                    {
+                        id: 6,
+                        name: 'Modern Photo',
+                        preview: '📸',
+                        img: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$templates$2f$birthday_variant_6$2e$jpg$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$src$2f$assets$2f$templates$2f$birthday_variant_6$2e$jpg__$28$static__in__ecmascript$2c$__tag__client$2922$__$7d$__$5b$app$2d$ssr$5d$__$28$structured__image__object__with__data__url$2c$__ecmascript$29$__["default"].src || __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$templates$2f$birthday_variant_6$2e$jpg$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$src$2f$assets$2f$templates$2f$birthday_variant_6$2e$jpg__$28$static__in__ecmascript$2c$__tag__client$2922$__$7d$__$5b$app$2d$ssr$5d$__$28$structured__image__object__with__data__url$2c$__ecmascript$29$__["default"]
+                    },
+                    {
+                        id: 7,
+                        name: 'Balloon Party',
+                        preview: '🎈',
+                        img: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$templates$2f$birthday_variant_7$2e$jpg$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$src$2f$assets$2f$templates$2f$birthday_variant_7$2e$jpg__$28$static__in__ecmascript$2c$__tag__client$2922$__$7d$__$5b$app$2d$ssr$5d$__$28$structured__image__object__with__data__url$2c$__ecmascript$29$__["default"].src || __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$templates$2f$birthday_variant_7$2e$jpg$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$src$2f$assets$2f$templates$2f$birthday_variant_7$2e$jpg__$28$static__in__ecmascript$2c$__tag__client$2922$__$7d$__$5b$app$2d$ssr$5d$__$28$structured__image__object__with__data__url$2c$__ecmascript$29$__["default"]
+                    }
+                ];
                 break;
             case 'announcement':
                 config.showImage = false;
                 config.titleLabel = 'Event Title';
+                config.variants = [
+                    {
+                        id: 5,
+                        name: 'Annual Gala',
+                        preview: '🎩',
+                        img: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$templates$2f$notice_variant_5$2e$jpg$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$src$2f$assets$2f$templates$2f$notice_variant_5$2e$jpg__$28$static__in__ecmascript$2c$__tag__client$2922$__$7d$__$5b$app$2d$ssr$5d$__$28$structured__image__object__with__data__url$2c$__ecmascript$29$__["default"].src || __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$templates$2f$notice_variant_5$2e$jpg$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$src$2f$assets$2f$templates$2f$notice_variant_5$2e$jpg__$28$static__in__ecmascript$2c$__tag__client$2922$__$7d$__$5b$app$2d$ssr$5d$__$28$structured__image__object__with__data__url$2c$__ecmascript$29$__["default"]
+                    },
+                    {
+                        id: 6,
+                        name: 'Luxury Event',
+                        preview: '👑',
+                        img: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$templates$2f$notice_variant_6$2e$jpg$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$src$2f$assets$2f$templates$2f$notice_variant_6$2e$jpg__$28$static__in__ecmascript$2c$__tag__client$2922$__$7d$__$5b$app$2d$ssr$5d$__$28$structured__image__object__with__data__url$2c$__ecmascript$29$__["default"].src || __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$templates$2f$notice_variant_6$2e$jpg$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$src$2f$assets$2f$templates$2f$notice_variant_6$2e$jpg__$28$static__in__ecmascript$2c$__tag__client$2922$__$7d$__$5b$app$2d$ssr$5d$__$28$structured__image__object__with__data__url$2c$__ecmascript$29$__["default"]
+                    },
+                    {
+                        id: 7,
+                        name: 'Grand Opening',
+                        preview: '✂️',
+                        img: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$templates$2f$notice_variant_7$2e$jpg$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$src$2f$assets$2f$templates$2f$notice_variant_7$2e$jpg__$28$static__in__ecmascript$2c$__tag__client$2922$__$7d$__$5b$app$2d$ssr$5d$__$28$structured__image__object__with__data__url$2c$__ecmascript$29$__["default"].src || __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$templates$2f$notice_variant_7$2e$jpg$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$src$2f$assets$2f$templates$2f$notice_variant_7$2e$jpg__$28$static__in__ecmascript$2c$__tag__client$2922$__$7d$__$5b$app$2d$ssr$5d$__$28$structured__image__object__with__data__url$2c$__ecmascript$29$__["default"]
+                    }
+                ];
                 break;
             case 'achievement':
                 config.showTime = false;
                 config.showPhone = false;
                 config.titleLabel = 'Award Title';
                 config.locationLabel = 'Issuer';
+                config.variants = [
+                    {
+                        id: 0,
+                        name: 'Premium Certificate',
+                        preview: '📜'
+                    }
+                ];
                 break;
             case 'assembly':
                 config.showImage = true;
@@ -2857,7 +3113,7 @@ const EventForm = ({ onBack })=>{
         }
         return config;
     };
-    const { showTime, showLocation, locationLabel, locationIcon, titleLabel, showPhone, phoneLabel, showImage } = getFieldConfig();
+    const { showTime, showLocation, locationLabel, locationIcon, titleLabel, showPhone, phoneLabel, showImage, variants } = getFieldConfig();
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "min-h-screen bg-[#050505] text-white flex flex-col lg:flex-row overflow-hidden font-sans",
         children: [
@@ -2868,7 +3124,7 @@ const EventForm = ({ onBack })=>{
                         className: `absolute top-0 left-0 w-full h-64 bg-gradient-to-b ${templates.find((t)=>t.id === templateType)?.color || 'from-amber-500/10'} to-transparent opacity-30 pointer-events-none z-0 transition-all duration-1000`
                     }, void 0, false, {
                         fileName: "[project]/src/components/EventForm.jsx",
-                        lineNumber: 239,
+                        lineNumber: 252,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2885,14 +3141,14 @@ const EventForm = ({ onBack })=>{
                                                 className: "w-3 h-3 group-hover:-translate-x-1 transition-transform"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/EventForm.jsx",
-                                                lineNumber: 245,
+                                                lineNumber: 258,
                                                 columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             "Studio"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/EventForm.jsx",
-                                        lineNumber: 244,
+                                        lineNumber: 257,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2902,7 +3158,7 @@ const EventForm = ({ onBack })=>{
                                                 className: "w-2 h-2 rounded-full bg-amber-500 animate-pulse"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/EventForm.jsx",
-                                                lineNumber: 249,
+                                                lineNumber: 262,
                                                 columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2910,19 +3166,19 @@ const EventForm = ({ onBack })=>{
                                                 children: "Live Draft"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/EventForm.jsx",
-                                                lineNumber: 250,
+                                                lineNumber: 263,
                                                 columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/EventForm.jsx",
-                                        lineNumber: 248,
+                                        lineNumber: 261,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/EventForm.jsx",
-                                lineNumber: 243,
+                                lineNumber: 256,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
@@ -2934,7 +3190,7 @@ const EventForm = ({ onBack })=>{
                                             "Create ",
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                                 fileName: "[project]/src/components/EventForm.jsx",
-                                                lineNumber: 256,
+                                                lineNumber: 269,
                                                 columnNumber: 36
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2942,13 +3198,13 @@ const EventForm = ({ onBack })=>{
                                                 children: "Masterpiece"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/EventForm.jsx",
-                                                lineNumber: 257,
+                                                lineNumber: 270,
                                                 columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/EventForm.jsx",
-                                        lineNumber: 255,
+                                        lineNumber: 268,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2956,13 +3212,13 @@ const EventForm = ({ onBack })=>{
                                         children: "Tailor every detail to perfection"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/EventForm.jsx",
-                                        lineNumber: 259,
+                                        lineNumber: 272,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/EventForm.jsx",
-                                lineNumber: 254,
+                                lineNumber: 267,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2976,20 +3232,20 @@ const EventForm = ({ onBack })=>{
                                                 children: "Category"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/EventForm.jsx",
-                                                lineNumber: 265,
+                                                lineNumber: 278,
                                                 columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$palette$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Palette$3e$__["Palette"], {
                                                 className: "w-3 h-3 text-amber-500/50"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/EventForm.jsx",
-                                                lineNumber: 266,
+                                                lineNumber: 279,
                                                 columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/EventForm.jsx",
-                                        lineNumber: 264,
+                                        lineNumber: 277,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2997,11 +3253,13 @@ const EventForm = ({ onBack })=>{
                                         children: templates.map((t)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                 onClick: ()=>{
                                                     setTemplateType(t.id);
+                                                    const defaultVariant = t.id === 'birthday' || t.id === 'announcement' ? 5 : 1;
+                                                    const defaultImg = t.id === 'birthday' ? __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$templates$2f$birthday_variant_5$2e$jpg$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$src$2f$assets$2f$templates$2f$birthday_variant_5$2e$jpg__$28$static__in__ecmascript$2c$__tag__client$2922$__$7d$__$5b$app$2d$ssr$5d$__$28$structured__image__object__with__data__url$2c$__ecmascript$29$__["default"].src || __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$templates$2f$birthday_variant_5$2e$jpg$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$src$2f$assets$2f$templates$2f$birthday_variant_5$2e$jpg__$28$static__in__ecmascript$2c$__tag__client$2922$__$7d$__$5b$app$2d$ssr$5d$__$28$structured__image__object__with__data__url$2c$__ecmascript$29$__["default"] : t.id === 'announcement' ? __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$templates$2f$notice_variant_5$2e$jpg$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$src$2f$assets$2f$templates$2f$notice_variant_5$2e$jpg__$28$static__in__ecmascript$2c$__tag__client$2922$__$7d$__$5b$app$2d$ssr$5d$__$28$structured__image__object__with__data__url$2c$__ecmascript$29$__["default"].src || __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$templates$2f$notice_variant_5$2e$jpg$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$src$2f$assets$2f$templates$2f$notice_variant_5$2e$jpg__$28$static__in__ecmascript$2c$__tag__client$2922$__$7d$__$5b$app$2d$ssr$5d$__$28$structured__image__object__with__data__url$2c$__ecmascript$29$__["default"] : null;
                                                     setFormData((prev)=>({
                                                             ...prev,
-                                                            variant: 1,
-                                                            backgroundImage: null,
-                                                            backgroundType: 'color'
+                                                            variant: defaultVariant,
+                                                            backgroundImage: defaultImg,
+                                                            backgroundType: defaultImg ? 'image' : 'color'
                                                         }));
                                                 },
                                                 className: `relative flex items-center gap-4 px-5 py-4 rounded-2xl transition-all duration-500 group overflow-hidden border
@@ -3012,7 +3270,7 @@ const EventForm = ({ onBack })=>{
                                                         children: t.icon
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/EventForm.jsx",
-                                                        lineNumber: 282,
+                                                        lineNumber: 304,
                                                         columnNumber: 37
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3020,7 +3278,7 @@ const EventForm = ({ onBack })=>{
                                                         children: t.label
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/EventForm.jsx",
-                                                        lineNumber: 285,
+                                                        lineNumber: 307,
                                                         columnNumber: 37
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     templateType === t.id && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3029,29 +3287,29 @@ const EventForm = ({ onBack })=>{
                                                             className: "w-1.5 h-1.5 rounded-full bg-amber-500 ring-4 ring-amber-500/20"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/EventForm.jsx",
-                                                            lineNumber: 290,
+                                                            lineNumber: 312,
                                                             columnNumber: 45
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/EventForm.jsx",
-                                                        lineNumber: 289,
+                                                        lineNumber: 311,
                                                         columnNumber: 41
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, t.id, true, {
                                                 fileName: "[project]/src/components/EventForm.jsx",
-                                                lineNumber: 270,
+                                                lineNumber: 283,
                                                 columnNumber: 33
                                             }, ("TURBOPACK compile-time value", void 0)))
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/EventForm.jsx",
-                                        lineNumber: 268,
+                                        lineNumber: 281,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/EventForm.jsx",
-                                lineNumber: 263,
+                                lineNumber: 276,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3065,7 +3323,7 @@ const EventForm = ({ onBack })=>{
                                                 children: "Premium Collection"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/EventForm.jsx",
-                                                lineNumber: 301,
+                                                lineNumber: 323,
                                                 columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3073,13 +3331,13 @@ const EventForm = ({ onBack })=>{
                                                 children: "6 Styles Available"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/EventForm.jsx",
-                                                lineNumber: 302,
+                                                lineNumber: 324,
                                                 columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/EventForm.jsx",
-                                        lineNumber: 300,
+                                        lineNumber: 322,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3095,14 +3353,14 @@ const EventForm = ({ onBack })=>{
                                                         className: "w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/EventForm.jsx",
-                                                        lineNumber: 315,
+                                                        lineNumber: 337,
                                                         columnNumber: 37
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         className: `absolute inset-0 bg-black/60 transition-opacity duration-500 ${formData.backgroundImage === bg.img ? 'opacity-0' : 'opacity-40 group-hover:opacity-0'}`
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/EventForm.jsx",
-                                                        lineNumber: 316,
+                                                        lineNumber: 338,
                                                         columnNumber: 37
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3112,12 +3370,12 @@ const EventForm = ({ onBack })=>{
                                                             children: bg.label
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/EventForm.jsx",
-                                                            lineNumber: 318,
+                                                            lineNumber: 340,
                                                             columnNumber: 41
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/EventForm.jsx",
-                                                        lineNumber: 317,
+                                                        lineNumber: 339,
                                                         columnNumber: 37
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     formData.backgroundImage === bg.img && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3126,30 +3384,93 @@ const EventForm = ({ onBack })=>{
                                                             className: "w-2.5 h-2.5 text-black"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/EventForm.jsx",
-                                                            lineNumber: 322,
+                                                            lineNumber: 344,
                                                             columnNumber: 45
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/EventForm.jsx",
-                                                        lineNumber: 321,
+                                                        lineNumber: 343,
                                                         columnNumber: 41
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, bg.id, true, {
                                                 fileName: "[project]/src/components/EventForm.jsx",
-                                                lineNumber: 306,
+                                                lineNumber: 328,
                                                 columnNumber: 33
                                             }, ("TURBOPACK compile-time value", void 0)))
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/EventForm.jsx",
-                                        lineNumber: 304,
+                                        lineNumber: 326,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/EventForm.jsx",
-                                lineNumber: 299,
+                                lineNumber: 321,
                                 columnNumber: 21
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            variants && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "mb-12",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex items-center justify-between mb-4",
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                            className: "text-[10px] text-neutral-500 font-black tracking-[0.3em] uppercase",
+                                            children: "Style Variant"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/EventForm.jsx",
+                                            lineNumber: 356,
+                                            columnNumber: 33
+                                        }, ("TURBOPACK compile-time value", void 0))
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/EventForm.jsx",
+                                        lineNumber: 355,
+                                        columnNumber: 29
+                                    }, ("TURBOPACK compile-time value", void 0)),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "grid grid-cols-2 gap-3",
+                                        children: variants.map((v)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                onClick: ()=>setFormData((prev)=>({
+                                                            ...prev,
+                                                            variant: v.id,
+                                                            backgroundImage: v.img || prev.backgroundImage,
+                                                            backgroundType: v.img ? 'image' : prev.backgroundType
+                                                        })),
+                                                className: `flex items-center gap-3 px-4 py-3 rounded-2xl border transition-all duration-300
+                                            ${formData.variant === v.id ? 'bg-amber-500/10 border-amber-500 text-amber-500' : 'bg-white/5 border-white/5 text-neutral-500 hover:border-white/10 hover:text-white'}`,
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "text-lg",
+                                                        children: v.preview
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/components/EventForm.jsx",
+                                                        lineNumber: 374,
+                                                        columnNumber: 41
+                                                    }, ("TURBOPACK compile-time value", void 0)),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "text-[10px] font-black uppercase tracking-widest",
+                                                        children: v.name
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/components/EventForm.jsx",
+                                                        lineNumber: 375,
+                                                        columnNumber: 41
+                                                    }, ("TURBOPACK compile-time value", void 0))
+                                                ]
+                                            }, v.id, true, {
+                                                fileName: "[project]/src/components/EventForm.jsx",
+                                                lineNumber: 360,
+                                                columnNumber: 37
+                                            }, ("TURBOPACK compile-time value", void 0)))
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/EventForm.jsx",
+                                        lineNumber: 358,
+                                        columnNumber: 29
+                                    }, ("TURBOPACK compile-time value", void 0))
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/components/EventForm.jsx",
+                                lineNumber: 354,
+                                columnNumber: 25
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "space-y-10",
@@ -3164,7 +3485,7 @@ const EventForm = ({ onBack })=>{
                                                         className: "h-[1px] flex-1 bg-white/5"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/EventForm.jsx",
-                                                        lineNumber: 334,
+                                                        lineNumber: 386,
                                                         columnNumber: 33
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -3172,20 +3493,20 @@ const EventForm = ({ onBack })=>{
                                                         children: "Content Studio"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/EventForm.jsx",
-                                                        lineNumber: 335,
+                                                        lineNumber: 387,
                                                         columnNumber: 33
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         className: "h-[1px] flex-1 bg-white/5"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/EventForm.jsx",
-                                                        lineNumber: 336,
+                                                        lineNumber: 388,
                                                         columnNumber: 33
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/EventForm.jsx",
-                                                lineNumber: 333,
+                                                lineNumber: 385,
                                                 columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3204,7 +3525,7 @@ const EventForm = ({ onBack })=>{
                                                         onBlur: handleBlur
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/EventForm.jsx",
-                                                        lineNumber: 340,
+                                                        lineNumber: 392,
                                                         columnNumber: 33
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(InputGroup, {
@@ -3220,13 +3541,13 @@ const EventForm = ({ onBack })=>{
                                                         onBlur: handleBlur
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/EventForm.jsx",
-                                                        lineNumber: 345,
+                                                        lineNumber: 397,
                                                         columnNumber: 33
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/EventForm.jsx",
-                                                lineNumber: 339,
+                                                lineNumber: 391,
                                                 columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(InputGroup, {
@@ -3243,13 +3564,13 @@ const EventForm = ({ onBack })=>{
                                                 onBlur: handleBlur
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/EventForm.jsx",
-                                                lineNumber: 352,
+                                                lineNumber: 404,
                                                 columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/EventForm.jsx",
-                                        lineNumber: 332,
+                                        lineNumber: 384,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     showImage && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -3262,7 +3583,7 @@ const EventForm = ({ onBack })=>{
                                                         className: "h-[1px] flex-1 bg-white/5"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/EventForm.jsx",
-                                                        lineNumber: 362,
+                                                        lineNumber: 414,
                                                         columnNumber: 37
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -3270,20 +3591,20 @@ const EventForm = ({ onBack })=>{
                                                         children: "Visual Assets"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/EventForm.jsx",
-                                                        lineNumber: 363,
+                                                        lineNumber: 415,
                                                         columnNumber: 37
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         className: "h-[1px] flex-1 bg-white/5"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/EventForm.jsx",
-                                                        lineNumber: 364,
+                                                        lineNumber: 416,
                                                         columnNumber: 37
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/EventForm.jsx",
-                                                lineNumber: 361,
+                                                lineNumber: 413,
                                                 columnNumber: 33
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3300,7 +3621,7 @@ const EventForm = ({ onBack })=>{
                                                                     className: "w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/EventForm.jsx",
-                                                                    lineNumber: 370,
+                                                                    lineNumber: 422,
                                                                     columnNumber: 49
                                                                 }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                     className: "flex flex-col items-center gap-2 opacity-30 group-hover:opacity-100 transition-opacity",
@@ -3309,7 +3630,7 @@ const EventForm = ({ onBack })=>{
                                                                             className: "w-8 h-8 text-white"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/components/EventForm.jsx",
-                                                                            lineNumber: 373,
+                                                                            lineNumber: 425,
                                                                             columnNumber: 53
                                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3317,18 +3638,18 @@ const EventForm = ({ onBack })=>{
                                                                             children: "Choose Photo"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/components/EventForm.jsx",
-                                                                            lineNumber: 374,
+                                                                            lineNumber: 426,
                                                                             columnNumber: 53
                                                                         }, ("TURBOPACK compile-time value", void 0))
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/components/EventForm.jsx",
-                                                                    lineNumber: 372,
+                                                                    lineNumber: 424,
                                                                     columnNumber: 49
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/EventForm.jsx",
-                                                                lineNumber: 368,
+                                                                lineNumber: 420,
                                                                 columnNumber: 41
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3339,7 +3660,7 @@ const EventForm = ({ onBack })=>{
                                                                         children: "Personal Image"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/components/EventForm.jsx",
-                                                                        lineNumber: 379,
+                                                                        lineNumber: 431,
                                                                         columnNumber: 45
                                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3347,19 +3668,19 @@ const EventForm = ({ onBack })=>{
                                                                         children: "High resolution JPG or PNG recommended for professional results."
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/components/EventForm.jsx",
-                                                                        lineNumber: 380,
+                                                                        lineNumber: 432,
                                                                         columnNumber: 45
                                                                     }, ("TURBOPACK compile-time value", void 0))
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/components/EventForm.jsx",
-                                                                lineNumber: 378,
+                                                                lineNumber: 430,
                                                                 columnNumber: 41
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/components/EventForm.jsx",
-                                                        lineNumber: 367,
+                                                        lineNumber: 419,
                                                         columnNumber: 37
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -3370,7 +3691,7 @@ const EventForm = ({ onBack })=>{
                                                         className: "hidden"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/EventForm.jsx",
-                                                        lineNumber: 383,
+                                                        lineNumber: 435,
                                                         columnNumber: 37
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -3381,7 +3702,7 @@ const EventForm = ({ onBack })=>{
                                                                 className: "w-4 h-4 text-amber-500"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/EventForm.jsx",
-                                                                lineNumber: 385,
+                                                                lineNumber: 437,
                                                                 columnNumber: 41
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3389,25 +3710,25 @@ const EventForm = ({ onBack })=>{
                                                                 children: "Select Asset"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/EventForm.jsx",
-                                                                lineNumber: 386,
+                                                                lineNumber: 438,
                                                                 columnNumber: 41
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/components/EventForm.jsx",
-                                                        lineNumber: 384,
+                                                        lineNumber: 436,
                                                         columnNumber: 37
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/EventForm.jsx",
-                                                lineNumber: 366,
+                                                lineNumber: 418,
                                                 columnNumber: 33
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/EventForm.jsx",
-                                        lineNumber: 360,
+                                        lineNumber: 412,
                                         columnNumber: 29
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -3420,7 +3741,7 @@ const EventForm = ({ onBack })=>{
                                                         className: "h-[1px] flex-1 bg-white/5"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/EventForm.jsx",
-                                                        lineNumber: 394,
+                                                        lineNumber: 446,
                                                         columnNumber: 33
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -3428,20 +3749,20 @@ const EventForm = ({ onBack })=>{
                                                         children: "Logistics"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/EventForm.jsx",
-                                                        lineNumber: 395,
+                                                        lineNumber: 447,
                                                         columnNumber: 33
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         className: "h-[1px] flex-1 bg-white/5"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/EventForm.jsx",
-                                                        lineNumber: 396,
+                                                        lineNumber: 448,
                                                         columnNumber: 33
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/EventForm.jsx",
-                                                lineNumber: 393,
+                                                lineNumber: 445,
                                                 columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3460,7 +3781,7 @@ const EventForm = ({ onBack })=>{
                                                         onBlur: handleBlur
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/EventForm.jsx",
-                                                        lineNumber: 399,
+                                                        lineNumber: 451,
                                                         columnNumber: 33
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     showTime && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(InputGroup, {
@@ -3476,13 +3797,13 @@ const EventForm = ({ onBack })=>{
                                                         onBlur: handleBlur
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/EventForm.jsx",
-                                                        lineNumber: 405,
+                                                        lineNumber: 457,
                                                         columnNumber: 37
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/EventForm.jsx",
-                                                lineNumber: 398,
+                                                lineNumber: 450,
                                                 columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             showLocation && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(InputGroup, {
@@ -3498,7 +3819,7 @@ const EventForm = ({ onBack })=>{
                                                 onBlur: handleBlur
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/EventForm.jsx",
-                                                lineNumber: 414,
+                                                lineNumber: 466,
                                                 columnNumber: 33
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             showPhone && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(InputGroup, {
@@ -3514,25 +3835,25 @@ const EventForm = ({ onBack })=>{
                                                 onBlur: handleBlur
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/EventForm.jsx",
-                                                lineNumber: 422,
+                                                lineNumber: 474,
                                                 columnNumber: 33
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/EventForm.jsx",
-                                        lineNumber: 392,
+                                        lineNumber: 444,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/EventForm.jsx",
-                                lineNumber: 331,
+                                lineNumber: 383,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/EventForm.jsx",
-                        lineNumber: 241,
+                        lineNumber: 254,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3552,25 +3873,25 @@ const EventForm = ({ onBack })=>{
                                                     className: "w-4 h-4 animate-spin text-amber-500"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/EventForm.jsx",
-                                                    lineNumber: 441,
+                                                    lineNumber: 493,
                                                     columnNumber: 45
                                                 }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$save$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Save$3e$__["Save"], {
                                                     className: "w-4 h-4 text-amber-500"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/EventForm.jsx",
-                                                    lineNumber: 441,
+                                                    lineNumber: 493,
                                                     columnNumber: 107
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 "Save"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/EventForm.jsx",
-                                            lineNumber: 440,
+                                            lineNumber: 492,
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/EventForm.jsx",
-                                        lineNumber: 435,
+                                        lineNumber: 487,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -3581,7 +3902,7 @@ const EventForm = ({ onBack })=>{
                                                 className: "absolute inset-0 bg-white/30 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/EventForm.jsx",
-                                                lineNumber: 449,
+                                                lineNumber: 501,
                                                 columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3591,26 +3912,26 @@ const EventForm = ({ onBack })=>{
                                                         className: "w-4 h-4"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/EventForm.jsx",
-                                                        lineNumber: 451,
+                                                        lineNumber: 503,
                                                         columnNumber: 33
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     "Export PDF"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/EventForm.jsx",
-                                                lineNumber: 450,
+                                                lineNumber: 502,
                                                 columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/EventForm.jsx",
-                                        lineNumber: 445,
+                                        lineNumber: 497,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/EventForm.jsx",
-                                lineNumber: 434,
+                                lineNumber: 486,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3620,7 +3941,7 @@ const EventForm = ({ onBack })=>{
                                         className: "h-[1px] w-4 bg-white"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/EventForm.jsx",
-                                        lineNumber: 457,
+                                        lineNumber: 509,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3628,32 +3949,32 @@ const EventForm = ({ onBack })=>{
                                         children: "Powered by Imena Studio"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/EventForm.jsx",
-                                        lineNumber: 458,
+                                        lineNumber: 510,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "h-[1px] w-4 bg-white"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/EventForm.jsx",
-                                        lineNumber: 459,
+                                        lineNumber: 511,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/EventForm.jsx",
-                                lineNumber: 456,
+                                lineNumber: 508,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/EventForm.jsx",
-                        lineNumber: 433,
+                        lineNumber: 485,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/EventForm.jsx",
-                lineNumber: 236,
+                lineNumber: 249,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3666,20 +3987,20 @@ const EventForm = ({ onBack })=>{
                                 className: "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-radial from-amber-500/5 via-transparent to-transparent opacity-50 blur-[150px]"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/EventForm.jsx",
-                                lineNumber: 469,
+                                lineNumber: 521,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/EventForm.jsx",
-                                lineNumber: 471,
+                                lineNumber: 523,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/EventForm.jsx",
-                        lineNumber: 468,
+                        lineNumber: 520,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3693,20 +4014,20 @@ const EventForm = ({ onBack })=>{
                                         children: "Interactive Preview"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/EventForm.jsx",
-                                        lineNumber: 477,
+                                        lineNumber: 529,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "h-20 w-[1px] bg-gradient-to-b from-transparent via-amber-500/50 to-transparent"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/EventForm.jsx",
-                                        lineNumber: 478,
+                                        lineNumber: 530,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/EventForm.jsx",
-                                lineNumber: 476,
+                                lineNumber: 528,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3716,7 +4037,7 @@ const EventForm = ({ onBack })=>{
                                         className: "absolute -inset-10 bg-black/60 blur-[60px] rounded-full opacity-60 group-hover:opacity-80 transition-opacity"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/EventForm.jsx",
-                                        lineNumber: 484,
+                                        lineNumber: 536,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3731,20 +4052,20 @@ const EventForm = ({ onBack })=>{
                                                 templateType: templateType
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/EventForm.jsx",
-                                                lineNumber: 488,
+                                                lineNumber: 540,
                                                 columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent opacity-30 pointer-events-none mix-blend-overlay"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/EventForm.jsx",
-                                                lineNumber: 494,
+                                                lineNumber: 546,
                                                 columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/EventForm.jsx",
-                                        lineNumber: 487,
+                                        lineNumber: 539,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3756,7 +4077,7 @@ const EventForm = ({ onBack })=>{
                                                     className: "w-3 h-3 text-amber-500"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/EventForm.jsx",
-                                                    lineNumber: 500,
+                                                    lineNumber: 552,
                                                     columnNumber: 33
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3764,30 +4085,30 @@ const EventForm = ({ onBack })=>{
                                                     children: "Premium Print Quality"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/EventForm.jsx",
-                                                    lineNumber: 501,
+                                                    lineNumber: 553,
                                                     columnNumber: 33
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/EventForm.jsx",
-                                            lineNumber: 499,
+                                            lineNumber: 551,
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/EventForm.jsx",
-                                        lineNumber: 498,
+                                        lineNumber: 550,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/EventForm.jsx",
-                                lineNumber: 482,
+                                lineNumber: 534,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/EventForm.jsx",
-                        lineNumber: 474,
+                        lineNumber: 526,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3798,32 +4119,32 @@ const EventForm = ({ onBack })=>{
                                 children: "Scroll to Design"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/EventForm.jsx",
-                                lineNumber: 509,
+                                lineNumber: 561,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "w-8 h-[1px] bg-neutral-800"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/EventForm.jsx",
-                                lineNumber: 510,
+                                lineNumber: 562,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/EventForm.jsx",
-                        lineNumber: 508,
+                        lineNumber: 560,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/EventForm.jsx",
-                lineNumber: 465,
+                lineNumber: 517,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/EventForm.jsx",
-        lineNumber: 233,
+        lineNumber: 246,
         columnNumber: 9
     }, ("TURBOPACK compile-time value", void 0));
 };

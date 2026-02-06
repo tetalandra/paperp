@@ -123,7 +123,18 @@ const AssemblyTemplate = ({ data }) => {
         );
     }
 
-    return null;
+    // Default / Fallback (Luxury Stage is usually default, but good to have)
+    return (
+        <div className="relative w-full h-full bg-neutral-900 text-white flex flex-col items-center justify-center p-12 text-center">
+            <ImenaBranding />
+            <div className="border-4 border-white/10 p-10 h-full w-full flex flex-col items-center justify-center bg-black/40">
+                <span className="text-[10px] font-black uppercase tracking-[1em] opacity-30 mb-8">Assembly</span>
+                <h1 className="text-4xl font-serif italic mb-6">{title || "Event Name"}</h1>
+                <p className="text-[9px] font-black tracking-[0.4em] uppercase opacity-70 border-y border-white/10 py-6 w-full">{date}</p>
+                <p className="text-xs mt-8 italic opacity-50">{location}</p>
+            </div>
+        </div>
+    );
 };
 
 export default AssemblyTemplate;

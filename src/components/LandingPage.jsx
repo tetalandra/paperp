@@ -7,6 +7,8 @@ import {
 const LandingPage = ({ onGetStarted, user, onLogin }) => {
     const containerRef = useRef(null);
 
+    const [particles, setParticles] = React.useState([]);
+
     useEffect(() => {
         const handleMouseMove = (e) => {
             if (!containerRef.current) return;
@@ -17,6 +19,19 @@ const LandingPage = ({ onGetStarted, user, onLogin }) => {
             containerRef.current.style.setProperty('--mouse-x', `${x}px`);
             containerRef.current.style.setProperty('--mouse-y', `${y}px`);
         };
+
+        // Initialize particles only on client
+        setParticles(Array.from({ length: 30 }).map((_, i) => ({
+            id: i,
+            width: Math.random() * 2 + 1 + 'px',
+            height: Math.random() * 2 + 1 + 'px',
+            top: Math.random() * 100 + '%',
+            left: Math.random() * 100 + '%',
+            animationDuration: Math.random() * 10 + 10 + 's',
+            animationDelay: Math.random() * -10 + 's',
+            opacity: Math.random() * 0.3 + 0.1
+        })));
+
         window.addEventListener('mousemove', handleMouseMove);
         return () => window.removeEventListener('mousemove', handleMouseMove);
     }, []);
@@ -34,18 +49,18 @@ const LandingPage = ({ onGetStarted, user, onLogin }) => {
 
                 {/* Floating Essence */}
                 <div className="absolute inset-0">
-                    {Array.from({ length: 30 }).map((_, i) => (
+                    {particles.map((p) => (
                         <div
-                            key={i}
+                            key={p.id}
                             className="absolute bg-amber-400/20 rounded-full animate-float"
                             style={{
-                                width: Math.random() * 2 + 1 + 'px',
-                                height: Math.random() * 2 + 1 + 'px',
-                                top: Math.random() * 100 + '%',
-                                left: Math.random() * 100 + '%',
-                                animationDuration: Math.random() * 10 + 10 + 's',
-                                animationDelay: Math.random() * -10 + 's',
-                                opacity: Math.random() * 0.3 + 0.1
+                                width: p.width,
+                                height: p.height,
+                                top: p.top,
+                                left: p.left,
+                                animationDuration: p.animationDuration,
+                                animationDelay: p.animationDelay,
+                                opacity: p.opacity
                             }}
                         />
                     ))}

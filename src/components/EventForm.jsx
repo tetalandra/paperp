@@ -204,16 +204,29 @@ const EventForm = ({ onBack }) => {
                 config.showImage = true;
                 config.titleLabel = 'Top Heading';
                 config.locationLabel = 'Venue';
+                config.variants = [
+                    { id: 5, name: 'Golden Glitter', preview: '✨', img: birthdayV5.src || birthdayV5 },
+                    { id: 6, name: 'Modern Photo', preview: '📸', img: birthdayV6.src || birthdayV6 },
+                    { id: 7, name: 'Balloon Party', preview: '🎈', img: birthdayV7.src || birthdayV7 }
+                ];
                 break;
             case 'announcement':
                 config.showImage = false;
                 config.titleLabel = 'Event Title';
+                config.variants = [
+                    { id: 5, name: 'Annual Gala', preview: '🎩', img: noticeV5.src || noticeV5 },
+                    { id: 6, name: 'Luxury Event', preview: '👑', img: noticeV6.src || noticeV6 },
+                    { id: 7, name: 'Grand Opening', preview: '✂️', img: noticeV7.src || noticeV7 }
+                ];
                 break;
             case 'achievement':
                 config.showTime = false;
                 config.showPhone = false;
                 config.titleLabel = 'Award Title';
                 config.locationLabel = 'Issuer';
+                config.variants = [
+                    { id: 0, name: 'Premium Certificate', preview: '📜' }
+                ];
                 break;
             case 'assembly':
                 config.showImage = true;
@@ -227,7 +240,7 @@ const EventForm = ({ onBack }) => {
         return config;
     };
 
-    const { showTime, showLocation, locationLabel, locationIcon, titleLabel, showPhone, phoneLabel, showImage } = getFieldConfig();
+    const { showTime, showLocation, locationLabel, locationIcon, titleLabel, showPhone, phoneLabel, showImage, variants } = getFieldConfig();
 
     return (
         <div className="min-h-screen bg-[#050505] text-white flex flex-col lg:flex-row overflow-hidden font-sans">
@@ -271,7 +284,16 @@ const EventForm = ({ onBack }) => {
                                     key={t.id}
                                     onClick={() => {
                                         setTemplateType(t.id);
-                                        setFormData(prev => ({ ...prev, variant: 1, backgroundImage: null, backgroundType: 'color' }));
+                                        const defaultVariant = (t.id === 'birthday' || t.id === 'announcement') ? 5 : 1;
+                                        const defaultImg = t.id === 'birthday' ? (birthdayV5.src || birthdayV5) :
+                                            t.id === 'announcement' ? (noticeV5.src || noticeV5) : null;
+
+                                        setFormData(prev => ({
+                                            ...prev,
+                                            variant: defaultVariant,
+                                            backgroundImage: defaultImg,
+                                            backgroundType: defaultImg ? 'image' : 'color'
+                                        }));
                                     }}
                                     className={`relative flex items-center gap-4 px-5 py-4 rounded-2xl transition-all duration-500 group overflow-hidden border
                                     ${templateType === t.id
@@ -326,6 +348,36 @@ const EventForm = ({ onBack }) => {
                             ))}
                         </div>
                     </div>
+
+                    {/* Style Variant Selector */}
+                    {variants && (
+                        <div className="mb-12">
+                            <div className="flex items-center justify-between mb-4">
+                                <label className="text-[10px] text-neutral-500 font-black tracking-[0.3em] uppercase">Style Variant</label>
+                            </div>
+                            <div className="grid grid-cols-2 gap-3">
+                                {variants.map((v) => (
+                                    <button
+                                        key={v.id}
+                                        onClick={() => setFormData(prev => ({
+                                            ...prev,
+                                            variant: v.id,
+                                            backgroundImage: v.img || prev.backgroundImage,
+                                            backgroundType: v.img ? 'image' : prev.backgroundType
+                                        }))}
+                                        className={`flex items-center gap-3 px-4 py-3 rounded-2xl border transition-all duration-300
+                                            ${formData.variant === v.id
+                                                ? 'bg-amber-500/10 border-amber-500 text-amber-500'
+                                                : 'bg-white/5 border-white/5 text-neutral-500 hover:border-white/10 hover:text-white'
+                                            }`}
+                                    >
+                                        <span className="text-lg">{v.preview}</span>
+                                        <span className="text-[10px] font-black uppercase tracking-widest">{v.name}</span>
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                    )}
 
                     {/* Editor Section */}
                     <div className="space-y-10">

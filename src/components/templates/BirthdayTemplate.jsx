@@ -141,7 +141,21 @@ const BirthdayTemplate = ({ data }) => {
         );
     }
 
-    return null;
+    // Default / Fallback
+    return (
+        <div className="relative w-full h-full bg-neutral-900 text-white flex flex-col items-center justify-center p-12 text-center" style={backgroundStyle}>
+            <ImenaBranding />
+            <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
+            <div className="relative z-10 border-2 border-amber-500/20 p-10 bg-black/60 rounded-3xl">
+                <h1 className="text-4xl font-serif italic mb-4 text-amber-500">{subtitle || "Birthday"}</h1>
+                <h2 className="text-xl font-bold tracking-[0.3em] uppercase mb-8">{title || "Invitation"}</h2>
+                <div className="space-y-4 opacity-70">
+                    <p className="text-sm tracking-widest uppercase">{date} • {time}</p>
+                    <p className="text-xs italic">{location}</p>
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default BirthdayTemplate;

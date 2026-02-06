@@ -132,7 +132,21 @@ const AnnouncementTemplate = ({ data }) => {
         );
     }
 
-    return null;
+    // Default / Fallback
+    return (
+        <div className="relative w-full h-full bg-black text-white flex flex-col items-center justify-center p-12 text-center" style={backgroundStyle}>
+            <ImenaBranding />
+            <div className="absolute inset-0 bg-white/5 backdrop-blur-[1px]"></div>
+            <div className="relative z-10 border border-white/10 p-12 bg-black/80">
+                <div className="w-12 h-1 bg-amber-500 mb-8 mx-auto"></div>
+                <h1 className="text-3xl font-black tracking-[0.4em] uppercase mb-6">{title || "Notice"}</h1>
+                <p className="text-sm font-medium tracking-[0.2em] text-white/60 mb-10 max-w-xs">{message || "You are cordially invited."}</p>
+                <div className="text-[10px] font-black uppercase tracking-[0.3em] border-t border-white/10 pt-8">
+                    {date} • {location}
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default AnnouncementTemplate;
