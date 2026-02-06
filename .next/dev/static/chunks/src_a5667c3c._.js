@@ -703,7 +703,7 @@ const BirthdayTemplate = ({ data })=>{
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "absolute top-[20%] bottom-[20%] left-[10%] right-[10%] bg-black z-0"
+                    className: "absolute top-[18%] bottom-[5%] left-[8%] right-[8%] bg-black/95 z-0 shadow-[0_0_50px_40px_rgba(0,0,0,0.95)]"
                 }, void 0, false, {
                     fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
                     lineNumber: 27,
@@ -713,10 +713,10 @@ const BirthdayTemplate = ({ data })=>{
                     className: "relative z-10 flex flex-col items-center justify-center h-full px-12 text-center",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "mb-4 mt-16 bg-black px-6 py-2 border border-amber-500/30",
+                            className: "mb-2 mt-12 opacity-80",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "text-[10px] font-bold tracking-[0.3em] text-amber-400 uppercase",
-                                children: "You are invited to my"
+                                className: "text-[9px] font-black tracking-[0.4em] text-amber-500 uppercase",
+                                children: "You are invited to the"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
                                 lineNumber: 31,
@@ -728,7 +728,7 @@ const BirthdayTemplate = ({ data })=>{
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                            className: "text-7xl font-cursive text-amber-400 mb-0 leading-none drop-shadow-2xl",
+                            className: "text-8xl font-cursive text-amber-400 mb-0 leading-none drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]",
                             style: {
                                 fontFamily: "'Great Vibes', cursive"
                             },
@@ -739,7 +739,7 @@ const BirthdayTemplate = ({ data })=>{
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                            className: "text-4xl font-black tracking-[0.5em] text-amber-500 uppercase mb-8",
+                            className: "text-4xl font-black tracking-[0.6em] text-amber-500 uppercase mb-10 drop-shadow-lg",
                             children: title || 'PARTY'
                         }, void 0, false, {
                             fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
@@ -747,10 +747,10 @@ const BirthdayTemplate = ({ data })=>{
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "flex flex-col items-center mb-8 bg-black p-6 rounded-lg border border-amber-500/20",
+                            className: "flex flex-col items-center mb-10 py-6 border-y border-amber-500/20 w-full max-w-[280px]",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "text-xl font-bold tracking-[0.2em] text-amber-400 mb-1",
+                                    className: "text-lg font-black tracking-[0.3em] text-amber-400 mb-2 uppercase",
                                     children: "MARCH"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
@@ -758,10 +758,10 @@ const BirthdayTemplate = ({ data })=>{
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "flex items-center gap-6",
+                                    className: "flex items-center gap-5",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                            className: "text-sm font-medium opacity-70",
+                                            className: "text-[10px] font-black text-neutral-400 uppercase tracking-widest",
                                             children: "SUNDAY"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
@@ -769,14 +769,14 @@ const BirthdayTemplate = ({ data })=>{
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "w-2 h-2 bg-amber-500 rounded-full"
+                                            className: "w-1.5 h-1.5 bg-amber-500 rotate-45"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
                                             lineNumber: 45,
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                            className: "text-6xl font-black",
+                                            className: "text-6xl font-black text-white",
                                             children: date?.split(' ')[1] || "16"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
@@ -784,15 +784,15 @@ const BirthdayTemplate = ({ data })=>{
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "w-2 h-2 bg-amber-500 rounded-full"
+                                            className: "w-1.5 h-1.5 bg-amber-500 rotate-45"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
                                             lineNumber: 47,
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                            className: "text-sm font-bold uppercase",
-                                            children: time || "AT 5 PM"
+                                            className: "text-[10px] font-black text-neutral-400 uppercase tracking-widest",
+                                            children: time || "5 PM"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
                                             lineNumber: 48,
@@ -805,7 +805,7 @@ const BirthdayTemplate = ({ data })=>{
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "text-xl font-bold tracking-[0.2em] mt-1 text-amber-400",
+                                    className: "text-lg font-black tracking-[0.3em] mt-2 text-amber-400 uppercase",
                                     children: "2024"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
@@ -819,10 +819,10 @@ const BirthdayTemplate = ({ data })=>{
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "space-y-2",
+                            className: "space-y-3 mt-4",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "text-amber-400 font-bold tracking-[0.2em] text-sm",
+                                    className: "text-amber-500 font-black tracking-[0.2em] text-xs uppercase",
                                     children: phone || "+123-456-7890"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
@@ -830,7 +830,7 @@ const BirthdayTemplate = ({ data })=>{
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "text-gray-300 text-[10px] font-medium tracking-[0.1em] uppercase max-w-[250px] leading-relaxed italic",
+                                    className: "text-neutral-400 text-[9px] font-bold tracking-[0.15em] uppercase max-w-[260px] leading-relaxed border-t border-white/10 pt-3",
                                     children: location || "123 Anywhere St., Any City"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
@@ -864,122 +864,152 @@ const BirthdayTemplate = ({ data })=>{
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ImenaBranding, {}, void 0, false, {
                     fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                    lineNumber: 66,
+                    lineNumber: 68,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "absolute right-0 top-0 w-1/2 h-full bg-white z-0"
                 }, void 0, false, {
                     fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                    lineNumber: 69,
+                    lineNumber: 71,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "absolute bottom-0 left-0 w-full h-[20%] bg-white z-10"
+                    className: "absolute bottom-0 left-0 w-full h-[25%] bg-white z-10"
                 }, void 0, false, {
                     fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                    lineNumber: 70,
+                    lineNumber: 72,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "absolute top-[14%] left-[10.5%] w-[42.5%] h-[68%] z-20",
+                    className: "absolute top-[12%] left-[8%] w-[45%] h-[72%] z-20 shadow-[20px_20px_60px_rgba(0,0,0,0.1)]",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "w-full h-full relative overflow-hidden bg-neutral-100",
+                        className: "w-full h-full relative overflow-hidden bg-neutral-100 border-[8px] border-white",
                         children: image ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                             src: image,
-                            className: "w-full h-full object-cover grayscale brightness-110 contrast-110"
-                        }, void 0, false, {
-                            fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                            lineNumber: 76,
-                            columnNumber: 29
-                        }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "w-full h-full flex items-center justify-center text-neutral-300",
-                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__User$3e$__["User"], {
-                                className: "w-20 h-20"
-                            }, void 0, false, {
-                                fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                                lineNumber: 79,
-                                columnNumber: 33
-                            }, ("TURBOPACK compile-time value", void 0))
+                            className: "w-full h-full object-cover grayscale brightness-105 contrast-110"
                         }, void 0, false, {
                             fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
                             lineNumber: 78,
                             columnNumber: 29
+                        }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "w-full h-full flex items-center justify-center text-neutral-300",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__User$3e$__["User"], {
+                                className: "w-24 h-24 stroke-[1px]"
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
+                                lineNumber: 81,
+                                columnNumber: 33
+                            }, ("TURBOPACK compile-time value", void 0))
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
+                            lineNumber: 80,
+                            columnNumber: 29
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                        lineNumber: 74,
+                        lineNumber: 76,
                         columnNumber: 21
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                    lineNumber: 73,
+                    lineNumber: 75,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "absolute right-0 top-0 w-1/2 h-full flex flex-col justify-center p-14 z-30",
+                    className: "absolute right-0 top-0 w-1/2 h-full flex flex-col justify-center p-12 z-30",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "mb-8",
+                            className: "mb-6",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                    className: "font-cursive text-5xl text-amber-700 leading-none mb-2",
+                                    className: "font-cursive text-5xl text-amber-700 leading-none mb-1",
                                     style: {
                                         fontFamily: "'Great Vibes', cursive"
                                     },
                                     children: title?.split(' ')[0] || "Happy"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                                    lineNumber: 88,
+                                    lineNumber: 90,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                                    className: "text-5xl font-black text-black tracking-tight leading-none uppercase",
+                                    className: "text-4xl font-black text-black tracking-tighter leading-none uppercase",
                                     children: title?.toUpperCase().includes('HAPPY') ? 'BIRTHDAY' : title || 'BIRTHDAY'
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                                    lineNumber: 91,
+                                    lineNumber: 93,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                            lineNumber: 87,
-                            columnNumber: 21
-                        }, ("TURBOPACK compile-time value", void 0)),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            className: "text-neutral-500 text-[11px] leading-relaxed mb-10 max-w-[180px] border-l-4 border-amber-600 pl-5 italic",
-                            children: message || "Wishing you yet the most amazing birthday ever."
-                        }, void 0, false, {
-                            fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                            lineNumber: 96,
+                            lineNumber: 89,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "mt-8 self-end",
+                            className: "w-8 h-[2px] bg-amber-600 mb-8"
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
+                            lineNumber: 98,
+                            columnNumber: 21
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            className: "text-neutral-500 text-[10px] leading-relaxed mb-10 max-w-[180px] italic",
+                            children: message || "Wishing you yet the most amazing birthday ever."
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
+                            lineNumber: 100,
+                            columnNumber: 21
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "mt-4",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "bg-[#8b4513] text-white px-10 py-4 font-bold text-2xl uppercase tracking-widest shadow-2xl",
+                                className: "bg-[#1a1a1a] text-white px-8 py-5 font-black text-xl uppercase tracking-[0.2em] shadow-xl inline-block",
                                 children: subtitle || "NAME"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                                lineNumber: 101,
+                                lineNumber: 105,
                                 columnNumber: 25
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                            lineNumber: 100,
+                            lineNumber: 104,
+                            columnNumber: 21
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "mt-10 space-y-1 text-[9px] font-bold uppercase tracking-widest text-neutral-400",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    children: date || "MARCH 16"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
+                                    lineNumber: 111,
+                                    columnNumber: 25
+                                }, ("TURBOPACK compile-time value", void 0)),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    children: location || "YOUR RESIDENCE"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
+                                    lineNumber: 112,
+                                    columnNumber: 25
+                                }, ("TURBOPACK compile-time value", void 0))
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
+                            lineNumber: 110,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                    lineNumber: 86,
+                    lineNumber: 88,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-            lineNumber: 65,
+            lineNumber: 67,
             columnNumber: 13
         }, ("TURBOPACK compile-time value", void 0));
     }
@@ -991,42 +1021,42 @@ const BirthdayTemplate = ({ data })=>{
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ImenaBranding, {}, void 0, false, {
                     fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                    lineNumber: 114,
+                    lineNumber: 123,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "absolute top-[15%] bottom-[15%] left-[15%] right-[15%] bg-black z-0"
+                    className: "absolute inset-[15%] bg-black/90 z-0 shadow-[0_0_80px_60px_rgba(0,0,0,0.9)]"
                 }, void 0, false, {
                     fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                    lineNumber: 117,
+                    lineNumber: 126,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "relative z-10 h-full flex flex-col items-center justify-center text-center p-14",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                            className: "text-amber-500 font-bold tracking-[0.5em] uppercase text-sm mb-4 drop-shadow-md",
+                            className: "text-amber-500 font-black tracking-[0.5em] uppercase text-[10px] mb-4 opacity-80",
                             children: title || "HAPPY"
                         }, void 0, false, {
                             fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                            lineNumber: 120,
+                            lineNumber: 129,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                            className: "text-8xl font-serif italic text-white leading-none mb-10 drop-shadow-2xl",
+                            className: "text-8xl font-serif italic text-white leading-none mb-8 drop-shadow-2xl",
                             style: {
                                 fontFamily: "'Playfair Display', serif"
                             },
                             children: subtitle || "Birthday"
                         }, void 0, false, {
                             fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                            lineNumber: 123,
+                            lineNumber: 132,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "max-w-[300px] text-gray-300 text-xs leading-relaxed mb-12 bg-black/80 p-6 rounded-2xl border border-white/10 shadow-2xl",
+                            className: "max-w-[320px] text-gray-300 text-[11px] leading-relaxed mb-12 px-6",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "italic",
+                                className: "italic font-medium opacity-80",
                                 children: [
                                     '"',
                                     message || "Wishing you a day filled with love and laughter.",
@@ -1034,71 +1064,85 @@ const BirthdayTemplate = ({ data })=>{
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                                lineNumber: 128,
+                                lineNumber: 137,
                                 columnNumber: 25
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                            lineNumber: 127,
+                            lineNumber: 136,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "flex flex-col items-center gap-4",
+                            className: "flex flex-col items-center gap-6 w-full max-w-[200px]",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "text-amber-400 font-bold tracking-[0.3em] text-base",
-                                    children: date || "MARCH 16, 2024"
+                                    className: "w-full h-[1px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                                    lineNumber: 132,
+                                    lineNumber: 141,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "flex items-center gap-6 text-[10px] font-bold tracking-widest uppercase text-white/60",
+                                    className: "space-y-2",
                                     children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                            children: time || "5:00 PM"
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "text-amber-400 font-black tracking-[0.3em] text-sm uppercase",
+                                            children: date || "MARCH 16"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                                            lineNumber: 134,
+                                            lineNumber: 143,
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "w-1.5 h-1.5 bg-amber-500 rounded-full"
-                                        }, void 0, false, {
+                                            className: "text-[9px] font-bold tracking-[0.2em] uppercase text-white/40",
+                                            children: [
+                                                time || "5:00 PM",
+                                                " ",
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "mx-2 text-amber-500 opacity-50",
+                                                    children: "•"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
+                                                    lineNumber: 145,
+                                                    columnNumber: 53
+                                                }, ("TURBOPACK compile-time value", void 0)),
+                                                " ",
+                                                location || "YOUR PLACE"
+                                            ]
+                                        }, void 0, true, {
                                             fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                                            lineNumber: 135,
-                                            columnNumber: 29
-                                        }, ("TURBOPACK compile-time value", void 0)),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                            children: location || "YOUR PLACE"
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                                            lineNumber: 136,
+                                            lineNumber: 144,
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                                    lineNumber: 133,
+                                    lineNumber: 142,
+                                    columnNumber: 25
+                                }, ("TURBOPACK compile-time value", void 0)),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "w-full h-[1px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
+                                    lineNumber: 148,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                            lineNumber: 131,
+                            lineNumber: 140,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                    lineNumber: 119,
+                    lineNumber: 128,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-            lineNumber: 113,
+            lineNumber: 122,
             columnNumber: 13
         }, ("TURBOPACK compile-time value", void 0));
     }
@@ -1109,14 +1153,14 @@ const BirthdayTemplate = ({ data })=>{
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ImenaBranding, {}, void 0, false, {
                 fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                lineNumber: 147,
+                lineNumber: 158,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "absolute inset-0 bg-black/40 backdrop-blur-[2px]"
             }, void 0, false, {
                 fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                lineNumber: 148,
+                lineNumber: 159,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1127,7 +1171,7 @@ const BirthdayTemplate = ({ data })=>{
                         children: subtitle || "Birthday"
                     }, void 0, false, {
                         fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                        lineNumber: 150,
+                        lineNumber: 161,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -1135,7 +1179,7 @@ const BirthdayTemplate = ({ data })=>{
                         children: title || "Invitation"
                     }, void 0, false, {
                         fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                        lineNumber: 151,
+                        lineNumber: 162,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1150,7 +1194,7 @@ const BirthdayTemplate = ({ data })=>{
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                                lineNumber: 153,
+                                lineNumber: 164,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1158,25 +1202,25 @@ const BirthdayTemplate = ({ data })=>{
                                 children: location
                             }, void 0, false, {
                                 fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                                lineNumber: 154,
+                                lineNumber: 165,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                        lineNumber: 152,
+                        lineNumber: 163,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-                lineNumber: 149,
+                lineNumber: 160,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/templates/BirthdayTemplate.jsx",
-        lineNumber: 146,
+        lineNumber: 157,
         columnNumber: 9
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -1950,7 +1994,7 @@ const AnnouncementTemplate = ({ data })=>{
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "absolute top-[10%] bottom-[10%] left-[12%] right-[12%] bg-black z-0 border border-amber-500/20"
+                    className: "absolute top-[8%] bottom-[8%] left-[10%] right-[10%] bg-black/95 z-0 border border-amber-500/10 shadow-[0_0_100px_50px_rgba(0,0,0,0.95)]"
                 }, void 0, false, {
                     fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
                     lineNumber: 26,
@@ -1960,9 +2004,9 @@ const AnnouncementTemplate = ({ data })=>{
                     className: "relative z-10 flex flex-col items-center justify-center h-full px-16 text-center",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "mb-6 mt-16 bg-black p-3 border border-amber-500/10",
+                            className: "mb-4 mt-12 bg-black/80 px-4 py-2 border border-amber-500/20 inline-block",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "text-sm font-bold tracking-[0.4em] text-amber-200 uppercase",
+                                className: "text-[10px] font-black tracking-[0.5em] text-amber-500 uppercase",
                                 children: subtitle || "COMPANY NAME"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
@@ -1975,7 +2019,7 @@ const AnnouncementTemplate = ({ data })=>{
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "text-[9px] tracking-[0.4em] uppercase mb-10 opacity-70 font-semibold italic",
+                            className: "text-[8px] tracking-[0.4em] uppercase mb-10 opacity-50 font-bold italic",
                             children: "Requests the honor of your presence"
                         }, void 0, false, {
                             fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
@@ -1983,7 +2027,7 @@ const AnnouncementTemplate = ({ data })=>{
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                            className: "text-6xl font-cursive text-amber-400 mb-10 leading-tight drop-shadow-2xl",
+                            className: "text-7xl font-cursive text-amber-400 mb-10 leading-none drop-shadow-2xl",
                             style: {
                                 fontFamily: "'Great Vibes', cursive"
                             },
@@ -1994,10 +2038,10 @@ const AnnouncementTemplate = ({ data })=>{
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "flex items-center gap-10 border-y border-white/10 py-6 mb-12 w-full justify-center bg-black/40",
+                            className: "flex items-center gap-12 border-y border-white/5 py-8 mb-12 w-full justify-center",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "text-[10px] font-bold uppercase tracking-[0.3em] opacity-60",
+                                    className: "text-[9px] font-black uppercase tracking-[0.4em] text-neutral-500",
                                     children: "SATURDAY"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
@@ -2005,7 +2049,7 @@ const AnnouncementTemplate = ({ data })=>{
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "text-5xl font-serif text-amber-400",
+                                    className: "text-6xl font-serif text-amber-500 leading-none",
                                     style: {
                                         fontFamily: "'Playfair Display', serif"
                                     },
@@ -2016,7 +2060,7 @@ const AnnouncementTemplate = ({ data })=>{
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "text-[10px] font-bold uppercase tracking-[0.3em] opacity-60",
+                                    className: "text-[9px] font-black uppercase tracking-[0.4em] text-neutral-500",
                                     children: time || "6:00 PM"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
@@ -2030,10 +2074,10 @@ const AnnouncementTemplate = ({ data })=>{
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "space-y-5",
+                            className: "space-y-6",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "text-xs font-black tracking-[0.3em] uppercase text-amber-200",
+                                    className: "text-[11px] font-black tracking-[0.4em] uppercase text-white shadow-sm inline-block",
                                     children: location || "THE GRAND BALLROOM"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
@@ -2041,19 +2085,30 @@ const AnnouncementTemplate = ({ data })=>{
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "text-[9px] opacity-70 tracking-widest max-w-[300px] leading-relaxed italic",
-                                    children: message
-                                }, void 0, false, {
+                                    className: "text-[10px] opacity-60 tracking-[0.1em] max-w-[280px] leading-relaxed italic mx-auto",
+                                    children: [
+                                        '"',
+                                        message || "Join us for an evening of celebration and excellence.",
+                                        '"'
+                                    ]
+                                }, void 0, true, {
                                     fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
                                     lineNumber: 46,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "text-[10px] text-amber-400 font-bold tracking-[0.2em] pt-4",
-                                    children: phone || "R.S.V.P"
+                                    className: "w-12 h-[1px] bg-amber-500/40 mx-auto mt-6"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
                                     lineNumber: 47,
+                                    columnNumber: 25
+                                }, ("TURBOPACK compile-time value", void 0)),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "text-[9px] text-amber-500 font-black tracking-[0.3em] uppercase opacity-80",
+                                    children: phone || "R.S.V.P REQUIRED"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
+                                    lineNumber: 48,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
@@ -2083,14 +2138,14 @@ const AnnouncementTemplate = ({ data })=>{
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ImenaBranding, {}, void 0, false, {
                     fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                    lineNumber: 58,
+                    lineNumber: 59,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "absolute top-[35%] bottom-[10%] left-[25%] right-[25%] bg-black z-0"
                 }, void 0, false, {
                     fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                    lineNumber: 61,
+                    lineNumber: 62,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2100,7 +2155,7 @@ const AnnouncementTemplate = ({ data })=>{
                             className: "mt-20 mb-8 w-32 h-[1px] bg-white/20"
                         }, void 0, false, {
                             fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                            lineNumber: 64,
+                            lineNumber: 65,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -2108,7 +2163,7 @@ const AnnouncementTemplate = ({ data })=>{
                             children: title?.toUpperCase() || "LUXURY EVENT"
                         }, void 0, false, {
                             fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                            lineNumber: 65,
+                            lineNumber: 66,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -2119,7 +2174,7 @@ const AnnouncementTemplate = ({ data })=>{
                             children: "Invitation"
                         }, void 0, false, {
                             fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                            lineNumber: 68,
+                            lineNumber: 69,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2129,12 +2184,12 @@ const AnnouncementTemplate = ({ data })=>{
                                 children: message || "We request the pleasure of your company."
                             }, void 0, false, {
                                 fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                                lineNumber: 73,
+                                lineNumber: 74,
                                 columnNumber: 25
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                            lineNumber: 72,
+                            lineNumber: 73,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2144,24 +2199,24 @@ const AnnouncementTemplate = ({ data })=>{
                                 children: date || "RSVP REQUIRED"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                                lineNumber: 79,
+                                lineNumber: 80,
                                 columnNumber: 25
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                            lineNumber: 78,
+                            lineNumber: 79,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                    lineNumber: 63,
+                    lineNumber: 64,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-            lineNumber: 57,
+            lineNumber: 58,
             columnNumber: 13
         }, ("TURBOPACK compile-time value", void 0));
     }
@@ -2173,14 +2228,14 @@ const AnnouncementTemplate = ({ data })=>{
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ImenaBranding, {}, void 0, false, {
                     fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                    lineNumber: 92,
+                    lineNumber: 93,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "absolute top-[20%] bottom-[20%] left-[20%] right-[20%] bg-black z-0"
                 }, void 0, false, {
                     fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                    lineNumber: 95,
+                    lineNumber: 96,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2196,12 +2251,12 @@ const AnnouncementTemplate = ({ data })=>{
                                 children: subtitle || "Ray's Bistro"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                                lineNumber: 99,
+                                lineNumber: 100,
                                 columnNumber: 25
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                            lineNumber: 98,
+                            lineNumber: 99,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2215,7 +2270,7 @@ const AnnouncementTemplate = ({ data })=>{
                                     children: title?.split(' ')[0] || "Grand"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                                    lineNumber: 105,
+                                    lineNumber: 106,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -2223,13 +2278,13 @@ const AnnouncementTemplate = ({ data })=>{
                                     children: "Opening"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                                    lineNumber: 108,
+                                    lineNumber: 109,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                            lineNumber: 104,
+                            lineNumber: 105,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2243,7 +2298,7 @@ const AnnouncementTemplate = ({ data })=>{
                                             children: "DATE:"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                                            lineNumber: 113,
+                                            lineNumber: 114,
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2251,20 +2306,20 @@ const AnnouncementTemplate = ({ data })=>{
                                             children: date || "31st"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                                            lineNumber: 114,
+                                            lineNumber: 115,
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                                    lineNumber: 112,
+                                    lineNumber: 113,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "w-[1px] h-12 bg-white/20"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                                    lineNumber: 116,
+                                    lineNumber: 117,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2275,7 +2330,7 @@ const AnnouncementTemplate = ({ data })=>{
                                             children: "TIME:"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                                            lineNumber: 118,
+                                            lineNumber: 119,
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2283,19 +2338,19 @@ const AnnouncementTemplate = ({ data })=>{
                                             children: time || "4pm"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                                            lineNumber: 119,
+                                            lineNumber: 120,
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                                    lineNumber: 117,
+                                    lineNumber: 118,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                            lineNumber: 111,
+                            lineNumber: 112,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2303,7 +2358,7 @@ const AnnouncementTemplate = ({ data })=>{
                             children: location
                         }, void 0, false, {
                             fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                            lineNumber: 123,
+                            lineNumber: 124,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2311,19 +2366,19 @@ const AnnouncementTemplate = ({ data })=>{
                             children: phone || "R.S.V.P"
                         }, void 0, false, {
                             fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                            lineNumber: 127,
+                            lineNumber: 128,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                    lineNumber: 97,
+                    lineNumber: 98,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-            lineNumber: 91,
+            lineNumber: 92,
             columnNumber: 13
         }, ("TURBOPACK compile-time value", void 0));
     }
@@ -2334,14 +2389,14 @@ const AnnouncementTemplate = ({ data })=>{
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ImenaBranding, {}, void 0, false, {
                 fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                lineNumber: 138,
+                lineNumber: 139,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "absolute inset-0 bg-white/5 backdrop-blur-[1px]"
             }, void 0, false, {
                 fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                lineNumber: 139,
+                lineNumber: 140,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2351,7 +2406,7 @@ const AnnouncementTemplate = ({ data })=>{
                         className: "w-12 h-1 bg-amber-500 mb-8 mx-auto"
                     }, void 0, false, {
                         fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                        lineNumber: 141,
+                        lineNumber: 142,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -2359,7 +2414,7 @@ const AnnouncementTemplate = ({ data })=>{
                         children: title || "Notice"
                     }, void 0, false, {
                         fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                        lineNumber: 142,
+                        lineNumber: 143,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2367,7 +2422,7 @@ const AnnouncementTemplate = ({ data })=>{
                         children: message || "You are cordially invited."
                     }, void 0, false, {
                         fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                        lineNumber: 143,
+                        lineNumber: 144,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2379,19 +2434,19 @@ const AnnouncementTemplate = ({ data })=>{
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                        lineNumber: 144,
+                        lineNumber: 145,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-                lineNumber: 140,
+                lineNumber: 141,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/templates/AnnouncementTemplate.jsx",
-        lineNumber: 137,
+        lineNumber: 138,
         columnNumber: 9
     }, ("TURBOPACK compile-time value", void 0));
 };

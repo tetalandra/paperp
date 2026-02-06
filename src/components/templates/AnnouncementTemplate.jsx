@@ -22,29 +22,30 @@ const AnnouncementTemplate = ({ data }) => {
             <div className="relative w-full h-full bg-black text-white overflow-hidden font-sans" style={backgroundStyle}>
                 <ImenaBranding />
 
-                {/* OPAQUE MASK: Completely clears the inner black box of original text */}
-                <div className="absolute top-[10%] bottom-[10%] left-[12%] right-[12%] bg-black z-0 border border-amber-500/20"></div>
+                {/* OPAQUE MASK: Enhanced coverage for a cleaner look */}
+                <div className="absolute top-[8%] bottom-[8%] left-[10%] right-[10%] bg-black/95 z-0 border border-amber-500/10 shadow-[0_0_100px_50px_rgba(0,0,0,0.95)]"></div>
 
                 <div className="relative z-10 flex flex-col items-center justify-center h-full px-16 text-center">
-                    <div className="mb-6 mt-16 bg-black p-3 border border-amber-500/10">
-                        <div className="text-sm font-bold tracking-[0.4em] text-amber-200 uppercase">{subtitle || "COMPANY NAME"}</div>
+                    <div className="mb-4 mt-12 bg-black/80 px-4 py-2 border border-amber-500/20 inline-block">
+                        <div className="text-[10px] font-black tracking-[0.5em] text-amber-500 uppercase">{subtitle || "COMPANY NAME"}</div>
                     </div>
-                    <div className="text-[9px] tracking-[0.4em] uppercase mb-10 opacity-70 font-semibold italic">Requests the honor of your presence</div>
+                    <div className="text-[8px] tracking-[0.4em] uppercase mb-10 opacity-50 font-bold italic">Requests the honor of your presence</div>
 
-                    <h1 className="text-6xl font-cursive text-amber-400 mb-10 leading-tight drop-shadow-2xl" style={{ fontFamily: "'Great Vibes', cursive" }}>
+                    <h1 className="text-7xl font-cursive text-amber-400 mb-10 leading-none drop-shadow-2xl" style={{ fontFamily: "'Great Vibes', cursive" }}>
                         {title || "Annual Gala Dinner"}
                     </h1>
 
-                    <div className="flex items-center gap-10 border-y border-white/10 py-6 mb-12 w-full justify-center bg-black/40">
-                        <div className="text-[10px] font-bold uppercase tracking-[0.3em] opacity-60">SATURDAY</div>
-                        <div className="text-5xl font-serif text-amber-400" style={{ fontFamily: "'Playfair Display', serif" }}>{date?.split(' ')[1] || "17"}</div>
-                        <div className="text-[10px] font-bold uppercase tracking-[0.3em] opacity-60">{time || "6:00 PM"}</div>
+                    <div className="flex items-center gap-12 border-y border-white/5 py-8 mb-12 w-full justify-center">
+                        <div className="text-[9px] font-black uppercase tracking-[0.4em] text-neutral-500">SATURDAY</div>
+                        <div className="text-6xl font-serif text-amber-500 leading-none" style={{ fontFamily: "'Playfair Display', serif" }}>{date?.split(' ')[1] || "17"}</div>
+                        <div className="text-[9px] font-black uppercase tracking-[0.4em] text-neutral-500">{time || "6:00 PM"}</div>
                     </div>
 
-                    <div className="space-y-5">
-                        <div className="text-xs font-black tracking-[0.3em] uppercase text-amber-200">{location || "THE GRAND BALLROOM"}</div>
-                        <p className="text-[9px] opacity-70 tracking-widest max-w-[300px] leading-relaxed italic">{message}</p>
-                        <div className="text-[10px] text-amber-400 font-bold tracking-[0.2em] pt-4">{phone || "R.S.V.P"}</div>
+                    <div className="space-y-6">
+                        <div className="text-[11px] font-black tracking-[0.4em] uppercase text-white shadow-sm inline-block">{location || "THE GRAND BALLROOM"}</div>
+                        <p className="text-[10px] opacity-60 tracking-[0.1em] max-w-[280px] leading-relaxed italic mx-auto">"{message || "Join us for an evening of celebration and excellence."}"</p>
+                        <div className="w-12 h-[1px] bg-amber-500/40 mx-auto mt-6"></div>
+                        <div className="text-[9px] text-amber-500 font-black tracking-[0.3em] uppercase opacity-80">{phone || "R.S.V.P REQUIRED"}</div>
                     </div>
                 </div>
             </div>

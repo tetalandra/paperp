@@ -23,36 +23,38 @@ const BirthdayTemplate = ({ data }) => {
             <div className="relative w-full h-full bg-black text-white overflow-hidden font-sans" style={backgroundStyle}>
                 <ImenaBranding />
 
-                {/* OPAQUE MASK: Specifically covers the center area where original text is */}
-                <div className="absolute top-[20%] bottom-[20%] left-[10%] right-[10%] bg-black z-0"></div>
+                {/* OPAQUE MASK: Expanded to cover bottom contact info as well */}
+                <div className="absolute top-[18%] bottom-[5%] left-[8%] right-[8%] bg-black/95 z-0 shadow-[0_0_50px_40px_rgba(0,0,0,0.95)]"></div>
 
                 <div className="relative z-10 flex flex-col items-center justify-center h-full px-12 text-center">
-                    <div className="mb-4 mt-16 bg-black px-6 py-2 border border-amber-500/30">
-                        <span className="text-[10px] font-bold tracking-[0.3em] text-amber-400 uppercase">You are invited to my</span>
+                    <div className="mb-2 mt-12 opacity-80">
+                        <span className="text-[9px] font-black tracking-[0.4em] text-amber-500 uppercase">You are invited to the</span>
                     </div>
 
-                    <h1 className="text-7xl font-cursive text-amber-400 mb-0 leading-none drop-shadow-2xl" style={{ fontFamily: "'Great Vibes', cursive" }}>
+                    <h1 className="text-8xl font-cursive text-amber-400 mb-0 leading-none drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]" style={{ fontFamily: "'Great Vibes', cursive" }}>
                         {subtitle || "Birthday"}
                     </h1>
-                    <h2 className="text-4xl font-black tracking-[0.5em] text-amber-500 uppercase mb-8">
+                    <h2 className="text-4xl font-black tracking-[0.6em] text-amber-500 uppercase mb-10 drop-shadow-lg">
                         {title || 'PARTY'}
                     </h2>
 
-                    <div className="flex flex-col items-center mb-8 bg-black p-6 rounded-lg border border-amber-500/20">
-                        <div className="text-xl font-bold tracking-[0.2em] text-amber-400 mb-1">MARCH</div>
-                        <div className="flex items-center gap-6">
-                            <span className="text-sm font-medium opacity-70">SUNDAY</span>
-                            <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-                            <span className="text-6xl font-black">{date?.split(' ')[1] || "16"}</span>
-                            <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-                            <span className="text-sm font-bold uppercase">{time || "AT 5 PM"}</span>
+                    <div className="flex flex-col items-center mb-10 py-6 border-y border-amber-500/20 w-full max-w-[280px]">
+                        <div className="text-lg font-black tracking-[0.3em] text-amber-400 mb-2 uppercase">MARCH</div>
+                        <div className="flex items-center gap-5">
+                            <span className="text-[10px] font-black text-neutral-400 uppercase tracking-widest">SUNDAY</span>
+                            <div className="w-1.5 h-1.5 bg-amber-500 rotate-45"></div>
+                            <span className="text-6xl font-black text-white">{date?.split(' ')[1] || "16"}</span>
+                            <div className="w-1.5 h-1.5 bg-amber-500 rotate-45"></div>
+                            <span className="text-[10px] font-black text-neutral-400 uppercase tracking-widest">{time || "5 PM"}</span>
                         </div>
-                        <div className="text-xl font-bold tracking-[0.2em] mt-1 text-amber-400">2024</div>
+                        <div className="text-lg font-black tracking-[0.3em] mt-2 text-amber-400 uppercase">2024</div>
                     </div>
 
-                    <div className="space-y-2">
-                        <div className="text-amber-400 font-bold tracking-[0.2em] text-sm">{phone || "+123-456-7890"}</div>
-                        <div className="text-gray-300 text-[10px] font-medium tracking-[0.1em] uppercase max-w-[250px] leading-relaxed italic">{location || "123 Anywhere St., Any City"}</div>
+                    <div className="space-y-3 mt-4">
+                        <div className="text-amber-500 font-black tracking-[0.2em] text-xs uppercase">{phone || "+123-456-7890"}</div>
+                        <div className="text-neutral-400 text-[9px] font-bold tracking-[0.15em] uppercase max-w-[260px] leading-relaxed border-t border-white/10 pt-3">
+                            {location || "123 Anywhere St., Any City"}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -65,42 +67,49 @@ const BirthdayTemplate = ({ data }) => {
             <div className="relative w-full h-full bg-white flex overflow-hidden font-sans" style={backgroundStyle}>
                 <ImenaBranding />
 
-                {/* OPAQUE WHITE MASK: Clears the right side and name block */}
+                {/* OPAQUE WHITE MASK: Clears the right side and name block completely */}
                 <div className="absolute right-0 top-0 w-1/2 h-full bg-white z-0"></div>
-                <div className="absolute bottom-0 left-0 w-full h-[20%] bg-white z-10"></div>
+                <div className="absolute bottom-0 left-0 w-full h-[25%] bg-white z-10"></div>
 
                 {/* User Photo Overlay */}
-                <div className="absolute top-[14%] left-[10.5%] w-[42.5%] h-[68%] z-20">
-                    <div className="w-full h-full relative overflow-hidden bg-neutral-100">
+                <div className="absolute top-[12%] left-[8%] w-[45%] h-[72%] z-20 shadow-[20px_20px_60px_rgba(0,0,0,0.1)]">
+                    <div className="w-full h-full relative overflow-hidden bg-neutral-100 border-[8px] border-white">
                         {image ? (
-                            <img src={image} className="w-full h-full object-cover grayscale brightness-110 contrast-110" />
+                            <img src={image} className="w-full h-full object-cover grayscale brightness-105 contrast-110" />
                         ) : (
                             <div className="w-full h-full flex items-center justify-center text-neutral-300">
-                                <User className="w-20 h-20" />
+                                <User className="w-24 h-24 stroke-[1px]" />
                             </div>
                         )}
                     </div>
                 </div>
 
                 {/* Text Content */}
-                <div className="absolute right-0 top-0 w-1/2 h-full flex flex-col justify-center p-14 z-30">
-                    <div className="mb-8">
-                        <h2 className="font-cursive text-5xl text-amber-700 leading-none mb-2" style={{ fontFamily: "'Great Vibes', cursive" }}>
+                <div className="absolute right-0 top-0 w-1/2 h-full flex flex-col justify-center p-12 z-30">
+                    <div className="mb-6">
+                        <h2 className="font-cursive text-5xl text-amber-700 leading-none mb-1" style={{ fontFamily: "'Great Vibes', cursive" }}>
                             {title?.split(' ')[0] || "Happy"}
                         </h2>
-                        <h1 className="text-5xl font-black text-black tracking-tight leading-none uppercase">
+                        <h1 className="text-4xl font-black text-black tracking-tighter leading-none uppercase">
                             {title?.toUpperCase().includes('HAPPY') ? 'BIRTHDAY' : (title || 'BIRTHDAY')}
                         </h1>
                     </div>
 
-                    <p className="text-neutral-500 text-[11px] leading-relaxed mb-10 max-w-[180px] border-l-4 border-amber-600 pl-5 italic">
+                    <div className="w-8 h-[2px] bg-amber-600 mb-8"></div>
+
+                    <p className="text-neutral-500 text-[10px] leading-relaxed mb-10 max-w-[180px] italic">
                         {message || "Wishing you yet the most amazing birthday ever."}
                     </p>
 
-                    <div className="mt-8 self-end">
-                        <div className="bg-[#8b4513] text-white px-10 py-4 font-bold text-2xl uppercase tracking-widest shadow-2xl">
+                    <div className="mt-4">
+                        <div className="bg-[#1a1a1a] text-white px-8 py-5 font-black text-xl uppercase tracking-[0.2em] shadow-xl inline-block">
                             {subtitle || "NAME"}
                         </div>
+                    </div>
+
+                    <div className="mt-10 space-y-1 text-[9px] font-bold uppercase tracking-widest text-neutral-400">
+                        <div>{date || "MARCH 16"}</div>
+                        <div>{location || "YOUR RESIDENCE"}</div>
                     </div>
                 </div>
             </div>
@@ -113,28 +122,30 @@ const BirthdayTemplate = ({ data }) => {
             <div className="relative w-full h-full bg-black text-white overflow-hidden font-sans" style={backgroundStyle}>
                 <ImenaBranding />
 
-                {/* OPAQUE MASK: Specifically masks out the "Happy Birthday" and text in the center */}
-                <div className="absolute top-[15%] bottom-[15%] left-[15%] right-[15%] bg-black z-0"></div>
+                {/* OPAQUE MASK: Enhanced coverage for the central invitation text */}
+                <div className="absolute inset-[15%] bg-black/90 z-0 shadow-[0_0_80px_60px_rgba(0,0,0,0.9)]"></div>
 
                 <div className="relative z-10 h-full flex flex-col items-center justify-center text-center p-14">
-                    <h2 className="text-amber-500 font-bold tracking-[0.5em] uppercase text-sm mb-4 drop-shadow-md">
+                    <h2 className="text-amber-500 font-black tracking-[0.5em] uppercase text-[10px] mb-4 opacity-80">
                         {title || "HAPPY"}
                     </h2>
-                    <h1 className="text-8xl font-serif italic text-white leading-none mb-10 drop-shadow-2xl" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    <h1 className="text-8xl font-serif italic text-white leading-none mb-8 drop-shadow-2xl" style={{ fontFamily: "'Playfair Display', serif" }}>
                         {subtitle || "Birthday"}
                     </h1>
 
-                    <div className="max-w-[300px] text-gray-300 text-xs leading-relaxed mb-12 bg-black/80 p-6 rounded-2xl border border-white/10 shadow-2xl">
-                        <p className="italic">"{message || "Wishing you a day filled with love and laughter."}"</p>
+                    <div className="max-w-[320px] text-gray-300 text-[11px] leading-relaxed mb-12 px-6">
+                        <p className="italic font-medium opacity-80">"{message || "Wishing you a day filled with love and laughter."}"</p>
                     </div>
 
-                    <div className="flex flex-col items-center gap-4">
-                        <div className="text-amber-400 font-bold tracking-[0.3em] text-base">{date || "MARCH 16, 2024"}</div>
-                        <div className="flex items-center gap-6 text-[10px] font-bold tracking-widest uppercase text-white/60">
-                            <span>{time || "5:00 PM"}</span>
-                            <div className="w-1.5 h-1.5 bg-amber-500 rounded-full"></div>
-                            <span>{location || "YOUR PLACE"}</span>
+                    <div className="flex flex-col items-center gap-6 w-full max-w-[200px]">
+                        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent"></div>
+                        <div className="space-y-2">
+                            <div className="text-amber-400 font-black tracking-[0.3em] text-sm uppercase">{date || "MARCH 16"}</div>
+                            <div className="text-[9px] font-bold tracking-[0.2em] uppercase text-white/40">
+                                {time || "5:00 PM"} <span className="mx-2 text-amber-500 opacity-50">•</span> {location || "YOUR PLACE"}
+                            </div>
                         </div>
+                        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent"></div>
                     </div>
                 </div>
             </div>
