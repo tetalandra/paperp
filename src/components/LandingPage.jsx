@@ -165,7 +165,7 @@ const LandingPage = ({ onGetStarted, user, onLogin }) => {
                                 Merging <span className="italic font-light">Heritage</span> with Global Excellence.
                             </h2>
                             <p className="text-white/50 text-lg leading-relaxed font-light">
-                                Born from the resilient legacy of the **AERG IMENA Family**, our studio bridges the gap between historical artisanal craftsmanship and modern digital precision. We don't just create invitations; we craft artifacts for the IMENA Family legacy.
+                                Built on the strong legacy of the IMENA Family, our studio combines classic hand-crafted design with modern technology. We create beautiful invitations that honor your special moments.
                             </p>
                             <div className="grid grid-cols-2 gap-10">
                                 <div className="space-y-4">
