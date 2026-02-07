@@ -29,7 +29,7 @@ const AssemblyTemplate = ({ data }) => {
                         <span className="text-[10px] font-black tracking-[0.5em] text-brand-gold uppercase">Weekly Assembly</span>
                     </div>
 
-                    <h1 className="text-5xl font-black uppercase tracking-tighter mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    <h1 className="text-5xl font-black uppercase tracking-tighter mb-2 text-brand-gold" style={{ fontFamily: "'Playfair Display', serif" }}>
                         Tuesday
                     </h1>
                     <h2 className="text-2xl font-bold tracking-[0.3em] text-brand-gold uppercase mb-8">Session</h2>
