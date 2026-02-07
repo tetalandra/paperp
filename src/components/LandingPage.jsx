@@ -191,8 +191,8 @@ const LandingPage = ({ onGetStarted, user, onLogin }) => {
                                 <div className="flex-1 flex items-center justify-center text-center p-20 space-y-10 group-hover:scale-105 transition-transform duration-700">
                                     <div className="space-y-6">
                                         <span className="text-[10px] font-black uppercase tracking-[0.8em] text-brand-gold/40">Legacy & Strength</span>
-                                        <p className="text-3xl font-serif text-white leading-relaxed italic font-bold">
-                                            "SHINGA ICUMU NAHKOMEYE RIRINJIRA"
+                                        <p className="text-5xl font-serif text-white leading-tight italic font-black tracking-tighter">
+                                            "SHINGA ICUMU NAHAKOMEYE RIRINJIRA"
                                         </p>
                                         <div className="pt-6">
                                             <div className="h-[2px] w-20 bg-brand-gold/40 mx-auto"></div>
