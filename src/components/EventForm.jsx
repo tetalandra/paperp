@@ -819,18 +819,7 @@ const EventForm = ({ onBack }) => {
                                 </button>
                             </div>
 
-                            <button
-                                onClick={handleSave}
-                                disabled={isSaving}
-                                className="w-full relative group overflow-hidden rounded-[1.5rem] bg-card/20 studio-border py-6 studio-shadow transition-all duration-700 hover:translate-y-[-4px] disabled:opacity-50 disabled:translate-y-0 flex items-center justify-center gap-4"
-                            >
-                                {isSaving ? (
-                                    <Loader2 className="w-5 h-5 animate-spin text-brand-blue" />
-                                ) : (
-                                    <Save className="w-5 h-5 text-brand-blue" />
-                                )}
-                                <span className="text-[10px] font-black tracking-[0.4em] uppercase">Save to Collection</span>
-                            </button>
+
 
                             {/* Artisan Signature Flourish */}
                             <div className="flex flex-col items-center animate-fade-in opacity-40 hover:opacity-100 transition-opacity duration-1000 mt-4">
