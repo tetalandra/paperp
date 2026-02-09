@@ -53,8 +53,8 @@ const LandingPage = ({ onGetStarted, user, onLogin }) => {
                             <img src={brandLogo.src || brandLogo} className="relative w-12 h-12 object-contain transition-all duration-500 group-hover:scale-110 group-hover:rotate-3" alt="IMENA Family Logo" />
                         </div>
                         <div className="flex flex-col">
-                            <span className="text-xl font-serif tracking-tight text-white font-bold leading-none">PaperP</span>
-                            <span className="text-[7px] font-bold uppercase tracking-[0.3em] text-brand-blue/80 mt-1">IMENA Family</span>
+                            <span className="text-xl font-serif tracking-tight text-white font-black leading-none uppercase">PaperP</span>
+                            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-blue mt-1">IMENA Family</span>
                         </div>
                     </div>
 
@@ -64,7 +64,7 @@ const LandingPage = ({ onGetStarted, user, onLogin }) => {
                             <button
                                 key={item}
                                 onClick={() => item === 'Home' ? window.scrollTo({ top: 0, behavior: 'smooth' }) : scrollToSection(item.toLowerCase().replace(/\s+/g, '-'))}
-                                className="text-[10px] uppercase tracking-[0.4em] font-black text-white/40 hover:text-brand-blue transition-all duration-300 relative group"
+                                className="text-[12px] uppercase tracking-[0.4em] font-black text-white/70 hover:text-brand-blue transition-all duration-300 relative group"
                             >
                                 {item}
                                 <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-brand-blue group-hover:w-full transition-all duration-500 shadow-[0_0_10px_rgba(37,99,235,0.8)]"></span>
@@ -72,10 +72,9 @@ const LandingPage = ({ onGetStarted, user, onLogin }) => {
                         ))}
                     </div>
 
-                    {/* Premium CTA Button */}
                     <button
                         onClick={onGetStarted}
-                        className="group relative px-8 py-3 bg-white/5 border border-white/10 text-white text-[10px] font-black uppercase tracking-[0.3em] overflow-hidden transition-all duration-500 hover:border-brand-blue/50 hover:bg-brand-blue/10 rounded-full"
+                        className="group relative px-8 py-3 bg-white/5 border border-white/10 text-white text-[12px] font-black uppercase tracking-[0.3em] overflow-hidden transition-all duration-500 hover:border-brand-blue/50 hover:bg-brand-blue/10 rounded-full"
                     >
                         <span className="relative z-10 flex items-center gap-3">
                             Design Now
@@ -83,24 +82,21 @@ const LandingPage = ({ onGetStarted, user, onLogin }) => {
                         </span>
                     </button>
                 </div>
-            </nav>
+            </nav >
 
             {/* ARTISAN HERO STAGE */}
-            <main id="home" className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 pt-32">
+            < main id="home" className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 pt-32" >
                 <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 
                     {/* Left: Copy */}
                     <div className="text-left space-y-12 animate-fade-in-up">
                         <div className="space-y-8">
-                            <span className="text-[11px] font-bold uppercase tracking-[0.5em] text-brand-blue flex items-center gap-4">
-                                <span className="w-12 h-[2px] bg-brand-blue"></span>
-                                Bespoke Design Studio
-                            </span>
+                            
                             <h1 className="text-6xl md:text-8xl font-serif-soft leading-[0.9] text-balance">
                                 Elevate your <br />
                                 <span className="italic font-light text-brand-gold">significant</span> moments.
                             </h1>
-                            <p className="max-w-lg text-white/50 text-base md:text-lg leading-relaxed tracking-wide text-balance">
+                            <p className="max-w-lg text-white/70 text-base md:text-lg font-medium leading-relaxed tracking-wide text-balance">
                                 Professional stationery design for those who value tradition, craftsmanship, and the art of the perfect invitation.
                             </p>
                         </div>
@@ -128,18 +124,19 @@ const LandingPage = ({ onGetStarted, user, onLogin }) => {
                     <div className="relative h-[550px] hidden lg:flex items-center justify-center">
                         <div className="absolute w-[360px] h-[500px] bg-white/5 border border-white/10 rounded-sm card-stack-2 rotate-[-5deg] backdrop-blur-sm shadow-2xl"></div>
                         <div className="absolute w-[360px] h-[500px] bg-white border border-white/[0.05] card-stack-1 flex flex-col items-center justify-center text-center p-14 space-y-10 shadow-2xl">
-                            <img src={brandLogo.src || brandLogo} className="w-16 h-16 object-contain grayscale opacity-20 mb-4" alt="" />
-                            <div className="space-y-3">
-                                <div className="text-[10px] uppercase tracking-[0.5em] text-black/30 font-bold">Ensemble,</div>
-                                <div className="font-serif-soft text-4xl text-black/80 italic leading-tight uppercase tracking-widest">lumineux et courageux</div>
+                            <img src={brandLogo.src || brandLogo} crossOrigin="anonymous" className="w-16 h-16 object-contain grayscale opacity-20 mb-4" alt="" />
+                            <div className="flex flex-col items-center justify-center space-y-12 py-4">
+                                <div className="text-[9px] uppercase tracking-[0.8em] text-black/30 font-medium mb-1">Ensemble,</div>
+                                <div className="flex flex-col items-center space-y-4">
+                                    <div className="font-serif text-[35px] text-black/85 italic leading-none uppercase tracking-[0.1em] font-light">Lumineux</div>
+                                    <div className="font-serif text-[35px] text-black/85 italic leading-none uppercase tracking-[0.1em] font-light">Et</div>
+                                    <div className="font-serif text-[35px] text-black/85 italic leading-none uppercase tracking-[0.1em] font-light">Courageux</div>
+                                </div>
                             </div>
-                            <div className="w-24 h-[1px] bg-black/10"></div>
-                            <div className="text-[9px] uppercase tracking-[0.4em] text-black/40 leading-loose font-medium">
-                                Saturday, June 21st <br />
-                                The Glass House, NY
-                            </div>
-                            <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-1">
-                                {[1, 2, 3].map(i => <div key={i} className="w-1.5 h-1.5 bg-black/10 rounded-full"></div>)}
+                            <div className="w-24 h-[1px] bg-black/[0.03]"></div>
+                           
+                            <div className="flex gap-2.5 pt-4">
+                                {[1, 2, 3].map(i => <div key={i} className="w-1 h-1 bg-black/[0.05] rounded-full"></div>)}
                             </div>
                         </div>
                     </div>
@@ -148,12 +145,12 @@ const LandingPage = ({ onGetStarted, user, onLogin }) => {
                 {/* Vertical Scroll Indicator */}
                 <div className="mt-40 pb-20 flex flex-col items-center gap-8 animate-bounce transition-opacity duration-1000">
                     <div className="h-16 w-[1px] bg-gradient-to-b from-brand-blue to-transparent"></div>
-                    <span className="text-[9px] font-black uppercase tracking-[1.5em] mr-[-1.5em] text-brand-blue/60">Discover</span>
+                    <span className="text-[11px] font-black uppercase tracking-[1.5em] mr-[-1.5em] text-brand-blue/80">Discover</span>
                 </div>
-            </main>
+            </main >
 
             {/* ABOUT US SECTION */}
-            <section id="about-us" className="relative z-10 py-40 bg-black">
+            < section id="about-us" className="relative z-10 py-40 bg-black" >
                 <div className="max-w-7xl mx-auto px-8 md:px-16">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
                         <div className="space-y-12">
@@ -203,10 +200,10 @@ const LandingPage = ({ onGetStarted, user, onLogin }) => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* HOW IT WORKS SECTION */}
-            <section id="how-it-works" className="relative z-10 py-40 border-t border-white/5 bg-[radial-gradient(circle_at_50%_50%,rgba(37,99,235,0.03)_0%,transparent_100%)]">
+            < section id="how-it-works" className="relative z-10 py-40 border-t border-white/5 bg-[radial-gradient(circle_at_50%_50%,rgba(37,99,235,0.03)_0%,transparent_100%)]" >
                 <div className="max-w-7xl mx-auto px-8 md:px-16 space-y-32">
                     <div className="text-center space-y-8">
                         <span className="text-[11px] font-bold uppercase tracking-[0.8em] text-brand-blue">The Creative Process</span>
@@ -245,34 +242,34 @@ const LandingPage = ({ onGetStarted, user, onLogin }) => {
                         </button>
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* PREMIUM DARK FOOTER */}
-            <footer className="relative z-10 py-20 border-t border-white/5">
+            < footer className="relative z-10 py-20 border-t border-white/5" >
                 <div className="max-w-7xl mx-auto px-8 md:px-16 flex flex-col md:flex-row justify-between items-center gap-10">
-                    <div className="flex flex-col gap-3 opacity-40">
-                        <span className="text-[10px] font-black uppercase tracking-widest text-white">© 2026 Paper Studio</span>
+                    <div className="flex flex-col gap-3 opacity-80">
+                        <span className="text-[12px] font-black uppercase tracking-widest text-white">© 2026 Paper Studio</span>
                         <div className="h-[2px] w-16 bg-brand-blue"></div>
-                        <span className="text-[10px] font-black uppercase tracking-[0.4em] text-brand-blue">AERG IMENA Family</span>
+                        <span className="text-[11px] font-black uppercase tracking-[0.4em] text-brand-blue">AERG IMENA Family</span>
                     </div>
 
-                    <div className="flex gap-12 text-[9px] uppercase tracking-[0.4em] font-bold text-white/30">
+                    <div className="flex gap-12 text-[11px] uppercase tracking-[0.4em] font-black text-white/60">
                         <a href="#" className="hover:text-brand-blue transition-colors">Privacy</a>
                         <a href="#" className="hover:text-brand-blue transition-colors">Terms</a>
                         <a href="#" className="hover:text-brand-blue transition-colors">Support</a>
                     </div>
 
-                    <div className="flex flex-col items-end gap-3 opacity-40">
+                    <div className="flex flex-col items-end gap-3 opacity-80">
                         <div className="flex items-center gap-4">
-                            <span className="text-[10px] font-black uppercase tracking-[0.5em] text-brand-gold">Crafted with Purpose</span>
+                            <span className="text-[12px] font-black uppercase tracking-[0.5em] text-brand-gold">Crafted with Purpose</span>
                             <Crown className="w-4 h-4 text-brand-gold" />
                         </div>
                         <div className="h-[2px] w-16 bg-brand-gold"></div>
                     </div>
                 </div>
-            </footer>
+            </footer >
 
-        </div>
+        </div >
     );
 };
 

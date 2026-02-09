@@ -52,10 +52,10 @@ const InputGroup = ({
             >
                 {/* Floating Label */}
                 <label
-                    className={`absolute left-14 transition-all duration-700 pointer-events-none z-10 font-semibold tracking-[0.2em] uppercase
+                    className={`absolute left-14 transition-all duration-700 pointer-events-none z-10 font-bold tracking-[0.2em] uppercase
                     ${(isFocused || hasValue)
-                            ? 'top-4 text-[7px] text-brand-blue'
-                            : 'top-1/2 -translate-y-1/2 text-[9px] text-neutral-500'
+                            ? 'top-4 text-[11px] text-brand-blue opacity-100'
+                            : 'top-1/2 -translate-y-1/2 text-[13px] text-neutral-500 opacity-70'
                         }
                 `}
                 >
@@ -79,7 +79,7 @@ const InputGroup = ({
                         onFocus={onFocus}
                         onBlur={onBlur}
                         rows="4"
-                        className="w-full bg-transparent border-none text-foreground placeholder-transparent focus:ring-0 pt-10 pb-5 pl-14 pr-7 text-[13px] resize-none custom-scrollbar font-medium leading-relaxed tracking-wide"
+                        className="w-full bg-transparent border-none text-foreground placeholder-transparent focus:ring-0 pt-10 pb-5 pl-14 pr-7 text-[14px] resize-none custom-scrollbar font-bold leading-relaxed tracking-wide"
                         placeholder={placeholder}
                     />
                 ) : (
@@ -90,7 +90,7 @@ const InputGroup = ({
                         onChange={onChange}
                         onFocus={onFocus}
                         onBlur={onBlur}
-                        className="w-full bg-transparent border-none text-foreground placeholder-transparent focus:ring-0 pt-10 pb-5 pl-14 pr-7 text-[15px] h-[76px] font-medium tracking-wide"
+                        className="w-full bg-transparent border-none text-foreground placeholder-transparent focus:ring-0 pt-10 pb-5 pl-14 pr-7 text-[16px] h-[76px] font-bold tracking-wide"
                         placeholder={placeholder}
                     />
                 )}
@@ -437,19 +437,19 @@ const EventForm = ({ onBack }) => {
                         <div className="flex items-center gap-6">
                             <button
                                 onClick={() => window.location.href = '/'}
-                                className="group flex items-center gap-3 text-[10px] font-black text-neutral-500 hover:text-foreground transition-all tracking-[0.3em] uppercase"
+                                className="group flex items-center gap-3 text-[12px] font-black text-neutral-600 hover:text-foreground transition-all tracking-[0.3em] uppercase"
                             >
-                                <Home className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
+                                <Home className="w-4 h-4 group-hover:scale-110 transition-transform" />
                                 Home
                             </button>
-                            <button onClick={onBack} className="group flex items-center gap-3 text-[10px] font-black text-neutral-500 hover:text-foreground transition-all tracking-[0.3em] uppercase">
-                                <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
+                            <button onClick={onBack} className="group flex items-center gap-3 text-[12px] font-black text-neutral-600 hover:text-foreground transition-all tracking-[0.3em] uppercase">
+                                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                                 Studio
                             </button>
                         </div>
                         <div className="flex items-center gap-2">
                             <div className="w-2 h-2 rounded-full bg-brand-blue animate-pulse"></div>
-                            <span className="text-[10px] font-bold text-brand-blue tracking-widest uppercase">Live Draft</span>
+                            <span className="text-[11px] font-black text-brand-blue tracking-widest uppercase">Live Draft</span>
                         </div>
                     </div>
 
@@ -612,7 +612,7 @@ const EventForm = ({ onBack }) => {
                         <section className={`transition-all duration-700 ${focusedField && !['title', 'subtitle'].includes(focusedField) ? 'opacity-30 blur-[2px] scale-[0.98]' : 'opacity-100 scale-100'}`}>
                             <div className="flex items-center gap-3 mb-8">
                                 <div className="brush-divider flex-1"></div>
-                                <h3 className="text-[9px] font-black text-neutral-600 tracking-[0.4em] uppercase">Core Details</h3>
+                                <h3 className="text-[12px] font-black text-neutral-600 tracking-[0.4em] uppercase">Core Details</h3>
                                 <div className="brush-divider flex-1"></div>
                             </div>
                             <div className="space-y-6">

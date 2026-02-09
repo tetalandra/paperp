@@ -13,7 +13,7 @@ const ValentineTemplate = ({ data }) => {
 
     const ImenaBranding = () => (
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-[60] flex flex-col items-center gap-1.5 opacity-60 select-none pointer-events-none hover:opacity-100 transition-opacity">
-            <img src={brandLogo.src || brandLogo} alt="Imena" className="h-7 w-auto drop-shadow-lg" />
+            <img src={brandLogo.src || brandLogo} alt="Imena" crossOrigin="anonymous" className="h-7 w-auto drop-shadow-lg" />
             <span className="text-[7px] font-black tracking-[0.3em] uppercase text-white/50 whitespace-nowrap">Designed by Imena</span>
         </div>
     );

@@ -13,13 +13,13 @@ const RememberingTemplate = ({ data }) => {
 
     const RememberingLogo = () => (
         <div className="absolute top-6 left-8 z-[60] flex flex-col items-start gap-1 opacity-90 select-none pointer-events-none">
-            <img src={rememberingLogo.src || rememberingLogo} alt="In Memory" className="h-20 w-auto drop-shadow-xl mix-blend-multiply" />
+            <img src={rememberingLogo.src || rememberingLogo} alt="In Memory" crossOrigin="anonymous" className="h-20 w-auto drop-shadow-xl mix-blend-multiply" />
         </div>
     );
 
     const ImenaBranding = () => (
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-[60] flex flex-col items-center gap-1.5 opacity-60 select-none pointer-events-none hover:opacity-100 transition-opacity">
-            <img src={brandLogo.src || brandLogo} alt="Imena" className="h-7 w-auto drop-shadow-lg" />
+            <img src={brandLogo.src || brandLogo} alt="Imena" crossOrigin="anonymous" className="h-7 w-auto drop-shadow-lg" />
             <span className="text-[7px] font-black tracking-[0.3em] uppercase text-neutral-400 whitespace-nowrap">Designed by Imena</span>
         </div>
     );
@@ -32,12 +32,12 @@ const RememberingTemplate = ({ data }) => {
                 <ImenaBranding />
 
                 {/* Heavenly Light Rays */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full opacity-20">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full opacity-20" data-html2canvas-ignore="true">
                     <div className="absolute top-0 w-full h-96 bg-gradient-to-b from-neutral-200/40 via-white/30 to-transparent"></div>
                 </div>
 
                 {/* Subtle Marble Texture Effect */}
-                <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(0,0,0,0.05) 0%, transparent 50%)' }}></div>
+                <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(0,0,0,0.05) 0%, transparent 50%)' }} data-html2canvas-ignore="true"></div>
 
                 {/* Gold Accent Borders */}
                 <div className="absolute inset-10 border border-neutral-600/20 rounded-sm pointer-events-none"></div>
@@ -96,7 +96,7 @@ const RememberingTemplate = ({ data }) => {
                     {/* Kwibuka Logo - Top Center */}
                     <div className="mb-12 transform-gpu transition-transform duration-1000 hover:scale-105">
                         {logo ? (
-                            <img src={logo.src || logo} alt="Kwibuka" className="h-32 w-auto drop-shadow-[0_0_30px_rgba(255,255,255,0.2)]" />
+                            <img src={logo.src || logo} alt="Kwibuka" crossOrigin="anonymous" className="h-32 w-auto drop-shadow-[0_0_30px_rgba(255,255,255,0.2)]" />
                         ) : (
                             <div className="h-32 w-32 bg-white/5 rounded-full blur-xl animate-pulse"></div>
                         )}
