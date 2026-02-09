@@ -53,7 +53,7 @@ const LandingPage = ({ onGetStarted, user, onLogin }) => {
                             <img src={brandLogo.src || brandLogo} className="relative w-12 h-12 object-contain transition-all duration-500 group-hover:scale-110 group-hover:rotate-3" alt="IMENA Family Logo" />
                         </div>
                         <div className="flex flex-col">
-                            <span className="text-xl font-serif tracking-tight text-white font-bold leading-none">Paper</span>
+                            <span className="text-xl font-serif tracking-tight text-white font-bold leading-none">PaperP</span>
                             <span className="text-[7px] font-bold uppercase tracking-[0.3em] text-brand-blue/80 mt-1">IMENA Family</span>
                         </div>
                     </div>
@@ -130,8 +130,8 @@ const LandingPage = ({ onGetStarted, user, onLogin }) => {
                         <div className="absolute w-[360px] h-[500px] bg-white border border-white/[0.05] card-stack-1 flex flex-col items-center justify-center text-center p-14 space-y-10 shadow-2xl">
                             <img src={brandLogo.src || brandLogo} className="w-16 h-16 object-contain grayscale opacity-20 mb-4" alt="" />
                             <div className="space-y-3">
-                                <div className="text-[10px] uppercase tracking-[0.5em] text-black/30 font-bold">The Anniversary of</div>
-                                <div className="font-serif-soft text-4xl text-black/80 italic leading-tight">Evelyn & James</div>
+                                <div className="text-[10px] uppercase tracking-[0.5em] text-black/30 font-bold">Ensemble,</div>
+                                <div className="font-serif-soft text-4xl text-black/80 italic leading-tight uppercase tracking-widest">lumineux et courageux</div>
                             </div>
                             <div className="w-24 h-[1px] bg-black/10"></div>
                             <div className="text-[9px] uppercase tracking-[0.4em] text-black/40 leading-loose font-medium">
@@ -251,7 +251,7 @@ const LandingPage = ({ onGetStarted, user, onLogin }) => {
             <footer className="relative z-10 py-20 border-t border-white/5">
                 <div className="max-w-7xl mx-auto px-8 md:px-16 flex flex-col md:flex-row justify-between items-center gap-10">
                     <div className="flex flex-col gap-3 opacity-40">
-                        <span className="text-[10px] font-black uppercase tracking-widest text-white">© 2024 Paper Studio</span>
+                        <span className="text-[10px] font-black uppercase tracking-widest text-white">© 2026 Paper Studio</span>
                         <div className="h-[2px] w-16 bg-brand-blue"></div>
                         <span className="text-[10px] font-black uppercase tracking-[0.4em] text-brand-blue">AERG IMENA Family</span>
                     </div>

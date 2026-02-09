@@ -172,7 +172,7 @@ const AchievementTemplate = ({ data }) => {
                     <div className="flex gap-16 text-white/40 text-[9px] font-black uppercase tracking-[0.3em] border-t border-white/5 pt-10 mt-6">
                         <div className="text-center group">
                             <span className="block text-brand-gold/60 mb-2 transition-colors group-hover:text-brand-gold">Date Presented</span>
-                            {date || "2024"}
+                            {date || "2026"}
                         </div>
                         <div className="text-center group">
                             <span className="block text-brand-gold/60 mb-2 transition-colors group-hover:text-brand-gold">Location</span>

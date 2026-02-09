@@ -48,7 +48,7 @@ const BirthdayTemplate = ({ data }) => {
                             <div className="w-1.5 h-1.5 bg-brand-gold rotate-45"></div>
                             <span className="text-[10px] font-black text-neutral-400 uppercase tracking-widest">{time || "5 PM"}</span>
                         </div>
-                        <div className="text-lg font-black tracking-[0.3em] mt-2 text-brand-gold uppercase">2024</div>
+                        <div className="text-lg font-black tracking-[0.3em] mt-2 text-brand-gold uppercase">2026</div>
                     </div>
 
                     <div className="space-y-3 mt-4">

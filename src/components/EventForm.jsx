@@ -5,7 +5,7 @@ import {
     CheckCircle, MessageSquare, Star, PartyPopper, Crown, Scissors, Trophy,
     GraduationCap, Presentation, Flower2, Flame, User, Type, AlignLeft,
     ArrowLeft, Download, Calendar, MapPin, Clock, Phone, FileText, Save, Loader2, Megaphone,
-    Cake, Rose, Sparkles
+    Cake, Rose, Sparkles, Home
 } from 'lucide-react';
 import InvitationPreview from './InvitationPreview';
 import { downloadPDF, downloadPNG } from '../utils/pdfUtils';
@@ -389,7 +389,7 @@ const EventForm = ({ onBack }) => {
                 break;
             case 'remembering':
                 config.titleLabel = 'Full Name';
-                config.subtitleLabel = 'Life Dates (e.g. 1950 - 2024)';
+                config.subtitleLabel = 'Life Dates (e.g. 1950 - 2026)';
                 config.locationLabel = 'Chapel / Location';
                 config.phoneLabel = 'Contact Person';
                 config.requiredFields = ['title', 'date', 'location'];
@@ -434,10 +434,19 @@ const EventForm = ({ onBack }) => {
                 <div className="p-8 lg:p-12 pb-32 relative z-10">
                     {/* Header Navigation */}
                     <div className="flex justify-between items-center mb-10">
-                        <button onClick={onBack} className="group flex items-center gap-3 text-[10px] font-black text-neutral-500 hover:text-foreground transition-all tracking-[0.3em] uppercase">
-                            <ArrowLeft className="w-3 h-3 group-hover:-translate-x-1 transition-transform" />
-                            Studio
-                        </button>
+                        <div className="flex items-center gap-6">
+                            <button
+                                onClick={() => window.location.href = '/'}
+                                className="group flex items-center gap-3 text-[10px] font-black text-neutral-500 hover:text-foreground transition-all tracking-[0.3em] uppercase"
+                            >
+                                <Home className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
+                                Home
+                            </button>
+                            <button onClick={onBack} className="group flex items-center gap-3 text-[10px] font-black text-neutral-500 hover:text-foreground transition-all tracking-[0.3em] uppercase">
+                                <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
+                                Studio
+                            </button>
+                        </div>
                         <div className="flex items-center gap-2">
                             <div className="w-2 h-2 rounded-full bg-brand-blue animate-pulse"></div>
                             <span className="text-[10px] font-bold text-brand-blue tracking-widest uppercase">Live Draft</span>
@@ -770,55 +779,71 @@ const EventForm = ({ onBack }) => {
                                 </div>
                             </section>
                         )}
+
+                        {/* Relocated Studio Exports: Artisan completed flow */}
+                        <div className="mt-20 pt-20 border-t border-white/5 flex flex-col gap-10 animate-fade-in">
+                            <div className="flex flex-col items-center gap-4 mb-2">
+                                <span className="text-[9px] font-black tracking-[0.6em] uppercase text-neutral-500 opacity-60">Finalize & Export</span>
+                                <div className="h-10 w-[1px] bg-gradient-to-b from-neutral-500/20 to-transparent"></div>
+                            </div>
+
+                            <div className="flex gap-4">
+                                <button
+                                    onClick={handleDownload}
+                                    className="flex-[2] relative group overflow-hidden rounded-[1.5rem] bg-foreground text-background py-6 studio-shadow transition-all duration-700 hover:translate-y-[-4px] active:translate-y-0"
+                                >
+                                    <div className="absolute inset-0 bg-gradient-to-tr from-brand-blue/20 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]" />
+                                    <div className="absolute inset-0 holographic-shimmer opacity-0 group-hover:opacity-10 transition-opacity duration-700"></div>
+                                    <span className="relative z-10 flex items-center justify-center gap-4 tracking-[0.6em] uppercase text-[10px] font-black">
+                                        <Download className="w-6 h-6 text-brand-blue" />
+                                        Export PDF
+                                    </span>
+                                </button>
+                                <button
+                                    onClick={async () => {
+                                        try {
+                                            await downloadPNG('invitation-card', `Paper-${activeData.title || 'Invitation'}.png`);
+                                            showToast('PNG Downloaded Successfully', 'success');
+                                        } catch (error) {
+                                            console.error(error);
+                                            showToast('Failed to download PNG', 'error');
+                                        }
+                                    }}
+                                    className="flex-[1] relative group overflow-hidden rounded-[1.5rem] bg-card/20 studio-border py-6 studio-shadow transition-all duration-700 hover:translate-y-[-4px] active:translate-y-0"
+                                >
+                                    <div className="absolute inset-0 bg-gradient-to-tr from-brand-gold/20 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]" />
+                                    <span className="relative z-10 flex items-center justify-center gap-4 tracking-[0.6em] uppercase text-[10px] font-black">
+                                        <ImageIcon className="w-6 h-6 text-brand-gold" />
+                                        PNG
+                                    </span>
+                                </button>
+                            </div>
+
+                            <button
+                                onClick={handleSave}
+                                disabled={isSaving}
+                                className="w-full relative group overflow-hidden rounded-[1.5rem] bg-card/20 studio-border py-6 studio-shadow transition-all duration-700 hover:translate-y-[-4px] disabled:opacity-50 disabled:translate-y-0 flex items-center justify-center gap-4"
+                            >
+                                {isSaving ? (
+                                    <Loader2 className="w-5 h-5 animate-spin text-brand-blue" />
+                                ) : (
+                                    <Save className="w-5 h-5 text-brand-blue" />
+                                )}
+                                <span className="text-[10px] font-black tracking-[0.4em] uppercase">Save to Collection</span>
+                            </button>
+
+                            {/* Artisan Signature Flourish */}
+                            <div className="flex flex-col items-center animate-fade-in opacity-40 hover:opacity-100 transition-opacity duration-1000 mt-4">
+                                <span className="text-[7px] font-bold tracking-[0.4em] text-neutral-500 uppercase mb-2">Handcrafted with passion</span>
+                                <svg width="60" height="20" viewBox="0 0 100 30" className="text-brand-gold fill-current">
+                                    <path d="M10 20 C 20 10, 40 10, 50 20 S 80 30, 90 20" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" className="animate-shine" />
+                                </svg>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                {/* Fixed Footer Actions: Studio Exports */}
-                <div className="sticky bottom-0 left-0 w-full p-10 bg-background/80 backdrop-blur-3xl border-t studio-border z-[100] studio-shadow flex flex-col gap-6">
-                    <div className="flex gap-4">
-                        <button
-                            onClick={handleDownload}
-                            className="flex-[2.5] relative group overflow-hidden rounded-[1.5rem] bg-foreground text-background py-6 studio-shadow transition-all duration-700 hover:translate-y-[-4px] active:translate-y-0"
-                        >
-                            <div className="absolute inset-0 bg-gradient-to-tr from-brand-blue/20 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]" />
-                            <div className="absolute inset-0 holographic-shimmer opacity-0 group-hover:opacity-10 transition-opacity duration-700"></div>
-                            <span className="relative z-10 flex items-center justify-center gap-4 tracking-[0.6em] uppercase text-[10px] font-black">
-                                <Download className="w-6 h-6 text-brand-blue" />
-                                Export PDF
-                            </span>
-                        </button>
-                        <button
-                            onClick={async () => {
-                                try {
-                                    await downloadPNG('invitation-card', `Paper-${activeData.title || 'Invitation'}.png`);
-                                    showToast('PNG Downloaded Successfully', 'success');
-                                } catch (error) {
-                                    console.error(error);
-                                    showToast('Failed to download PNG', 'error');
-                                }
-                            }}
-                            className="flex-[1] relative group overflow-hidden rounded-[1.5rem] bg-card/20 studio-border py-6 studio-shadow transition-all duration-700 hover:translate-y-[-4px] active:translate-y-0"
-                        >
-                            <div className="absolute inset-0 bg-gradient-to-tr from-brand-gold/20 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]" />
-                            <span className="relative z-10 flex items-center justify-center gap-4 tracking-[0.6em] uppercase text-[10px] font-black">
-                                <ImageIcon className="w-6 h-6 text-brand-gold" />
-                                PNG
-                            </span>
-                        </button>
-                    </div>
-                    <div className="flex items-center justify-center gap-3 opacity-20 hover:opacity-100 transition-opacity duration-700 cursor-default mb-2">
-                        <div className="h-[1px] w-6 bg-foreground"></div>
-                        <span className="text-[9px] font-black tracking-[0.6em] uppercase">Paper Artisan Studio</span>
-                        <div className="h-[1px] w-6 bg-foreground"></div>
-                    </div>
-                    {/* Artisan Signature Flourish */}
-                    <div className="flex flex-col items-center animate-fade-in opacity-40 hover:opacity-100 transition-opacity duration-1000">
-                        <span className="text-[7px] font-bold tracking-[0.4em] text-neutral-500 uppercase mb-2">Handcrafted with passion</span>
-                        <svg width="60" height="20" viewBox="0 0 100 30" className="text-brand-gold fill-current">
-                            <path d="M10 20 C 20 10, 40 10, 50 20 S 80 30, 90 20" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" className="animate-shine" />
-                        </svg>
-                    </div>
-                </div>
+
             </div>
 
             {/* RIGHT SIDEBAR: PREVIEW STAGE */}
