@@ -609,7 +609,7 @@ const EventForm = ({ onBack }) => {
 
                     {/* Editor Section: Artisan concentration focus */}
                     <div className="space-y-12 transition-all duration-1000">
-                        <section className={`transition-all duration-700 ${focusedField && !['title', 'subtitle'].includes(focusedField) ? 'opacity-30 blur-[2px] scale-[0.98]' : 'opacity-100 scale-100'}`}>
+                        <section className={`transition-all duration-700 ${focusedField && !['title', 'subtitle'].includes(focusedField) ? 'opacity-50' : 'opacity-100'}`}>
                             <div className="flex items-center gap-3 mb-8">
                                 <div className="brush-divider flex-1"></div>
                                 <h3 className="text-[12px] font-black text-neutral-600 tracking-[0.4em] uppercase">Core Details</h3>
@@ -646,7 +646,7 @@ const EventForm = ({ onBack }) => {
                         </section>
 
                         {(showDate || showTime || showLocation || showPhone) && (
-                            <section className={`transition-all duration-700 ${focusedField && !['date', 'time', 'location', 'phone'].includes(focusedField) ? 'opacity-30 blur-[2px] scale-[0.98]' : 'opacity-100 scale-100'}`}>
+                            <section className={`transition-all duration-700 ${focusedField && !['date', 'time', 'location', 'phone'].includes(focusedField) ? 'opacity-50' : 'opacity-100'}`}>
                                 <div className="flex items-center gap-3 mb-8">
                                     <div className="brush-divider flex-1"></div>
                                     <h3 className="text-[9px] font-black text-neutral-600 tracking-[0.4em] uppercase">Atmosphere & Place</h3>
@@ -722,7 +722,7 @@ const EventForm = ({ onBack }) => {
                         )}
 
                         {showMessage && (
-                            <section className={`transition-all duration-700 ${focusedField && focusedField !== 'message' ? 'opacity-30 blur-[2px] scale-[0.98]' : 'opacity-100 scale-100'}`}>
+                            <section className={`transition-all duration-700 ${focusedField && focusedField !== 'message' ? 'opacity-50' : 'opacity-100'}`}>
                                 <div className="flex items-center gap-3 mb-8">
                                     <div className="brush-divider flex-1"></div>
                                     <h3 className="text-[9px] font-black text-neutral-600 tracking-[0.4em] uppercase">Bespoke Narrative</h3>
@@ -745,7 +745,7 @@ const EventForm = ({ onBack }) => {
                             </section>
                         )}
                         {showImage && (
-                            <section className={`transition-all duration-700 ${focusedField ? 'opacity-30 blur-[2px] scale-[0.98]' : 'opacity-100 scale-100'}`}>
+                            <section className={`transition-all duration-700 ${focusedField ? 'opacity-50' : 'opacity-100'}`}>
                                 <div className="flex items-center gap-3 mb-8">
                                     <div className="brush-divider flex-1"></div>
                                     <h3 className="text-[9px] font-black text-neutral-600 tracking-[0.4em] uppercase">Visual Assets</h3>
