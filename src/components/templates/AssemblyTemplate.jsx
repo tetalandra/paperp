@@ -69,7 +69,7 @@ const AssemblyTemplate = ({ data }) => {
 
                 <div className="relative z-10 w-full flex flex-col items-center text-center">
                     <div className="mb-6 bg-brand-blue/10 px-6 py-1 rounded-full border border-brand-blue/20 backdrop-blur-sm">
-                        <span className="text-[10px] font-black tracking-[0.5em] text-brand-blue uppercase">Weekend Forum</span>
+                        <span className="text-[10px] font-black tracking-[0.5em] text-brand-blue uppercase">Weekend Special</span>
                     </div>
 
                     <h1 className="text-5xl font-black uppercase tracking-tighter mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
