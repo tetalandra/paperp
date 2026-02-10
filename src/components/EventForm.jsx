@@ -309,6 +309,10 @@ const EventForm = ({ onBack }) => {
                     { id: 6, name: 'Modern Photo', preview: <Camera className="w-7 h-7" />, img: birthdayV6.src || birthdayV6 },
                     { id: 7, name: 'Balloon Party', preview: <Gift className="w-7 h-7" />, img: birthdayV7.src || birthdayV7 }
                 ];
+
+                if (currentVariant === 5) {
+                    config.showMessage = false;
+                }
                 break;
             case 'announcement':
                 config.showImage = false;
