@@ -288,7 +288,7 @@ const EventForm = ({ onBack }) => {
             subtitleLabel: 'Name / Subject',
             dateLabel: 'Event Date',
             showPhone: true,
-            phoneLabel: 'R.S.V.P',
+         
             showImage: false,
             requiredFields: ['title', 'date', 'location'],
             messagePlaceholder: 'Write a warm invitation message...',
@@ -653,7 +653,7 @@ const EventForm = ({ onBack }) => {
                             <section className={`transition-all duration-700 ${focusedField && !['date', 'time', 'location', 'phone'].includes(focusedField) ? 'opacity-50' : 'opacity-100'}`}>
                                 <div className="flex items-center gap-3 mb-8">
                                     <div className="brush-divider flex-1"></div>
-                                    <h3 className="text-[9px] font-black text-neutral-600 tracking-[0.4em] uppercase">Atmosphere & Place</h3>
+                                    <h3 className="text-[9px] font-black text-neutral-600 tracking-[0.4em] uppercase">Place-IMENA</h3>
                                     <div className="brush-divider flex-1"></div>
                                 </div>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -729,7 +729,7 @@ const EventForm = ({ onBack }) => {
                             <section className={`transition-all duration-700 ${focusedField && focusedField !== 'message' ? 'opacity-50' : 'opacity-100'}`}>
                                 <div className="flex items-center gap-3 mb-8">
                                     <div className="brush-divider flex-1"></div>
-                                    <h3 className="text-[9px] font-black text-neutral-600 tracking-[0.4em] uppercase">Bespoke Narrative</h3>
+                                    <h3 className="text-[9px] font-black text-neutral-600 tracking-[0.4em] uppercase">IMENA Studio</h3>
                                     <div className="brush-divider flex-1"></div>
                                 </div>
                                 <InputGroup
@@ -883,7 +883,7 @@ const EventForm = ({ onBack }) => {
                         <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 flex items-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-700 translate-y-4 group-hover:translate-y-0">
                             <div className="flex items-center gap-2 px-4 py-2 bg-background/80 backdrop-blur-xl border border-foreground/10 rounded-full">
                                 <CheckCircle className="w-3 h-3 text-brand-gold" />
-                                <span className="text-[9px] font-semibold text-foreground uppercase tracking-widest whitespace-nowrap">Premium Print Quality</span>
+                                <span className="text-[9px] font-semibold text-foreground uppercase tracking-widest whitespace-nowrap">Premium IMENA Quality</span>
                             </div>
                         </div>
                     </div>
