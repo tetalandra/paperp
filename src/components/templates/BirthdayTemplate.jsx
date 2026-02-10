@@ -72,9 +72,9 @@ const BirthdayTemplate = ({ data }) => {
                 <div className="absolute right-0 top-0 w-1/2 h-full bg-white z-0"></div>
                 <div className="absolute bottom-0 left-0 w-full h-[25%] bg-white z-10"></div>
 
-                {/* User Photo Overlay */}
-                <div className="absolute top-[12%] left-[8%] w-[45%] h-[72%] z-20 shadow-[20px_20px_60px_rgba(0,0,0,0.1)]">
-                    <div className="w-full h-full relative overflow-hidden bg-neutral-100 border-[8px] border-white">
+                {/* User Photo Overlay - Expanded to fully cover background placeholder */}
+                <div className="absolute top-0 left-0 w-[55%] h-[80%] z-20 shadow-[20px_20px_60px_rgba(0,0,0,0.15)]">
+                    <div className="w-full h-full relative overflow-hidden bg-neutral-100 border-r-[12px] border-white shadow-2xl">
                         {image ? (
                             <img src={image} className="w-full h-full object-cover grayscale brightness-105 contrast-110" />
                         ) : (
