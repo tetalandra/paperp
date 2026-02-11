@@ -130,7 +130,7 @@ const RememberingTemplate = ({ data }) => {
                                 <div className="w-[1px] h-8 bg-white/10"></div>
                                 <div className="flex flex-col items-center gap-2">
                                     <span className="text-white/60">Venue</span>
-                                    <span className="text-white">{location || "KIGALI MEMORIAL"}</span>
+                                    <span className="text-white max-w-[200px] leading-tight text-center">{location || "KIGALI MEMORIAL"}</span>
                                 </div>
                             </div>
                         )}

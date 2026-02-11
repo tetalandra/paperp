@@ -29,7 +29,7 @@ import noticeV20 from '../assets/templates/20.jpg';
 import awardGraduation from '../assets/templates/21.jpg';
 const InputGroup = ({
     label, name, value, onChange, type = "text", icon: Icon, placeholder, multiline = false,
-    delay, isFocused, onFocus, onBlur, className, required = false
+    delay, isFocused, onFocus, onBlur, className, required = false, maxLength
 }) => {
     const [hasValue, setHasValue] = useState(false);
 
@@ -78,8 +78,8 @@ const InputGroup = ({
                         onChange={onChange}
                         onFocus={onFocus}
                         onBlur={onBlur}
-                        rows="4"
-                        className="w-full bg-transparent border-none text-foreground placeholder-transparent focus:ring-0 pt-10 pb-5 pl-14 pr-7 text-[14px] resize-none custom-scrollbar font-bold leading-relaxed tracking-wide"
+                        maxLength={maxLength}
+                        className="w-full bg-transparent border-none text-foreground placeholder-transparent focus:ring-0 pt-10 pb-5 pl-14 pr-7 text-[14px] h-[120px] resize-none custom-scrollbar font-bold leading-relaxed tracking-wide"
                         placeholder={placeholder}
                     />
                 ) : (
@@ -90,9 +90,17 @@ const InputGroup = ({
                         onChange={onChange}
                         onFocus={onFocus}
                         onBlur={onBlur}
+                        maxLength={maxLength}
                         className="w-full bg-transparent border-none text-foreground placeholder-transparent focus:ring-0 pt-10 pb-5 pl-14 pr-7 text-[16px] h-[76px] font-bold tracking-wide"
                         placeholder={placeholder}
                     />
+                )}
+
+                {/* Character Count UI */}
+                {maxLength && isFocused && (
+                    <div className="absolute top-4 right-6 text-[9px] font-black tracking-widest text-brand-blue/60 animate-fade-in">
+                        {(value?.length || 0)} / {maxLength}
+                    </div>
                 )}
 
                 {/* Elegant Focus Indicator */}
@@ -288,13 +296,14 @@ const EventForm = ({ onBack }) => {
             subtitleLabel: 'Name / Subject',
             dateLabel: 'Event Date',
             showPhone: true,
-         
+
             showImage: false,
             requiredFields: ['title', 'date', 'location'],
             messagePlaceholder: 'Write a warm invitation message...',
             messageLabel: 'Invitation Message',
             showMessage: true,
             showDate: true,
+            messageMaxLength: 150, // Default character limit
         };
 
         switch (templateType) {
@@ -304,6 +313,7 @@ const EventForm = ({ onBack }) => {
                 config.locationLabel = 'Party Venue';
                 config.requiredFields = ['title', 'date', 'location', 'time'];
                 config.messagePlaceholder = 'Wishing you a very happy birthday...';
+                config.messageMaxLength = 120; // Tighter space in birthday variants
                 config.variants = [
                     { id: 5, name: 'Golden Glitter', preview: <Sparkles className="w-7 h-7" />, img: birthdayV5.src || birthdayV5 },
                     { id: 6, name: 'Modern Photo', preview: <Camera className="w-7 h-7" />, img: birthdayV6.src || birthdayV6 },
@@ -398,6 +408,7 @@ const EventForm = ({ onBack }) => {
                 config.phoneLabel = 'Contact Person';
                 config.requiredFields = ['title', 'date', 'location'];
                 config.messagePlaceholder = 'A tribute to a life well lived...';
+                config.messageMaxLength = 200; // More room for tributes
                 config.variants = [
                     { id: 20, name: 'Peaceful Lily', preview: <Flower2 className="w-7 h-7" /> },
                     { id: 21, name: 'Kwibuka', preview: <Flame className="w-7 h-7" />, img: kwibukaBg.src || kwibukaBg, logo: kwibukaLogo }
@@ -419,7 +430,7 @@ const EventForm = ({ onBack }) => {
     const {
         showTime, showLocation, locationLabel, locationIcon, titleLabel, subtitleLabel, dateLabel,
         showPhone, phoneLabel, showImage, variants, requiredFields, messagePlaceholder, showMessage, showDate,
-        messageLabel
+        messageLabel, messageMaxLength
     } = getFieldConfig();
 
     return (
@@ -745,6 +756,7 @@ const EventForm = ({ onBack }) => {
                                     multiline={true}
                                     delay={700}
                                     required={requiredFields.includes('message')}
+                                    maxLength={messageMaxLength}
                                 />
                             </section>
                         )}
