@@ -43,7 +43,7 @@ const AnnouncementTemplate = ({ data }) => {
                     </div>
 
                     <div className="space-y-6">
-                        <div className="text-[11px] font-black tracking-[0.4em] uppercase text-white shadow-sm inline-block">{location || "THE GRAND BALLROOM"}</div>
+                        <div className="text-[11px] font-black tracking-[0.4em] uppercase text-white shadow-sm inline-block max-w-[280px] leading-tight">{location || "THE GRAND BALLROOM"}</div>
                         <p className="text-[10px] opacity-60 tracking-[0.1em] max-w-[280px] leading-relaxed italic mx-auto">"{message || "Join us for an evening of celebration and excellence."}"</p>
                         <div className="w-12 h-[1px] bg-brand-gold/40 mx-auto mt-6"></div>
                         <div className="text-[9px] text-brand-gold font-black tracking-[0.3em] uppercase opacity-80">{phone || "R.S.V.P REQUIRED"}</div>
@@ -88,7 +88,7 @@ const AnnouncementTemplate = ({ data }) => {
                         </div>
                         <div className="text-center group">
                             <span className="block text-[8px] text-white/40 mb-1 font-black uppercase tracking-[0.3em] group-hover:text-white/60 transition-colors">Venue</span>
-                            <span className="text-xs font-bold tracking-widest truncate block w-32">{location || "GRAND PLAZA"}</span>
+                            <span className="text-xs font-bold tracking-widest leading-tight block">{location || "GRAND PLAZA"}</span>
                         </div>
                     </div>
                 </div>

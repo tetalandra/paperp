@@ -45,7 +45,7 @@ const AssemblyTemplate = ({ data }) => {
                             </div>
                             <div>
                                 <span className="block text-[8px] text-brand-gold mb-1 font-black uppercase tracking-widest">Room</span>
-                                <span className="text-sm font-bold truncate block">{location || "Executive Suite"}</span>
+                                <span className="text-sm font-bold block">{location || "Executive Suite"}</span>
                             </div>
                         </div>
                     </div>
@@ -88,7 +88,7 @@ const AssemblyTemplate = ({ data }) => {
                             </div>
                             <div>
                                 <span className="block text-[8px] text-brand-blue mb-1 font-black uppercase tracking-widest">Hall</span>
-                                <span className="text-sm font-bold truncate block">{location || "Grand Gallery"}</span>
+                                <span className="text-sm font-bold block">{location || "Grand Gallery"}</span>
                             </div>
                         </div>
                     </div>
@@ -112,3 +112,13 @@ const AssemblyTemplate = ({ data }) => {
 };
 
 export default AssemblyTemplate;
+
+
+
+
+
+
+
+
+
+

@@ -108,9 +108,9 @@ const BirthdayTemplate = ({ data }) => {
                         </div>
                     </div>
 
-                    <div className="mt-10 space-y-1 text-[9px] font-bold uppercase tracking-widest text-neutral-400">
+                    <div className="mt-10 space-y-1 text-[9px] font-bold uppercase tracking-widest text-neutral-400 max-w-[180px]">
                         <div>{date || "MARCH 16"}</div>
-                        <div>{location || "YOUR RESIDENCE"}</div>
+                        <div className="leading-tight">{location || "YOUR RESIDENCE"}</div>
                     </div>
                 </div>
             </div>
@@ -142,8 +142,10 @@ const BirthdayTemplate = ({ data }) => {
                         <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-brand-blue/40 to-transparent"></div>
                         <div className="space-y-2">
                             <div className="text-brand-blue font-black tracking-[0.3em] text-sm uppercase">{date || "MARCH 16"}</div>
-                            <div className="text-[9px] font-bold tracking-[0.2em] uppercase text-white/40">
-                                {time || "5:00 PM"} <span className="mx-2 text-brand-gold opacity-50">•</span> {location || "YOUR PLACE"}
+                            <div className="text-[9px] font-bold tracking-[0.2em] uppercase text-white/40 flex flex-wrap justify-center items-center gap-x-2">
+                                <span>{time || "5:00 PM"}</span>
+                                <span className="text-brand-gold opacity-50">•</span>
+                                <span className="leading-tight">{location || "YOUR PLACE"}</span>
                             </div>
                         </div>
                         <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-brand-blue/40 to-transparent"></div>
